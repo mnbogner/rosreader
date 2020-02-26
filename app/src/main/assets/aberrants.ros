@@ -1,0 +1,1956 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<roster id="04a5-7822-76f6-2c07" name="New Roster" battleScribeVersion="2.03" gameSystemId="28ec-711c-d87f-3aeb" gameSystemName="Warhammer 40,000 8th Edition" gameSystemRevision="125" xmlns="http://www.battlescribe.net/schema/rosterSchema">
+  <costs>
+    <cost name=" PL" typeId="e356-c769-5920-6e14" value="52.0"/>
+    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="4.0"/>
+    <cost name="pts" typeId="points" value="932.0"/>
+  </costs>
+  <forces>
+    <force id="c32e-6e55-8848-9b1a" name="Battalion Detachment +5CP" entryId="564e-55d5-79bc-a4d7" catalogueId="83b2-e602-931a-fea1" catalogueRevision="48" catalogueName="Tyranids - Genestealer Cults">
+      <rules>
+        <rule id="69ce-aa80-5a30-5d8b" name="Brood Brothers" publicationId="83b2-e602-pubN65537" page="108" hidden="false"/>
+      </rules>
+      <selections>
+        <selection id="d959-3312-9077-3f7b" name="Magus" entryId="fe4c-d515-836d-04f3::b315-890f-0f70-717f" number="1" type="model">
+          <rules>
+            <rule id="fe4c-d515-836d-04f3::68e1-f05d-5ff6-565d::e624-3023-b8b4-18fa" name="Cult Ambush" publicationId="83b2-e602-pubN65537" page="78" hidden="false">
+              <description>During deployment, you can set this unit up in ambush instead of on the battlefield. If this unit has the INFANTRY or BIKER keyword, you can either set it up in ambush or underground instead of on the battlefield.
+
+When you set up a unit underground, it can emerge at the end of any of your Movement phases - set the unit up anywhere on the battlefield that is more than 9&quot; from any enemy models.
+
+When you set up a unit in ambush, place one ambush marker anywhere on the battlefield that is wholly within your deployment zone. You will need one ambush marker for each unit that will deploy in this way. If you set up a TRANSPORT in ambush, you must still tell your opponent what units are embarked within it when it is set up in ambush - do not set up separate ambush markers for units that start the battle embarked within a TRANSPORT, even if they have the Cult Ambush ability.
+
+In matched play, units set up in ambush using this rule count as being set up on the battlefield for the purposes of Tactical Reserves.
+
+For ambush markers, see Codex: Genestealer Cults p79.</description>
+            </rule>
+            <rule id="fe4c-d515-836d-04f3::c420-535d-6d0a-8c35::83cc-a64d-d8bd-7a4a" name="Unquestioning Loyalty" publicationId="83b2-e602-pubN65537" page="75" hidden="false">
+              <description>Each time you fail a saving throw for a &lt;CULT&gt; CHARACTER model, and each time a &lt;CULT&gt; CHARACTER suffers a mortal wound, before allocating damage check to see if it is within 3&quot; of any &lt;CULT&gt; or BROOD BROTHERS units with this ability. If it is, you can select one of those units and roll a D6; on a 4+ you do not inflict any damage on the character, but one model in the selected unit (your choice) is slain. Otherwise, the character suffers damage as normal.</description>
+            </rule>
+          </rules>
+          <profiles>
+            <profile id="fe4c-d515-836d-04f3::7ab6-de16-7ffd-dad5" name="Magus" publicationId="83b2-e602-pubN65537" page="81" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">6&quot;</characteristic>
+                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">3+</characteristic>
+                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">3+</characteristic>
+                <characteristic name="S" typeId="2218-aa3c-265f-2939">3</characteristic>
+                <characteristic name="T" typeId="9c9f-9774-a358-3a39">3</characteristic>
+                <characteristic name="W" typeId="f330-5e6e-4110-0978">4</characteristic>
+                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">3</characteristic>
+                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">8</characteristic>
+                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">5+</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="fe4c-d515-836d-04f3::2d5d-3026-7acf-b936" name="Magus" hidden="false" typeId="bc97-dea9-9e88-bb7d" typeName="Psyker">
+              <characteristics>
+                <characteristic name="Cast" typeId="5afb-9914-904b-d3b3">1</characteristic>
+                <characteristic name="Deny" typeId="b5ac-9c20-5d5a-6f9b">1</characteristic>
+                <characteristic name="Powers Known" typeId="69d7-b45e-00a2-7e46">Smite + 2 Broodmind</characteristic>
+                <characteristic name="Other" typeId="c2e2-f115-0003-5d7b">-</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="fe4c-d515-836d-04f3::d0a0-befc-cec1-64ce" name="Spiritual Leader" publicationId="83b2-e602-pubN65537" page="81" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">&lt;CULT&gt; units (other than PSYKERS) within 6&quot; of any friendly &lt;CULT&gt; MAGUS models at the start of your opponent&apos;s Psychic phase can attempt to deny one psychic power manifested within 12&quot; of them that phase as if they were themselves a PSYKER (measure range to any model in the unit).</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <selections>
+            <selection id="862c-fd32-1365-026f" name="Autopistol" entryId="fe4c-d515-836d-04f3::5ae9-fbc4-9be9-4f9a::001e-d0e9-b805-6182" number="1" type="upgrade">
+              <profiles>
+                <profile id="fe4c-d515-836d-04f3::5ae9-fbc4-9be9-4f9a::c2ae-14ad-ef19-b295::2481-001b-00f9-501b" name="Autopistol" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">12&quot;</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Pistol 1</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">3</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">0</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">-</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="points" value="0.0"/>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+            <selection id="b8a0-ae26-cc45-5f4c" name="Force stave" entryId="fe4c-d515-836d-04f3::b3e3-f8a8-12eb-d6a1::6f9a-c4fe-3132-d011" number="1" type="upgrade">
+              <profiles>
+                <profile id="fe4c-d515-836d-04f3::b3e3-f8a8-12eb-d6a1::2552-08c9-9419-8a06::ed69-f85e-5982-9ab8" name="Force stave" page="" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">+2</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">-1</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">D3</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">-</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="points" value="0.0"/>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+            <selection id="b8eb-ce74-63ed-2b25" name="Cultist Knife" entryId="fe4c-d515-836d-04f3::9c41-768c-c810-ee4f::183e-a985-718e-26a5" number="1" type="upgrade">
+              <profiles>
+                <profile id="fe4c-d515-836d-04f3::9c41-768c-c810-ee4f::1add-1f0d-be5c-3457::f636-5a1e-3bc2-7aef" name="Cultist Knife" publicationId="83b2-e602-pubN65537" page="104" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">User</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">0</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Each time the bearer fights, it can make 1 additional attack with this weapon.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="points" value="0.0"/>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+            <selection id="2d59-34b8-2023-f700" name="Power: Might From Beyond" entryId="fe4c-d515-836d-04f3::ad9e-d51b-dc28-a395::c848-a420-c163-867d::e6fc-86fe-42c4-f3c1" entryGroupId="fe4c-d515-836d-04f3::ad9e-d51b-dc28-a395::3160-b9d2-66a2-3a30" number="1" type="upgrade">
+              <profiles>
+                <profile id="fe4c-d515-836d-04f3::ad9e-d51b-dc28-a395::c848-a420-c163-867d::53d9-ab5b-e1e8-c8e0::cea6-0c87-ea07-dbeb" name="Might From Beyond" publicationId="83b2-e602-pubN65537" page="113" hidden="false" typeId="ae70-4738-0161-bec0" typeName="Psychic Power">
+                  <characteristics>
+                    <characteristic name="Warp Charge" typeId="5ffd-b800-c317-532a">7</characteristic>
+                    <characteristic name="Range" typeId="fd64-cbc4-94de-24cc">18&quot;</characteristic>
+                    <characteristic name="Details" typeId="ad96-dfa4-b4ed-656d">Select a friendly GENESTEALER CULTS INFANTRY or BIKER unit within 18&quot; of the psyker. Add 1 to the Strength and Attacks characteristics of all models in that unit until the start of your next Psychic phase.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="pts" typeId="points" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+            <selection id="b00a-9327-a27d-da2a" name="Power: Last Gasp" entryId="fe4c-d515-836d-04f3::ad9e-d51b-dc28-a395::fd9d-dcd3-c736-3819" entryGroupId="fe4c-d515-836d-04f3::ad9e-d51b-dc28-a395::3160-b9d2-66a2-3a30" number="1" type="upgrade">
+              <profiles>
+                <profile id="fe4c-d515-836d-04f3::ad9e-d51b-dc28-a395::7c9f-4a23-8e1b-101e" name="Last Gasp" publicationId="c9b0-fc84-0874-26d4" page="78" hidden="false" typeId="ae70-4738-0161-bec0" typeName="Psychic Power">
+                  <characteristics>
+                    <characteristic name="Warp Charge" typeId="5ffd-b800-c317-532a">7</characteristic>
+                    <characteristic name="Range" typeId="fd64-cbc4-94de-24cc">12&quot;</characteristic>
+                    <characteristic name="Details" typeId="ad96-dfa4-b4ed-656d">Select one PAUPER PRINCES unit from your army within 12&quot; of this psyker. Until the start of your next Psychic phase, when a model in that unit is destroyed, roll one D6 before removing that model from play. On a 7+ that model can either shoot with one of its ranged weapons as if it were your Shooting phase, or make one attack with one of its melee weapons as if it were the Fight phase.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="pts" typeId="points" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+          </selections>
+          <costs>
+            <cost name="pts" typeId="points" value="80.0"/>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="4.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="43f5-e27e-c0c3-28b7" name="HQ" entryId="848a6ff2-0def-4c72-8433-ff7da70e6bc7" primary="true"/>
+            <category id="e990-2fc5-0822-f4c6" name="Character" entryId="ef18-746a-369f-43a4" primary="false"/>
+            <category id="9079-f9cd-6fe9-7668" name="Faction: Genestealer Cults" entryId="bf74-61c4-1502-ad4d" primary="false"/>
+            <category id="d57d-7518-c526-9070" name="Faction: Tyranids" entryId="a367-fb78-5192-96eb" primary="false"/>
+            <category id="330e-c116-c315-0414" name="Infantry" entryId="3d52-fccf-10c0-3fae" primary="false"/>
+            <category id="ac2e-b119-9888-1667" name="Psyker" entryId="e691-aad7-d21c-1023" primary="false"/>
+          </categories>
+        </selection>
+        <selection id="bafa-6a27-fd32-6ff1" name="Patriarch" entryId="ad3b-be63-7d87-84ad::ea83-2ffa-61cf-7347" number="1" type="model">
+          <rules>
+            <rule id="ad3b-be63-7d87-84ad::3a9c-be37-5044-5d2b::e624-3023-b8b4-18fa" name="Cult Ambush" publicationId="83b2-e602-pubN65537" page="78" hidden="false">
+              <description>During deployment, you can set this unit up in ambush instead of on the battlefield. If this unit has the INFANTRY or BIKER keyword, you can either set it up in ambush or underground instead of on the battlefield.
+
+When you set up a unit underground, it can emerge at the end of any of your Movement phases - set the unit up anywhere on the battlefield that is more than 9&quot; from any enemy models.
+
+When you set up a unit in ambush, place one ambush marker anywhere on the battlefield that is wholly within your deployment zone. You will need one ambush marker for each unit that will deploy in this way. If you set up a TRANSPORT in ambush, you must still tell your opponent what units are embarked within it when it is set up in ambush - do not set up separate ambush markers for units that start the battle embarked within a TRANSPORT, even if they have the Cult Ambush ability.
+
+In matched play, units set up in ambush using this rule count as being set up on the battlefield for the purposes of Tactical Reserves.
+
+For ambush markers, see Codex: Genestealer Cults p79.</description>
+            </rule>
+          </rules>
+          <profiles>
+            <profile id="ad3b-be63-7d87-84ad::a23e-883f-338e-daba" name="Patriarch" publicationId="83b2-e602-pubN65537" page="80" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">8&quot;</characteristic>
+                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">2+</characteristic>
+                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">5+</characteristic>
+                <characteristic name="S" typeId="2218-aa3c-265f-2939">6</characteristic>
+                <characteristic name="T" typeId="9c9f-9774-a358-3a39">5</characteristic>
+                <characteristic name="W" typeId="f330-5e6e-4110-0978">6</characteristic>
+                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">6</characteristic>
+                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">10</characteristic>
+                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">4+/5++</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="ad3b-be63-7d87-84ad::5851-ba40-e2d6-0a73" name="Patriarch" hidden="false" typeId="bc97-dea9-9e88-bb7d" typeName="Psyker">
+              <characteristics>
+                <characteristic name="Cast" typeId="5afb-9914-904b-d3b3">1</characteristic>
+                <characteristic name="Deny" typeId="b5ac-9c20-5d5a-6f9b">1</characteristic>
+                <characteristic name="Powers Known" typeId="69d7-b45e-00a2-7e46">Smite + 2 Broodmind</characteristic>
+                <characteristic name="Other" typeId="c2e2-f115-0003-5d7b">-</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="ad3b-be63-7d87-84ad::bebb-7325-a6aa-8614" name="Brood Telepathy" publicationId="83b2-e602-pubN65537" page="80" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">Add 1 to hit rolls for attacks made by &lt;CULT&gt; GENESTEALER units in the Fight phase whilst they are within 6&quot; of of any friendly &lt;CULT&gt; PATRIARCH models.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="ad3b-be63-7d87-84ad::29ee-79d3-646f-83b8" name="Living Idol" publicationId="83b2-e602-pubN65537" page="80" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">&lt;CULT&gt; and BROOD BROTHERS units automatically pass Morale tests whilst they are within 6&quot; of any friendly &lt;CULT&gt; PATRIARCH models.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="ad3b-be63-7d87-84ad::0100-d5ca-f154-c9f5::0e98-6c7e-d9a4-281f" name="Lightning Reflexes" publicationId="83b2-e602-pubN65537" page="89" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">Models in this unit have a 5+ invulnerable save.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="ad3b-be63-7d87-84ad::bb09-7922-bf5a-7f49::f7e7-e08f-beb4-d58c" name="Swift and Deadly" publicationId="83b2-e602-pubN65537" page="89" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">This unit can charge even if it Advanced during its turn.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <selections>
+            <selection id="1376-1856-adac-5090" name="Monstrous Rending Claws" entryId="ad3b-be63-7d87-84ad::7569-58c4-6372-6c51::6853-2b48-35ef-d45c" number="1" type="upgrade">
+              <profiles>
+                <profile id="ad3b-be63-7d87-84ad::7569-58c4-6372-6c51::efab-76a9-abc8-df37::5165-7f68-f384-13b0" name="Monstrous Rending Claws" publicationId="83b2-e602-pubN65537" page="104" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">User</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">-3</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">D3</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">You may re-roll failed wound rolls for this weapon. In addition, each time you make a wound roll of 6+ with this weapon, that hit is resolved with an AP of -6 and Damage of 3.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="points" value="0.0"/>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+            <selection id="e866-5b62-fc96-7623" name="Power: Mass Hypnosis" entryId="ad3b-be63-7d87-84ad::1774-5854-fb0b-3925::4980-8a06-f505-56fd::4ba9-f0ac-394e-31ce" entryGroupId="ad3b-be63-7d87-84ad::1774-5854-fb0b-3925::3160-b9d2-66a2-3a30" number="1" type="upgrade">
+              <profiles>
+                <profile id="ad3b-be63-7d87-84ad::1774-5854-fb0b-3925::4980-8a06-f505-56fd::0979-6cde-1785-7072::b154-b0af-f0ab-7d5a" name="Mass Hypnosis" publicationId="83b2-e602-pubN65537" page="113" hidden="false" typeId="ae70-4738-0161-bec0" typeName="Psychic Power">
+                  <characteristics>
+                    <characteristic name="Warp Charge" typeId="5ffd-b800-c317-532a">7</characteristic>
+                    <characteristic name="Range" typeId="fd64-cbc4-94de-24cc">18&quot;</characteristic>
+                    <characteristic name="Details" typeId="ad96-dfa4-b4ed-656d">Select an enemy unit within 18&quot; of and visible to the psyker. Until the start of your next Psychic phase, the target cannot fire Overwatch, fights last in the Fight phase even if it charged, and must subtract 1 from its hit rolls. If the target has a rule that allows it to fight first in the Fight phase even if it did not charge, then instead of fighting last in the Fight phase, it fights as if it did not have that ability and did not charge.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="pts" typeId="points" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+            <selection id="01fd-4edd-c82d-720e" name="Power: Might From Beyond" entryId="ad3b-be63-7d87-84ad::1774-5854-fb0b-3925::c848-a420-c163-867d::e6fc-86fe-42c4-f3c1" entryGroupId="ad3b-be63-7d87-84ad::1774-5854-fb0b-3925::3160-b9d2-66a2-3a30" number="1" type="upgrade">
+              <profiles>
+                <profile id="ad3b-be63-7d87-84ad::1774-5854-fb0b-3925::c848-a420-c163-867d::53d9-ab5b-e1e8-c8e0::cea6-0c87-ea07-dbeb" name="Might From Beyond" publicationId="83b2-e602-pubN65537" page="113" hidden="false" typeId="ae70-4738-0161-bec0" typeName="Psychic Power">
+                  <characteristics>
+                    <characteristic name="Warp Charge" typeId="5ffd-b800-c317-532a">7</characteristic>
+                    <characteristic name="Range" typeId="fd64-cbc4-94de-24cc">18&quot;</characteristic>
+                    <characteristic name="Details" typeId="ad96-dfa4-b4ed-656d">Select a friendly GENESTEALER CULTS INFANTRY or BIKER unit within 18&quot; of the psyker. Add 1 to the Strength and Attacks characteristics of all models in that unit until the start of your next Psychic phase.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="pts" typeId="points" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+          </selections>
+          <costs>
+            <cost name="pts" typeId="points" value="125.0"/>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="7.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="10e0-f85d-401b-b28b" name="Faction: Tyranids" entryId="a367-fb78-5192-96eb" primary="false"/>
+            <category id="277a-6614-9a62-bfc2" name="Faction: Genestealer Cults" entryId="bf74-61c4-1502-ad4d" primary="false"/>
+            <category id="b10f-98f1-75dd-dd7e" name="Character" entryId="ef18-746a-369f-43a4" primary="false"/>
+            <category id="3db2-75a7-9682-c773" name="HQ" entryId="848a6ff2-0def-4c72-8433-ff7da70e6bc7" primary="true"/>
+            <category id="0125-890c-8a65-3285" name="Psyker" entryId="e691-aad7-d21c-1023" primary="false"/>
+            <category id="8e90-e9d2-48bb-4ff4" name="Infantry" entryId="3d52-fccf-10c0-3fae" primary="false"/>
+            <category id="6365-bee2-9049-400f" name="Genestealer" entryId="df7c-355d-38a6-261f" primary="false"/>
+            <category id="1c3c-22d2-00cd-6fa0" name="Faction: &lt;Cult&gt;" entryId="1117-30a3-a004-bdbd" primary="false"/>
+          </categories>
+        </selection>
+        <selection id="3c4c-f760-d3f8-2f01" name="Acolyte Hybrids" entryId="ed54-b75c-5f62-ab3c::4d55-d44b-8084-5f59" number="1" type="unit">
+          <rules>
+            <rule id="ed54-b75c-5f62-ab3c::2bff-8d74-af0a-d343::e624-3023-b8b4-18fa" name="Cult Ambush" publicationId="83b2-e602-pubN65537" page="78" hidden="false">
+              <description>During deployment, you can set this unit up in ambush instead of on the battlefield. If this unit has the INFANTRY or BIKER keyword, you can either set it up in ambush or underground instead of on the battlefield.
+
+When you set up a unit underground, it can emerge at the end of any of your Movement phases - set the unit up anywhere on the battlefield that is more than 9&quot; from any enemy models.
+
+When you set up a unit in ambush, place one ambush marker anywhere on the battlefield that is wholly within your deployment zone. You will need one ambush marker for each unit that will deploy in this way. If you set up a TRANSPORT in ambush, you must still tell your opponent what units are embarked within it when it is set up in ambush - do not set up separate ambush markers for units that start the battle embarked within a TRANSPORT, even if they have the Cult Ambush ability.
+
+In matched play, units set up in ambush using this rule count as being set up on the battlefield for the purposes of Tactical Reserves.
+
+For ambush markers, see Codex: Genestealer Cults p79.</description>
+            </rule>
+            <rule id="ed54-b75c-5f62-ab3c::e50e-ac9d-6d06-96b0::83cc-a64d-d8bd-7a4a" name="Unquestioning Loyalty" publicationId="83b2-e602-pubN65537" page="75" hidden="false">
+              <description>Each time you fail a saving throw for a &lt;CULT&gt; CHARACTER model, and each time a &lt;CULT&gt; CHARACTER suffers a mortal wound, before allocating damage check to see if it is within 3&quot; of any &lt;CULT&gt; or BROOD BROTHERS units with this ability. If it is, you can select one of those units and roll a D6; on a 4+ you do not inflict any damage on the character, but one model in the selected unit (your choice) is slain. Otherwise, the character suffers damage as normal.</description>
+            </rule>
+          </rules>
+          <selections>
+            <selection id="a230-3557-b927-09fd" name="Acolyte Leader" entryId="ed54-b75c-5f62-ab3c::59ac-aef4-2437-6cf0" number="1" type="model">
+              <profiles>
+                <profile id="ed54-b75c-5f62-ab3c::b795-39d0-0703-2441" name="Acolyte Leader" publicationId="83b2-e602-pubN65537" page="84" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+                  <characteristics>
+                    <characteristic name="M" typeId="0bdf-a96e-9e38-7779">6&quot;</characteristic>
+                    <characteristic name="WS" typeId="e7f0-1278-0250-df0c">3+</characteristic>
+                    <characteristic name="BS" typeId="381b-eb28-74c3-df5f">4+</characteristic>
+                    <characteristic name="S" typeId="2218-aa3c-265f-2939">4</characteristic>
+                    <characteristic name="T" typeId="9c9f-9774-a358-3a39">3</characteristic>
+                    <characteristic name="W" typeId="f330-5e6e-4110-0978">1</characteristic>
+                    <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">3</characteristic>
+                    <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">8</characteristic>
+                    <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">5+</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <selections>
+                <selection id="c4ab-0097-78ab-0488" name="Blasting Charges" entryId="ed54-b75c-5f62-ab3c::d205-2e0d-47e7-61cd::9411-b31c-f3f6-9fbb" number="1" type="upgrade">
+                  <profiles>
+                    <profile id="ed54-b75c-5f62-ab3c::d205-2e0d-47e7-61cd::c405-9270-b7be-34b8::9f44-0dfc-e1dc-af9c" name="Blasting Charge" publicationId="83b2-e602-pubN65537" page="102" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">6&quot;</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Grenade D6</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">3</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">0</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">-</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name="pts" typeId="points" value="0.0"/>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                  </costs>
+                </selection>
+                <selection id="9c08-74cc-3472-98e7" name="Rending Claw" entryId="ed54-b75c-5f62-ab3c::a880-1f6d-0837-61c9::7210-2eea-c54a-c7d5" number="1" type="upgrade">
+                  <profiles>
+                    <profile id="ed54-b75c-5f62-ab3c::a880-1f6d-0837-61c9::b937-6790-34db-3be7::40db-88ed-10e4-c29d" name="Rending Claw(s)" publicationId="83b2-e602-pubN65537" page="104" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">User</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">-1</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Each time you make a wound roll of 6+, that hit is resolved with an AP of -4.</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="pts" typeId="points" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                  </costs>
+                </selection>
+                <selection id="0bd3-2827-df02-c88e" name="Cultist Knife" entryId="ed54-b75c-5f62-ab3c::0652-b9c7-9065-7878::183e-a985-718e-26a5" entryGroupId="ed54-b75c-5f62-ab3c::f744-135f-b68d-cd51" number="1" type="upgrade">
+                  <profiles>
+                    <profile id="ed54-b75c-5f62-ab3c::0652-b9c7-9065-7878::1add-1f0d-be5c-3457::f636-5a1e-3bc2-7aef" name="Cultist Knife" publicationId="83b2-e602-pubN65537" page="104" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">User</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">0</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Each time the bearer fights, it can make 1 additional attack with this weapon.</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name="pts" typeId="points" value="0.0"/>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                  </costs>
+                </selection>
+                <selection id="24ad-8d7f-32e9-0c04" name="Hand Flamer" entryId="ed54-b75c-5f62-ab3c::d7ca-7460-5ca4-0716::18d6-e1b1-ab81-23cb" entryGroupId="ed54-b75c-5f62-ab3c::ed6d-809b-2ba1-2448" number="1" type="upgrade">
+                  <profiles>
+                    <profile id="ed54-b75c-5f62-ab3c::d7ca-7460-5ca4-0716::d39e-619f-0192-d4d3::4e9a-9741-11e8-945d" name="Hand Flamer" publicationId="83b2-e602-pubN65537" page="102" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">6&quot;</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Pistol D6</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">3</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">0</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">This weapon automatically hits its target.</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name="pts" typeId="points" value="1.0"/>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                  </costs>
+                </selection>
+              </selections>
+              <costs>
+                <cost name="pts" typeId="points" value="7.0"/>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+            <selection id="5fa9-f3b8-1262-ab3f" name="Acolyte Hybrid (Hand Flamer)" entryId="ed54-b75c-5f62-ab3c::74dc-eae2-8d0e-d310" entryGroupId="ed54-b75c-5f62-ab3c::8e97-36af-bec4-4503" number="4" type="model">
+              <profiles>
+                <profile id="ed54-b75c-5f62-ab3c::9478-9cb4-ed2d-815c" name="Acolyte Hybrid" publicationId="83b2-e602-pubN65537" page="84" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+                  <characteristics>
+                    <characteristic name="M" typeId="0bdf-a96e-9e38-7779">6&quot;</characteristic>
+                    <characteristic name="WS" typeId="e7f0-1278-0250-df0c">3+</characteristic>
+                    <characteristic name="BS" typeId="381b-eb28-74c3-df5f">4+</characteristic>
+                    <characteristic name="S" typeId="2218-aa3c-265f-2939">4</characteristic>
+                    <characteristic name="T" typeId="9c9f-9774-a358-3a39">3</characteristic>
+                    <characteristic name="W" typeId="f330-5e6e-4110-0978">1</characteristic>
+                    <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">2</characteristic>
+                    <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">7</characteristic>
+                    <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">5+</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <selections>
+                <selection id="0771-f1d8-c2f5-21a0" name="Hand Flamer" entryId="ed54-b75c-5f62-ab3c::d35c-1510-b162-0307::18d6-e1b1-ab81-23cb" number="4" type="upgrade">
+                  <profiles>
+                    <profile id="ed54-b75c-5f62-ab3c::d35c-1510-b162-0307::d39e-619f-0192-d4d3::4e9a-9741-11e8-945d" name="Hand Flamer" publicationId="83b2-e602-pubN65537" page="102" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">6&quot;</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Pistol D6</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">3</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">0</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">This weapon automatically hits its target.</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name="pts" typeId="points" value="4.0"/>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                  </costs>
+                </selection>
+                <selection id="23c4-027a-bcb0-47da" name="Cultist Knife" entryId="ed54-b75c-5f62-ab3c::0b35-bf77-d138-451b::183e-a985-718e-26a5" number="4" type="upgrade">
+                  <profiles>
+                    <profile id="ed54-b75c-5f62-ab3c::0b35-bf77-d138-451b::1add-1f0d-be5c-3457::f636-5a1e-3bc2-7aef" name="Cultist Knife" publicationId="83b2-e602-pubN65537" page="104" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">User</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">0</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Each time the bearer fights, it can make 1 additional attack with this weapon.</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name="pts" typeId="points" value="0.0"/>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                  </costs>
+                </selection>
+                <selection id="0dd4-04c9-2d04-f953" name="Rending Claw" entryId="ed54-b75c-5f62-ab3c::6a7a-fbbf-1bb6-52f7::7210-2eea-c54a-c7d5" number="4" type="upgrade">
+                  <profiles>
+                    <profile id="ed54-b75c-5f62-ab3c::6a7a-fbbf-1bb6-52f7::b937-6790-34db-3be7::40db-88ed-10e4-c29d" name="Rending Claw(s)" publicationId="83b2-e602-pubN65537" page="104" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">User</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">-1</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Each time you make a wound roll of 6+, that hit is resolved with an AP of -4.</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="pts" typeId="points" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                  </costs>
+                </selection>
+                <selection id="02c1-b460-e8de-7ed7" name="Blasting Charges" entryId="ed54-b75c-5f62-ab3c::2a08-39ea-7a8d-8e37::9411-b31c-f3f6-9fbb" number="4" type="upgrade">
+                  <profiles>
+                    <profile id="ed54-b75c-5f62-ab3c::2a08-39ea-7a8d-8e37::c405-9270-b7be-34b8::9f44-0dfc-e1dc-af9c" name="Blasting Charge" publicationId="83b2-e602-pubN65537" page="102" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">6&quot;</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Grenade D6</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">3</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">0</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">-</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name="pts" typeId="points" value="0.0"/>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                  </costs>
+                </selection>
+              </selections>
+              <costs>
+                <cost name="pts" typeId="points" value="28.0"/>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+          </selections>
+          <costs>
+            <cost name="pts" typeId="points" value="0.0"/>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="3.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="cac5-12e6-7bb6-1d5c" name="Troops" entryId="5d76b6f5-20ae-4d70-8f59-ade72a2add3a" primary="true"/>
+            <category id="37ee-94b7-62e1-7500" name="Faction: Genestealer Cults" entryId="bf74-61c4-1502-ad4d" primary="false"/>
+            <category id="89c6-695d-72d1-cedc" name="Faction: Tyranids" entryId="a367-fb78-5192-96eb" primary="false"/>
+            <category id="3ee0-ebe7-d0ee-9a89" name="Infantry" entryId="3d52-fccf-10c0-3fae" primary="false"/>
+            <category id="4262-0b88-405a-5499" name="Faction: &lt;Cult&gt;" entryId="1117-30a3-a004-bdbd" primary="false"/>
+          </categories>
+        </selection>
+        <selection id="8e6a-a092-dfd5-a33c" name="Acolyte Hybrids" entryId="ed54-b75c-5f62-ab3c::4d55-d44b-8084-5f59" number="1" type="unit">
+          <rules>
+            <rule id="ed54-b75c-5f62-ab3c::2bff-8d74-af0a-d343::e624-3023-b8b4-18fa" name="Cult Ambush" publicationId="83b2-e602-pubN65537" page="78" hidden="false">
+              <description>During deployment, you can set this unit up in ambush instead of on the battlefield. If this unit has the INFANTRY or BIKER keyword, you can either set it up in ambush or underground instead of on the battlefield.
+
+When you set up a unit underground, it can emerge at the end of any of your Movement phases - set the unit up anywhere on the battlefield that is more than 9&quot; from any enemy models.
+
+When you set up a unit in ambush, place one ambush marker anywhere on the battlefield that is wholly within your deployment zone. You will need one ambush marker for each unit that will deploy in this way. If you set up a TRANSPORT in ambush, you must still tell your opponent what units are embarked within it when it is set up in ambush - do not set up separate ambush markers for units that start the battle embarked within a TRANSPORT, even if they have the Cult Ambush ability.
+
+In matched play, units set up in ambush using this rule count as being set up on the battlefield for the purposes of Tactical Reserves.
+
+For ambush markers, see Codex: Genestealer Cults p79.</description>
+            </rule>
+            <rule id="ed54-b75c-5f62-ab3c::e50e-ac9d-6d06-96b0::83cc-a64d-d8bd-7a4a" name="Unquestioning Loyalty" publicationId="83b2-e602-pubN65537" page="75" hidden="false">
+              <description>Each time you fail a saving throw for a &lt;CULT&gt; CHARACTER model, and each time a &lt;CULT&gt; CHARACTER suffers a mortal wound, before allocating damage check to see if it is within 3&quot; of any &lt;CULT&gt; or BROOD BROTHERS units with this ability. If it is, you can select one of those units and roll a D6; on a 4+ you do not inflict any damage on the character, but one model in the selected unit (your choice) is slain. Otherwise, the character suffers damage as normal.</description>
+            </rule>
+          </rules>
+          <selections>
+            <selection id="86fe-80ce-2ac1-4345" name="Acolyte Leader" entryId="ed54-b75c-5f62-ab3c::59ac-aef4-2437-6cf0" number="1" type="model">
+              <profiles>
+                <profile id="ed54-b75c-5f62-ab3c::b795-39d0-0703-2441" name="Acolyte Leader" publicationId="83b2-e602-pubN65537" page="84" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+                  <characteristics>
+                    <characteristic name="M" typeId="0bdf-a96e-9e38-7779">6&quot;</characteristic>
+                    <characteristic name="WS" typeId="e7f0-1278-0250-df0c">3+</characteristic>
+                    <characteristic name="BS" typeId="381b-eb28-74c3-df5f">4+</characteristic>
+                    <characteristic name="S" typeId="2218-aa3c-265f-2939">4</characteristic>
+                    <characteristic name="T" typeId="9c9f-9774-a358-3a39">3</characteristic>
+                    <characteristic name="W" typeId="f330-5e6e-4110-0978">1</characteristic>
+                    <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">3</characteristic>
+                    <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">8</characteristic>
+                    <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">5+</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <selections>
+                <selection id="2cdd-fb21-47f6-772f" name="Blasting Charges" entryId="ed54-b75c-5f62-ab3c::d205-2e0d-47e7-61cd::9411-b31c-f3f6-9fbb" number="1" type="upgrade">
+                  <profiles>
+                    <profile id="ed54-b75c-5f62-ab3c::d205-2e0d-47e7-61cd::c405-9270-b7be-34b8::9f44-0dfc-e1dc-af9c" name="Blasting Charge" publicationId="83b2-e602-pubN65537" page="102" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">6&quot;</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Grenade D6</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">3</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">0</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">-</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name="pts" typeId="points" value="0.0"/>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                  </costs>
+                </selection>
+                <selection id="4883-cd0f-8fcf-46c6" name="Rending Claw" entryId="ed54-b75c-5f62-ab3c::a880-1f6d-0837-61c9::7210-2eea-c54a-c7d5" number="1" type="upgrade">
+                  <profiles>
+                    <profile id="ed54-b75c-5f62-ab3c::a880-1f6d-0837-61c9::b937-6790-34db-3be7::40db-88ed-10e4-c29d" name="Rending Claw(s)" publicationId="83b2-e602-pubN65537" page="104" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">User</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">-1</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Each time you make a wound roll of 6+, that hit is resolved with an AP of -4.</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="pts" typeId="points" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                  </costs>
+                </selection>
+                <selection id="b63a-0aa2-e6e9-47b3" name="Cultist Knife" entryId="ed54-b75c-5f62-ab3c::0652-b9c7-9065-7878::183e-a985-718e-26a5" entryGroupId="ed54-b75c-5f62-ab3c::f744-135f-b68d-cd51" number="1" type="upgrade">
+                  <profiles>
+                    <profile id="ed54-b75c-5f62-ab3c::0652-b9c7-9065-7878::1add-1f0d-be5c-3457::f636-5a1e-3bc2-7aef" name="Cultist Knife" publicationId="83b2-e602-pubN65537" page="104" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">User</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">0</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Each time the bearer fights, it can make 1 additional attack with this weapon.</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name="pts" typeId="points" value="0.0"/>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                  </costs>
+                </selection>
+                <selection id="96ab-f048-f172-df3e" name="Hand Flamer" entryId="ed54-b75c-5f62-ab3c::d7ca-7460-5ca4-0716::18d6-e1b1-ab81-23cb" entryGroupId="ed54-b75c-5f62-ab3c::ed6d-809b-2ba1-2448" number="1" type="upgrade">
+                  <profiles>
+                    <profile id="ed54-b75c-5f62-ab3c::d7ca-7460-5ca4-0716::d39e-619f-0192-d4d3::4e9a-9741-11e8-945d" name="Hand Flamer" publicationId="83b2-e602-pubN65537" page="102" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">6&quot;</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Pistol D6</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">3</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">0</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">This weapon automatically hits its target.</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name="pts" typeId="points" value="1.0"/>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                  </costs>
+                </selection>
+              </selections>
+              <costs>
+                <cost name="pts" typeId="points" value="7.0"/>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+            <selection id="79d5-ee19-630e-cac6" name="Acolyte Hybrid (Hand Flamer)" entryId="ed54-b75c-5f62-ab3c::74dc-eae2-8d0e-d310" entryGroupId="ed54-b75c-5f62-ab3c::8e97-36af-bec4-4503" number="4" type="model">
+              <profiles>
+                <profile id="ed54-b75c-5f62-ab3c::9478-9cb4-ed2d-815c" name="Acolyte Hybrid" publicationId="83b2-e602-pubN65537" page="84" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+                  <characteristics>
+                    <characteristic name="M" typeId="0bdf-a96e-9e38-7779">6&quot;</characteristic>
+                    <characteristic name="WS" typeId="e7f0-1278-0250-df0c">3+</characteristic>
+                    <characteristic name="BS" typeId="381b-eb28-74c3-df5f">4+</characteristic>
+                    <characteristic name="S" typeId="2218-aa3c-265f-2939">4</characteristic>
+                    <characteristic name="T" typeId="9c9f-9774-a358-3a39">3</characteristic>
+                    <characteristic name="W" typeId="f330-5e6e-4110-0978">1</characteristic>
+                    <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">2</characteristic>
+                    <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">7</characteristic>
+                    <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">5+</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <selections>
+                <selection id="e116-b24a-204c-3d62" name="Hand Flamer" entryId="ed54-b75c-5f62-ab3c::d35c-1510-b162-0307::18d6-e1b1-ab81-23cb" number="4" type="upgrade">
+                  <profiles>
+                    <profile id="ed54-b75c-5f62-ab3c::d35c-1510-b162-0307::d39e-619f-0192-d4d3::4e9a-9741-11e8-945d" name="Hand Flamer" publicationId="83b2-e602-pubN65537" page="102" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">6&quot;</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Pistol D6</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">3</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">0</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">This weapon automatically hits its target.</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name="pts" typeId="points" value="4.0"/>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                  </costs>
+                </selection>
+                <selection id="6cc2-8875-b073-4ed8" name="Cultist Knife" entryId="ed54-b75c-5f62-ab3c::0b35-bf77-d138-451b::183e-a985-718e-26a5" number="4" type="upgrade">
+                  <profiles>
+                    <profile id="ed54-b75c-5f62-ab3c::0b35-bf77-d138-451b::1add-1f0d-be5c-3457::f636-5a1e-3bc2-7aef" name="Cultist Knife" publicationId="83b2-e602-pubN65537" page="104" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">User</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">0</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Each time the bearer fights, it can make 1 additional attack with this weapon.</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name="pts" typeId="points" value="0.0"/>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                  </costs>
+                </selection>
+                <selection id="c081-67fd-89a5-15cd" name="Rending Claw" entryId="ed54-b75c-5f62-ab3c::6a7a-fbbf-1bb6-52f7::7210-2eea-c54a-c7d5" number="4" type="upgrade">
+                  <profiles>
+                    <profile id="ed54-b75c-5f62-ab3c::6a7a-fbbf-1bb6-52f7::b937-6790-34db-3be7::40db-88ed-10e4-c29d" name="Rending Claw(s)" publicationId="83b2-e602-pubN65537" page="104" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">User</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">-1</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Each time you make a wound roll of 6+, that hit is resolved with an AP of -4.</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="pts" typeId="points" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                  </costs>
+                </selection>
+                <selection id="174f-94f6-8763-8a39" name="Blasting Charges" entryId="ed54-b75c-5f62-ab3c::2a08-39ea-7a8d-8e37::9411-b31c-f3f6-9fbb" number="4" type="upgrade">
+                  <profiles>
+                    <profile id="ed54-b75c-5f62-ab3c::2a08-39ea-7a8d-8e37::c405-9270-b7be-34b8::9f44-0dfc-e1dc-af9c" name="Blasting Charge" publicationId="83b2-e602-pubN65537" page="102" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">6&quot;</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Grenade D6</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">3</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">0</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">-</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name="pts" typeId="points" value="0.0"/>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                  </costs>
+                </selection>
+              </selections>
+              <costs>
+                <cost name="pts" typeId="points" value="28.0"/>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+          </selections>
+          <costs>
+            <cost name="pts" typeId="points" value="0.0"/>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="3.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="e18a-63f9-887f-0f90" name="Troops" entryId="5d76b6f5-20ae-4d70-8f59-ade72a2add3a" primary="true"/>
+            <category id="16c5-0106-e2b8-a298" name="Faction: Genestealer Cults" entryId="bf74-61c4-1502-ad4d" primary="false"/>
+            <category id="346e-58a8-a7be-7272" name="Faction: Tyranids" entryId="a367-fb78-5192-96eb" primary="false"/>
+            <category id="d3a1-fa2c-8cd7-1d3a" name="Infantry" entryId="3d52-fccf-10c0-3fae" primary="false"/>
+            <category id="b6d6-9cc0-1bb7-9638" name="Faction: &lt;Cult&gt;" entryId="1117-30a3-a004-bdbd" primary="false"/>
+          </categories>
+        </selection>
+        <selection id="f1d7-a880-862b-a0e0" name="Acolyte Hybrids" entryId="ed54-b75c-5f62-ab3c::4d55-d44b-8084-5f59" number="1" type="unit">
+          <rules>
+            <rule id="ed54-b75c-5f62-ab3c::2bff-8d74-af0a-d343::e624-3023-b8b4-18fa" name="Cult Ambush" publicationId="83b2-e602-pubN65537" page="78" hidden="false">
+              <description>During deployment, you can set this unit up in ambush instead of on the battlefield. If this unit has the INFANTRY or BIKER keyword, you can either set it up in ambush or underground instead of on the battlefield.
+
+When you set up a unit underground, it can emerge at the end of any of your Movement phases - set the unit up anywhere on the battlefield that is more than 9&quot; from any enemy models.
+
+When you set up a unit in ambush, place one ambush marker anywhere on the battlefield that is wholly within your deployment zone. You will need one ambush marker for each unit that will deploy in this way. If you set up a TRANSPORT in ambush, you must still tell your opponent what units are embarked within it when it is set up in ambush - do not set up separate ambush markers for units that start the battle embarked within a TRANSPORT, even if they have the Cult Ambush ability.
+
+In matched play, units set up in ambush using this rule count as being set up on the battlefield for the purposes of Tactical Reserves.
+
+For ambush markers, see Codex: Genestealer Cults p79.</description>
+            </rule>
+            <rule id="ed54-b75c-5f62-ab3c::e50e-ac9d-6d06-96b0::83cc-a64d-d8bd-7a4a" name="Unquestioning Loyalty" publicationId="83b2-e602-pubN65537" page="75" hidden="false">
+              <description>Each time you fail a saving throw for a &lt;CULT&gt; CHARACTER model, and each time a &lt;CULT&gt; CHARACTER suffers a mortal wound, before allocating damage check to see if it is within 3&quot; of any &lt;CULT&gt; or BROOD BROTHERS units with this ability. If it is, you can select one of those units and roll a D6; on a 4+ you do not inflict any damage on the character, but one model in the selected unit (your choice) is slain. Otherwise, the character suffers damage as normal.</description>
+            </rule>
+          </rules>
+          <selections>
+            <selection id="c737-e3b4-039e-e157" name="Acolyte Leader" entryId="ed54-b75c-5f62-ab3c::59ac-aef4-2437-6cf0" number="1" type="model">
+              <profiles>
+                <profile id="ed54-b75c-5f62-ab3c::b795-39d0-0703-2441" name="Acolyte Leader" publicationId="83b2-e602-pubN65537" page="84" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+                  <characteristics>
+                    <characteristic name="M" typeId="0bdf-a96e-9e38-7779">6&quot;</characteristic>
+                    <characteristic name="WS" typeId="e7f0-1278-0250-df0c">3+</characteristic>
+                    <characteristic name="BS" typeId="381b-eb28-74c3-df5f">4+</characteristic>
+                    <characteristic name="S" typeId="2218-aa3c-265f-2939">4</characteristic>
+                    <characteristic name="T" typeId="9c9f-9774-a358-3a39">3</characteristic>
+                    <characteristic name="W" typeId="f330-5e6e-4110-0978">1</characteristic>
+                    <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">3</characteristic>
+                    <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">8</characteristic>
+                    <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">5+</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <selections>
+                <selection id="171e-07b6-1341-98b2" name="Blasting Charges" entryId="ed54-b75c-5f62-ab3c::d205-2e0d-47e7-61cd::9411-b31c-f3f6-9fbb" number="1" type="upgrade">
+                  <profiles>
+                    <profile id="ed54-b75c-5f62-ab3c::d205-2e0d-47e7-61cd::c405-9270-b7be-34b8::9f44-0dfc-e1dc-af9c" name="Blasting Charge" publicationId="83b2-e602-pubN65537" page="102" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">6&quot;</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Grenade D6</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">3</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">0</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">-</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name="pts" typeId="points" value="0.0"/>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                  </costs>
+                </selection>
+                <selection id="5cf6-e7a0-d1be-ad42" name="Rending Claw" entryId="ed54-b75c-5f62-ab3c::a880-1f6d-0837-61c9::7210-2eea-c54a-c7d5" number="1" type="upgrade">
+                  <profiles>
+                    <profile id="ed54-b75c-5f62-ab3c::a880-1f6d-0837-61c9::b937-6790-34db-3be7::40db-88ed-10e4-c29d" name="Rending Claw(s)" publicationId="83b2-e602-pubN65537" page="104" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">User</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">-1</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Each time you make a wound roll of 6+, that hit is resolved with an AP of -4.</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="pts" typeId="points" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                  </costs>
+                </selection>
+                <selection id="5ac8-2fed-7b67-2e43" name="Cultist Knife" entryId="ed54-b75c-5f62-ab3c::0652-b9c7-9065-7878::183e-a985-718e-26a5" entryGroupId="ed54-b75c-5f62-ab3c::f744-135f-b68d-cd51" number="1" type="upgrade">
+                  <profiles>
+                    <profile id="ed54-b75c-5f62-ab3c::0652-b9c7-9065-7878::1add-1f0d-be5c-3457::f636-5a1e-3bc2-7aef" name="Cultist Knife" publicationId="83b2-e602-pubN65537" page="104" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">User</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">0</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Each time the bearer fights, it can make 1 additional attack with this weapon.</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name="pts" typeId="points" value="0.0"/>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                  </costs>
+                </selection>
+                <selection id="8bb8-dbe0-9a16-b24d" name="Hand Flamer" entryId="ed54-b75c-5f62-ab3c::d7ca-7460-5ca4-0716::18d6-e1b1-ab81-23cb" entryGroupId="ed54-b75c-5f62-ab3c::ed6d-809b-2ba1-2448" number="1" type="upgrade">
+                  <profiles>
+                    <profile id="ed54-b75c-5f62-ab3c::d7ca-7460-5ca4-0716::d39e-619f-0192-d4d3::4e9a-9741-11e8-945d" name="Hand Flamer" publicationId="83b2-e602-pubN65537" page="102" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">6&quot;</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Pistol D6</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">3</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">0</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">This weapon automatically hits its target.</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name="pts" typeId="points" value="1.0"/>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                  </costs>
+                </selection>
+              </selections>
+              <costs>
+                <cost name="pts" typeId="points" value="7.0"/>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+            <selection id="e71a-b9f6-653b-6cab" name="Acolyte Hybrid (Hand Flamer)" entryId="ed54-b75c-5f62-ab3c::74dc-eae2-8d0e-d310" entryGroupId="ed54-b75c-5f62-ab3c::8e97-36af-bec4-4503" number="4" type="model">
+              <profiles>
+                <profile id="ed54-b75c-5f62-ab3c::9478-9cb4-ed2d-815c" name="Acolyte Hybrid" publicationId="83b2-e602-pubN65537" page="84" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+                  <characteristics>
+                    <characteristic name="M" typeId="0bdf-a96e-9e38-7779">6&quot;</characteristic>
+                    <characteristic name="WS" typeId="e7f0-1278-0250-df0c">3+</characteristic>
+                    <characteristic name="BS" typeId="381b-eb28-74c3-df5f">4+</characteristic>
+                    <characteristic name="S" typeId="2218-aa3c-265f-2939">4</characteristic>
+                    <characteristic name="T" typeId="9c9f-9774-a358-3a39">3</characteristic>
+                    <characteristic name="W" typeId="f330-5e6e-4110-0978">1</characteristic>
+                    <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">2</characteristic>
+                    <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">7</characteristic>
+                    <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">5+</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <selections>
+                <selection id="aeb7-08b2-8ec0-9226" name="Hand Flamer" entryId="ed54-b75c-5f62-ab3c::d35c-1510-b162-0307::18d6-e1b1-ab81-23cb" number="4" type="upgrade">
+                  <profiles>
+                    <profile id="ed54-b75c-5f62-ab3c::d35c-1510-b162-0307::d39e-619f-0192-d4d3::4e9a-9741-11e8-945d" name="Hand Flamer" publicationId="83b2-e602-pubN65537" page="102" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">6&quot;</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Pistol D6</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">3</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">0</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">This weapon automatically hits its target.</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name="pts" typeId="points" value="4.0"/>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                  </costs>
+                </selection>
+                <selection id="a2a3-6605-c494-76af" name="Cultist Knife" entryId="ed54-b75c-5f62-ab3c::0b35-bf77-d138-451b::183e-a985-718e-26a5" number="4" type="upgrade">
+                  <profiles>
+                    <profile id="ed54-b75c-5f62-ab3c::0b35-bf77-d138-451b::1add-1f0d-be5c-3457::f636-5a1e-3bc2-7aef" name="Cultist Knife" publicationId="83b2-e602-pubN65537" page="104" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">User</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">0</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Each time the bearer fights, it can make 1 additional attack with this weapon.</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name="pts" typeId="points" value="0.0"/>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                  </costs>
+                </selection>
+                <selection id="9147-a2a8-5d32-c8c5" name="Rending Claw" entryId="ed54-b75c-5f62-ab3c::6a7a-fbbf-1bb6-52f7::7210-2eea-c54a-c7d5" number="4" type="upgrade">
+                  <profiles>
+                    <profile id="ed54-b75c-5f62-ab3c::6a7a-fbbf-1bb6-52f7::b937-6790-34db-3be7::40db-88ed-10e4-c29d" name="Rending Claw(s)" publicationId="83b2-e602-pubN65537" page="104" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">User</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">-1</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Each time you make a wound roll of 6+, that hit is resolved with an AP of -4.</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="pts" typeId="points" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                  </costs>
+                </selection>
+                <selection id="e8ec-a91c-14f5-a911" name="Blasting Charges" entryId="ed54-b75c-5f62-ab3c::2a08-39ea-7a8d-8e37::9411-b31c-f3f6-9fbb" number="4" type="upgrade">
+                  <profiles>
+                    <profile id="ed54-b75c-5f62-ab3c::2a08-39ea-7a8d-8e37::c405-9270-b7be-34b8::9f44-0dfc-e1dc-af9c" name="Blasting Charge" publicationId="83b2-e602-pubN65537" page="102" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">6&quot;</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Grenade D6</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">3</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">0</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">-</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name="pts" typeId="points" value="0.0"/>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                  </costs>
+                </selection>
+              </selections>
+              <costs>
+                <cost name="pts" typeId="points" value="28.0"/>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+          </selections>
+          <costs>
+            <cost name="pts" typeId="points" value="0.0"/>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="3.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="4e34-e47c-f188-961f" name="Troops" entryId="5d76b6f5-20ae-4d70-8f59-ade72a2add3a" primary="true"/>
+            <category id="d159-ef49-f127-b433" name="Faction: Genestealer Cults" entryId="bf74-61c4-1502-ad4d" primary="false"/>
+            <category id="995c-9275-5d44-300e" name="Faction: Tyranids" entryId="a367-fb78-5192-96eb" primary="false"/>
+            <category id="0b0c-fb4d-a062-f853" name="Infantry" entryId="3d52-fccf-10c0-3fae" primary="false"/>
+            <category id="065d-f866-f582-02df" name="Faction: &lt;Cult&gt;" entryId="1117-30a3-a004-bdbd" primary="false"/>
+          </categories>
+        </selection>
+        <selection id="9a5e-7dfe-f746-d61c" name="Goliath Rockgrinder" entryId="cfd8-4a83-760f-0d2a::edbd-4366-0054-e184" number="1" type="model">
+          <rules>
+            <rule id="cfd8-4a83-760f-0d2a::6b5f-73c7-b013-dfba::e624-3023-b8b4-18fa" name="Cult Ambush" publicationId="83b2-e602-pubN65537" page="78" hidden="false">
+              <description>During deployment, you can set this unit up in ambush instead of on the battlefield. If this unit has the INFANTRY or BIKER keyword, you can either set it up in ambush or underground instead of on the battlefield.
+
+When you set up a unit underground, it can emerge at the end of any of your Movement phases - set the unit up anywhere on the battlefield that is more than 9&quot; from any enemy models.
+
+When you set up a unit in ambush, place one ambush marker anywhere on the battlefield that is wholly within your deployment zone. You will need one ambush marker for each unit that will deploy in this way. If you set up a TRANSPORT in ambush, you must still tell your opponent what units are embarked within it when it is set up in ambush - do not set up separate ambush markers for units that start the battle embarked within a TRANSPORT, even if they have the Cult Ambush ability.
+
+In matched play, units set up in ambush using this rule count as being set up on the battlefield for the purposes of Tactical Reserves.
+
+For ambush markers, see Codex: Genestealer Cults p79.</description>
+            </rule>
+          </rules>
+          <profiles>
+            <profile id="cfd8-4a83-760f-0d2a::42a4-b1a5-6dbb-07f3" name="Goliath Rockgrinder" publicationId="83b2-e602-pubN65537" page="99" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">*</characteristic>
+                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">4+</characteristic>
+                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">*</characteristic>
+                <characteristic name="S" typeId="2218-aa3c-265f-2939">6</characteristic>
+                <characteristic name="T" typeId="9c9f-9774-a358-3a39">7</characteristic>
+                <characteristic name="W" typeId="f330-5e6e-4110-0978">10</characteristic>
+                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">*</characteristic>
+                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">7</characteristic>
+                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">4+</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="cfd8-4a83-760f-0d2a::c60e-a59b-dd3d-5c8c" name="Goliath Rockgrinder (1)" hidden="false" typeId="ec1e-7b4c-1c12-17a1" typeName="Stat Damage - M, BS &amp; A">
+              <characteristics>
+                <characteristic name="Remaining W" typeId="2a1e-f62b-0744-9a14">6-10+</characteristic>
+                <characteristic name="Movement" typeId="3aea-93a6-44aa-b7bb">10&quot;</characteristic>
+                <characteristic name="BS" typeId="c1b8-952b-15ee-d890">4+</characteristic>
+                <characteristic name="Attacks" typeId="3bb2-d15a-15bb-e44e">6</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="cfd8-4a83-760f-0d2a::cc95-1659-f953-ef2a" name="Goliath Rockgrinder (2)" hidden="false" typeId="ec1e-7b4c-1c12-17a1" typeName="Stat Damage - M, BS &amp; A">
+              <characteristics>
+                <characteristic name="Remaining W" typeId="2a1e-f62b-0744-9a14">3-5</characteristic>
+                <characteristic name="Movement" typeId="3aea-93a6-44aa-b7bb">6&quot;</characteristic>
+                <characteristic name="BS" typeId="c1b8-952b-15ee-d890">5+</characteristic>
+                <characteristic name="Attacks" typeId="3bb2-d15a-15bb-e44e">D6</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="cfd8-4a83-760f-0d2a::0ac9-fa1f-1a90-f76a" name="Goliath Rockgrinder (3)" hidden="false" typeId="ec1e-7b4c-1c12-17a1" typeName="Stat Damage - M, BS &amp; A">
+              <characteristics>
+                <characteristic name="Remaining W" typeId="2a1e-f62b-0744-9a14">1-2</characteristic>
+                <characteristic name="Movement" typeId="3aea-93a6-44aa-b7bb">4&quot;</characteristic>
+                <characteristic name="BS" typeId="c1b8-952b-15ee-d890">6+</characteristic>
+                <characteristic name="Attacks" typeId="3bb2-d15a-15bb-e44e">D3</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="cfd8-4a83-760f-0d2a::0271-a592-7379-1738" name="Goliath Rockgrinder" hidden="false" typeId="b3a8-0452-7436-44d1" typeName="Transport">
+              <characteristics>
+                <characteristic name="Capacity" typeId="15aa-1916-a38b-d223">Up to 6 &lt;CULT&gt; INFANTRY models. Each PATRIARCH takes the space of five other models.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="cfd8-4a83-760f-0d2a::7724-9e10-51cb-7b4f::3611-cf4f-35bb-4f1d" name="Rugged Construction" publicationId="83b2-e602-pubN65537" page="" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">Roll a D6 each time this model loses a wounds; on a 6 the wound is not lost.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="cfd8-4a83-760f-0d2a::ca27-13ba-163b-6c86::7f8e-7d4a-13a0-e8ab" name="Explodes (6+/6&quot;/D3)" publicationId="83b2-e602-pubN65537" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">If this model is reduced to 0 wounds, roll a D6 before removing it from the battlefield and before any embarked models disembark. On a 6 it explodes, and each unit within 6&quot; suffers D3 mortal wounds.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <selections>
+            <selection id="31d4-bc85-d339-7e52" name="Heavy Stubber" entryId="cfd8-4a83-760f-0d2a::859e-9afe-8e0a-a4c8::6ebe-58fe-449f-121d" number="1" type="upgrade">
+              <profiles>
+                <profile id="cfd8-4a83-760f-0d2a::859e-9afe-8e0a-a4c8::daaa-538e-2964-9b7f::0031-0314-5b36-a220" name="Heavy stubber" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">36&quot;</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Heavy 3</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">4</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">0</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">-</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="points" value="2.0"/>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+            <selection id="7764-ebaa-5006-9c76" name="Drilldozer Blade" entryId="cfd8-4a83-760f-0d2a::bbc4-ca96-f3c4-2074::4f81-93c1-9ee6-e76e" number="1" type="upgrade">
+              <profiles>
+                <profile id="cfd8-4a83-760f-0d2a::bbc4-ca96-f3c4-2074::f4ff-6d31-288a-4b4a::0ed3-40c7-242c-a144" name="Drilldozer Blade" publicationId="83b2-e602-pubN65537" page="104" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">+3</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">-2</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">D3</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">The bearer can make D3 additional attacks on a turn in which it made a charge move.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="points" value="0.0"/>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+            <selection id="cc1e-7946-5641-d52c" name="Heavy Seismic Cannon" entryId="cfd8-4a83-760f-0d2a::5d16-d918-ca71-7498::574b-1765-576b-a693" entryGroupId="cfd8-4a83-760f-0d2a::8247-5d3d-d0c0-f24c" number="1" type="upgrade">
+              <profiles>
+                <profile id="cfd8-4a83-760f-0d2a::5d16-d918-ca71-7498::8717-cdf7-0db3-5f13::1e85-623e-4962-f2a9" name="Heavy Seismic Cannon (Long-wave)" publicationId="83b2-e602-pubN65537" page="102" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">24&quot;</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Heavy 6</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">4</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">-1</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">2</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">All wound rolls of 6+ have an AP of -4.</characteristic>
+                  </characteristics>
+                </profile>
+                <profile id="cfd8-4a83-760f-0d2a::5d16-d918-ca71-7498::da79-d823-6935-f7b3::1c47-ac96-8aa5-2fc5" name="Heavy Seismic Cannon (Short-wave)" publicationId="83b2-e602-pubN65537" page="102" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">12&quot;</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Heavy 3</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">8</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">-2</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">3</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">All wound rolls of 6+ have an AP of -4.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="points" value="15.0"/>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+          </selections>
+          <costs>
+            <cost name="pts" typeId="points" value="78.0"/>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="6.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="59a8-aaff-b417-ad41" name="Faction: Genestealer Cults" entryId="bf74-61c4-1502-ad4d" primary="false"/>
+            <category id="1f1f-6002-700c-d271" name="Faction: Tyranids" entryId="a367-fb78-5192-96eb" primary="false"/>
+            <category id="7e10-3b28-99fa-2b79" name="Heavy Support" entryId="abf5fd55-9ac7-4263-8bc1-a9fb0a8fa6a6" primary="true"/>
+            <category id="e912-9cce-b7f9-ae25" name="Vehicle" entryId="c8fd-783f-3230-493e" primary="false"/>
+            <category id="5402-680f-83a5-14e1" name="Transport" entryId="6cc4-1b62-8e8a-05cd" primary="false"/>
+            <category id="c904-bbc5-412f-d86b" name="Faction: &lt;Cult&gt;" entryId="1117-30a3-a004-bdbd" primary="false"/>
+          </categories>
+        </selection>
+        <selection id="d541-b921-c37f-f9c1" name="Goliath Rockgrinder" entryId="cfd8-4a83-760f-0d2a::edbd-4366-0054-e184" number="1" type="model">
+          <rules>
+            <rule id="cfd8-4a83-760f-0d2a::6b5f-73c7-b013-dfba::e624-3023-b8b4-18fa" name="Cult Ambush" publicationId="83b2-e602-pubN65537" page="78" hidden="false">
+              <description>During deployment, you can set this unit up in ambush instead of on the battlefield. If this unit has the INFANTRY or BIKER keyword, you can either set it up in ambush or underground instead of on the battlefield.
+
+When you set up a unit underground, it can emerge at the end of any of your Movement phases - set the unit up anywhere on the battlefield that is more than 9&quot; from any enemy models.
+
+When you set up a unit in ambush, place one ambush marker anywhere on the battlefield that is wholly within your deployment zone. You will need one ambush marker for each unit that will deploy in this way. If you set up a TRANSPORT in ambush, you must still tell your opponent what units are embarked within it when it is set up in ambush - do not set up separate ambush markers for units that start the battle embarked within a TRANSPORT, even if they have the Cult Ambush ability.
+
+In matched play, units set up in ambush using this rule count as being set up on the battlefield for the purposes of Tactical Reserves.
+
+For ambush markers, see Codex: Genestealer Cults p79.</description>
+            </rule>
+          </rules>
+          <profiles>
+            <profile id="cfd8-4a83-760f-0d2a::42a4-b1a5-6dbb-07f3" name="Goliath Rockgrinder" publicationId="83b2-e602-pubN65537" page="99" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">*</characteristic>
+                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">4+</characteristic>
+                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">*</characteristic>
+                <characteristic name="S" typeId="2218-aa3c-265f-2939">6</characteristic>
+                <characteristic name="T" typeId="9c9f-9774-a358-3a39">7</characteristic>
+                <characteristic name="W" typeId="f330-5e6e-4110-0978">10</characteristic>
+                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">*</characteristic>
+                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">7</characteristic>
+                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">4+</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="cfd8-4a83-760f-0d2a::c60e-a59b-dd3d-5c8c" name="Goliath Rockgrinder (1)" hidden="false" typeId="ec1e-7b4c-1c12-17a1" typeName="Stat Damage - M, BS &amp; A">
+              <characteristics>
+                <characteristic name="Remaining W" typeId="2a1e-f62b-0744-9a14">6-10+</characteristic>
+                <characteristic name="Movement" typeId="3aea-93a6-44aa-b7bb">10&quot;</characteristic>
+                <characteristic name="BS" typeId="c1b8-952b-15ee-d890">4+</characteristic>
+                <characteristic name="Attacks" typeId="3bb2-d15a-15bb-e44e">6</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="cfd8-4a83-760f-0d2a::cc95-1659-f953-ef2a" name="Goliath Rockgrinder (2)" hidden="false" typeId="ec1e-7b4c-1c12-17a1" typeName="Stat Damage - M, BS &amp; A">
+              <characteristics>
+                <characteristic name="Remaining W" typeId="2a1e-f62b-0744-9a14">3-5</characteristic>
+                <characteristic name="Movement" typeId="3aea-93a6-44aa-b7bb">6&quot;</characteristic>
+                <characteristic name="BS" typeId="c1b8-952b-15ee-d890">5+</characteristic>
+                <characteristic name="Attacks" typeId="3bb2-d15a-15bb-e44e">D6</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="cfd8-4a83-760f-0d2a::0ac9-fa1f-1a90-f76a" name="Goliath Rockgrinder (3)" hidden="false" typeId="ec1e-7b4c-1c12-17a1" typeName="Stat Damage - M, BS &amp; A">
+              <characteristics>
+                <characteristic name="Remaining W" typeId="2a1e-f62b-0744-9a14">1-2</characteristic>
+                <characteristic name="Movement" typeId="3aea-93a6-44aa-b7bb">4&quot;</characteristic>
+                <characteristic name="BS" typeId="c1b8-952b-15ee-d890">6+</characteristic>
+                <characteristic name="Attacks" typeId="3bb2-d15a-15bb-e44e">D3</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="cfd8-4a83-760f-0d2a::0271-a592-7379-1738" name="Goliath Rockgrinder" hidden="false" typeId="b3a8-0452-7436-44d1" typeName="Transport">
+              <characteristics>
+                <characteristic name="Capacity" typeId="15aa-1916-a38b-d223">Up to 6 &lt;CULT&gt; INFANTRY models. Each PATRIARCH takes the space of five other models.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="cfd8-4a83-760f-0d2a::7724-9e10-51cb-7b4f::3611-cf4f-35bb-4f1d" name="Rugged Construction" publicationId="83b2-e602-pubN65537" page="" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">Roll a D6 each time this model loses a wounds; on a 6 the wound is not lost.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="cfd8-4a83-760f-0d2a::ca27-13ba-163b-6c86::7f8e-7d4a-13a0-e8ab" name="Explodes (6+/6&quot;/D3)" publicationId="83b2-e602-pubN65537" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">If this model is reduced to 0 wounds, roll a D6 before removing it from the battlefield and before any embarked models disembark. On a 6 it explodes, and each unit within 6&quot; suffers D3 mortal wounds.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <selections>
+            <selection id="92ed-8021-5383-3f27" name="Drilldozer Blade" entryId="cfd8-4a83-760f-0d2a::bbc4-ca96-f3c4-2074::4f81-93c1-9ee6-e76e" number="1" type="upgrade">
+              <profiles>
+                <profile id="cfd8-4a83-760f-0d2a::bbc4-ca96-f3c4-2074::f4ff-6d31-288a-4b4a::0ed3-40c7-242c-a144" name="Drilldozer Blade" publicationId="83b2-e602-pubN65537" page="104" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">+3</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">-2</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">D3</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">The bearer can make D3 additional attacks on a turn in which it made a charge move.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="points" value="0.0"/>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+            <selection id="a270-55f1-fc68-bd64" name="Heavy Stubber" entryId="cfd8-4a83-760f-0d2a::859e-9afe-8e0a-a4c8::6ebe-58fe-449f-121d" number="1" type="upgrade">
+              <profiles>
+                <profile id="cfd8-4a83-760f-0d2a::859e-9afe-8e0a-a4c8::daaa-538e-2964-9b7f::0031-0314-5b36-a220" name="Heavy stubber" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">36&quot;</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Heavy 3</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">4</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">0</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">-</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="points" value="2.0"/>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+            <selection id="9673-d9da-ed85-4527" name="Heavy Seismic Cannon" entryId="cfd8-4a83-760f-0d2a::5d16-d918-ca71-7498::574b-1765-576b-a693" entryGroupId="cfd8-4a83-760f-0d2a::8247-5d3d-d0c0-f24c" number="1" type="upgrade">
+              <profiles>
+                <profile id="cfd8-4a83-760f-0d2a::5d16-d918-ca71-7498::8717-cdf7-0db3-5f13::1e85-623e-4962-f2a9" name="Heavy Seismic Cannon (Long-wave)" publicationId="83b2-e602-pubN65537" page="102" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">24&quot;</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Heavy 6</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">4</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">-1</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">2</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">All wound rolls of 6+ have an AP of -4.</characteristic>
+                  </characteristics>
+                </profile>
+                <profile id="cfd8-4a83-760f-0d2a::5d16-d918-ca71-7498::da79-d823-6935-f7b3::1c47-ac96-8aa5-2fc5" name="Heavy Seismic Cannon (Short-wave)" publicationId="83b2-e602-pubN65537" page="102" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">12&quot;</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Heavy 3</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">8</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">-2</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">3</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">All wound rolls of 6+ have an AP of -4.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="points" value="15.0"/>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+          </selections>
+          <costs>
+            <cost name="pts" typeId="points" value="78.0"/>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="6.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="58e1-4150-fd36-54aa" name="Faction: Genestealer Cults" entryId="bf74-61c4-1502-ad4d" primary="false"/>
+            <category id="518a-e0b2-3eac-e854" name="Faction: Tyranids" entryId="a367-fb78-5192-96eb" primary="false"/>
+            <category id="72cf-ae57-466d-d178" name="Heavy Support" entryId="abf5fd55-9ac7-4263-8bc1-a9fb0a8fa6a6" primary="true"/>
+            <category id="1ed8-041f-8aea-b13b" name="Vehicle" entryId="c8fd-783f-3230-493e" primary="false"/>
+            <category id="2ea4-7169-8a65-be0e" name="Transport" entryId="6cc4-1b62-8e8a-05cd" primary="false"/>
+            <category id="a418-0ce8-d510-1efa" name="Faction: &lt;Cult&gt;" entryId="1117-30a3-a004-bdbd" primary="false"/>
+          </categories>
+        </selection>
+        <selection id="d5a2-143b-416c-5e3a" name="Abominant" entryId="79e1-75b2-6256-044b::8dc3-df9e-5176-b4a8" number="1" type="upgrade">
+          <rules>
+            <rule id="79e1-75b2-6256-044b::c52d-460f-dada-beba::e624-3023-b8b4-18fa" name="Cult Ambush" publicationId="83b2-e602-pubN65537" page="78" hidden="false">
+              <description>During deployment, you can set this unit up in ambush instead of on the battlefield. If this unit has the INFANTRY or BIKER keyword, you can either set it up in ambush or underground instead of on the battlefield.
+
+When you set up a unit underground, it can emerge at the end of any of your Movement phases - set the unit up anywhere on the battlefield that is more than 9&quot; from any enemy models.
+
+When you set up a unit in ambush, place one ambush marker anywhere on the battlefield that is wholly within your deployment zone. You will need one ambush marker for each unit that will deploy in this way. If you set up a TRANSPORT in ambush, you must still tell your opponent what units are embarked within it when it is set up in ambush - do not set up separate ambush markers for units that start the battle embarked within a TRANSPORT, even if they have the Cult Ambush ability.
+
+In matched play, units set up in ambush using this rule count as being set up on the battlefield for the purposes of Tactical Reserves.
+
+For ambush markers, see Codex: Genestealer Cults p79.</description>
+            </rule>
+            <rule id="79e1-75b2-6256-044b::fc7c-202e-8417-567d::83cc-a64d-d8bd-7a4a" name="Unquestioning Loyalty" publicationId="83b2-e602-pubN65537" page="75" hidden="false">
+              <description>Each time you fail a saving throw for a &lt;CULT&gt; CHARACTER model, and each time a &lt;CULT&gt; CHARACTER suffers a mortal wound, before allocating damage check to see if it is within 3&quot; of any &lt;CULT&gt; or BROOD BROTHERS units with this ability. If it is, you can select one of those units and roll a D6; on a 4+ you do not inflict any damage on the character, but one model in the selected unit (your choice) is slain. Otherwise, the character suffers damage as normal.</description>
+            </rule>
+          </rules>
+          <profiles>
+            <profile id="79e1-75b2-6256-044b::ceec-0ce1-b18a-b89e" name="Abominant" publicationId="83b2-e602-pubN65537" page="82" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="0bdf-a96e-9e38-7779">6&quot;</characteristic>
+                <characteristic name="WS" typeId="e7f0-1278-0250-df0c">3+</characteristic>
+                <characteristic name="BS" typeId="381b-eb28-74c3-df5f">6+</characteristic>
+                <characteristic name="S" typeId="2218-aa3c-265f-2939">6</characteristic>
+                <characteristic name="T" typeId="9c9f-9774-a358-3a39">5</characteristic>
+                <characteristic name="W" typeId="f330-5e6e-4110-0978">5</characteristic>
+                <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">3</characteristic>
+                <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">8</characteristic>
+                <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">5+</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="79e1-75b2-6256-044b::7752-6533-18d2-805f" name="Regenerative Flesh" publicationId="83b2-e602-pubN65537" page="82" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">At the start of each of your turns, this model regains D3 lost wounds.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="79e1-75b2-6256-044b::dbcf-b8ea-a891-54c7" name="Mindwyrm Familiar" publicationId="83b2-e602-pubN65537" page="82" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">Subtract 1 from Psychic tests taken for PSYKERS that are within 12&quot; of any enemy ABOMINANTS. TYRANID PSYKERS are not affected.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="79e1-75b2-6256-044b::7469-1e2b-0635-c60a" name="The Chosen One" publicationId="83b2-e602-pubN65537" page="82" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">Each unmodified hit roll of 6 made in the Fight phase by friendly &lt;CULT&gt; ABERRANT units within 6&quot; of this model scores 2 hits instead of 1.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="79e1-75b2-6256-044b::23e6-0910-8459-3c3b::34b7-c526-c2d4-2857" name="Bestial Vigour" publicationId="83b2-e602-pubN65537" page="88" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">When inflicting damage upon this model, reduce the Damage characteristic of the attack by 1 (to a minimum of 1). In addition, roll a D6 each time this model loses a wound; on a 5+ that wound is not lost.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <selections>
+            <selection id="08c0-34f2-d856-e2ab" name="Familiar Claws" entryId="79e1-75b2-6256-044b::d7b4-b108-5775-c538" number="1" type="upgrade">
+              <profiles>
+                <profile id="79e1-75b2-6256-044b::6fff-e63f-4c20-3a44" name="Familiar Claws" publicationId="83b2-e602-pubN65537" page="82" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">4</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">0</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Each time a model guided by a Familiar fights, it can make 2 additional attacks with this weapon.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="pts" typeId="points" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+            <selection id="5230-d46e-ec34-a9c7" name="Power Sledgehammer" entryId="79e1-75b2-6256-044b::9a35-4502-3cdc-ef7d" number="1" type="upgrade">
+              <profiles>
+                <profile id="79e1-75b2-6256-044b::b8b4-fc5c-4713-b17e" name="Power Sledgehammer" publicationId="83b2-e602-pubN65537" page="104" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">x2</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">-3</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">D6</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">When attacking with this weapon, subtract 1 from the hit roll. Damage rolls of 1 or 2 made for this weapon count as 3 instead.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="pts" typeId="points" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+            <selection id="fd94-b86c-4b2a-bf33" name="Rending Claw" entryId="79e1-75b2-6256-044b::764a-0b37-92f8-1e18::7210-2eea-c54a-c7d5" number="1" type="upgrade">
+              <profiles>
+                <profile id="79e1-75b2-6256-044b::764a-0b37-92f8-1e18::b937-6790-34db-3be7::40db-88ed-10e4-c29d" name="Rending Claw(s)" publicationId="83b2-e602-pubN65537" page="104" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                    <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                    <characteristic name="S" typeId="59b1-319e-ec13-d466">User</characteristic>
+                    <characteristic name="AP" typeId="75aa-a838-b675-6484">-1</characteristic>
+                    <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                    <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Each time you make a wound roll of 6+, that hit is resolved with an AP of -4.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="pts" typeId="points" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+            <selection id="3353-c621-5a3d-c498" name="Amulet of the Voidwyrm" entryId="79e1-75b2-6256-044b::66b1-24e7-1a39-aee1::4609-4cde-943a-511a" entryGroupId="79e1-75b2-6256-044b::66b1-24e7-1a39-aee1::ccd1-3759-0432-5c59" number="1" type="upgrade">
+              <profiles>
+                <profile id="79e1-75b2-6256-044b::66b1-24e7-1a39-aee1::758b-441c-95eb-008d" name="Amulet of the Voidwyrm" publicationId="83b2-e602-pubN65537" page="116" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+                  <characteristics>
+                    <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">Add 1 to saving throws made for the bearer against ranged weapons. In addition, enemy units cannot fire Overwatch at the bearer&apos;s unit.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="pts" typeId="points" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+          </selections>
+          <costs>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="6.0"/>
+            <cost name="pts" typeId="points" value="105.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="4063-836f-c91e-fb08" name="Aberrant" entryId="5d42-1428-2561-ae8f" primary="false"/>
+            <category id="77a2-50be-90e1-df39" name="Character" entryId="ef18-746a-369f-43a4" primary="false"/>
+            <category id="0f3d-f6fc-a572-0a61" name="Faction: Genestealer Cults" entryId="bf74-61c4-1502-ad4d" primary="false"/>
+            <category id="3cb2-df39-3a88-62c9" name="Faction: Tyranids" entryId="a367-fb78-5192-96eb" primary="false"/>
+            <category id="7b4a-2d39-513a-abc8" name="Infantry" entryId="3d52-fccf-10c0-3fae" primary="false"/>
+            <category id="c26c-1b3c-bab3-7c26" name="HQ" entryId="848a6ff2-0def-4c72-8433-ff7da70e6bc7" primary="true"/>
+          </categories>
+        </selection>
+        <selection id="748f-2d23-9f6e-56d6" name="Aberrants" entryId="d4b6-974d-4a20-1424::c5a6-cb16-4d17-fb8a" number="1" type="unit">
+          <rules>
+            <rule id="d4b6-974d-4a20-1424::64b2-1836-8d42-4e07::e624-3023-b8b4-18fa" name="Cult Ambush" publicationId="83b2-e602-pubN65537" page="78" hidden="false">
+              <description>During deployment, you can set this unit up in ambush instead of on the battlefield. If this unit has the INFANTRY or BIKER keyword, you can either set it up in ambush or underground instead of on the battlefield.
+
+When you set up a unit underground, it can emerge at the end of any of your Movement phases - set the unit up anywhere on the battlefield that is more than 9&quot; from any enemy models.
+
+When you set up a unit in ambush, place one ambush marker anywhere on the battlefield that is wholly within your deployment zone. You will need one ambush marker for each unit that will deploy in this way. If you set up a TRANSPORT in ambush, you must still tell your opponent what units are embarked within it when it is set up in ambush - do not set up separate ambush markers for units that start the battle embarked within a TRANSPORT, even if they have the Cult Ambush ability.
+
+In matched play, units set up in ambush using this rule count as being set up on the battlefield for the purposes of Tactical Reserves.
+
+For ambush markers, see Codex: Genestealer Cults p79.</description>
+            </rule>
+            <rule id="d4b6-974d-4a20-1424::dc74-b80c-0045-9f93::83cc-a64d-d8bd-7a4a" name="Unquestioning Loyalty" publicationId="83b2-e602-pubN65537" page="75" hidden="false">
+              <description>Each time you fail a saving throw for a &lt;CULT&gt; CHARACTER model, and each time a &lt;CULT&gt; CHARACTER suffers a mortal wound, before allocating damage check to see if it is within 3&quot; of any &lt;CULT&gt; or BROOD BROTHERS units with this ability. If it is, you can select one of those units and roll a D6; on a 4+ you do not inflict any damage on the character, but one model in the selected unit (your choice) is slain. Otherwise, the character suffers damage as normal.</description>
+            </rule>
+          </rules>
+          <profiles>
+            <profile id="d4b6-974d-4a20-1424::969e-ce83-7c2a-d0dd::34b7-c526-c2d4-2857" name="Bestial Vigour" publicationId="83b2-e602-pubN65537" page="88" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">When inflicting damage upon this model, reduce the Damage characteristic of the attack by 1 (to a minimum of 1). In addition, roll a D6 each time this model loses a wound; on a 5+ that wound is not lost.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <selections>
+            <selection id="b630-4d1c-84e8-6f1e" name="Aberrant (Pick)" entryId="d4b6-974d-4a20-1424::3ff5-2f16-9f40-01e8" entryGroupId="d4b6-974d-4a20-1424::ae86-8f35-a7bf-0979" number="4" type="model">
+              <profiles>
+                <profile id="d4b6-974d-4a20-1424::44e3-0340-4fb8-d710::daa2-3ccb-d2b1-7358" name="Aberrant" publicationId="83b2-e602-pubN65537" page="88" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+                  <characteristics>
+                    <characteristic name="M" typeId="0bdf-a96e-9e38-7779">6&quot;</characteristic>
+                    <characteristic name="WS" typeId="e7f0-1278-0250-df0c">3+</characteristic>
+                    <characteristic name="BS" typeId="381b-eb28-74c3-df5f">6+</characteristic>
+                    <characteristic name="S" typeId="2218-aa3c-265f-2939">5</characteristic>
+                    <characteristic name="T" typeId="9c9f-9774-a358-3a39">4</characteristic>
+                    <characteristic name="W" typeId="f330-5e6e-4110-0978">2</characteristic>
+                    <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">2</characteristic>
+                    <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">7</characteristic>
+                    <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">5+</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <selections>
+                <selection id="de56-c29c-eae6-0281" name="Rending Claw" entryId="d4b6-974d-4a20-1424::d5b4-4350-dcf0-e2ea::7210-2eea-c54a-c7d5" number="4" type="upgrade">
+                  <profiles>
+                    <profile id="d4b6-974d-4a20-1424::d5b4-4350-dcf0-e2ea::b937-6790-34db-3be7::40db-88ed-10e4-c29d" name="Rending Claw(s)" publicationId="83b2-e602-pubN65537" page="104" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">User</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">-1</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Each time you make a wound roll of 6+, that hit is resolved with an AP of -4.</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="pts" typeId="points" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                  </costs>
+                </selection>
+                <selection id="7399-3501-363a-1a66" name="Power Pick" entryId="d4b6-974d-4a20-1424::b7ea-f2bc-d661-ac93::9ef9-9e00-e935-43d9" number="4" type="upgrade">
+                  <profiles>
+                    <profile id="d4b6-974d-4a20-1424::b7ea-f2bc-d661-ac93::ccf0-5651-8fb4-87da::1d9b-91af-1fc1-4471" name="Power Pick" publicationId="83b2-e602-pubN65537" page="104" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">User</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">-2</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">D3</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Each time a model with a rending claw makes an attack with this weapon, it can make one additional attack with its rending claw.</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name="pts" typeId="points" value="36.0"/>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                  </costs>
+                </selection>
+              </selections>
+              <costs>
+                <cost name="pts" typeId="points" value="76.0"/>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+            <selection id="4062-dd42-f649-5d90" name="Aberrant Hypermorph (Improvised)" entryId="d4b6-974d-4a20-1424::ed50-40e2-0f8f-bab3" entryGroupId="d4b6-974d-4a20-1424::30f2-8e31-9b4e-3059" number="1" type="model">
+              <profiles>
+                <profile id="d4b6-974d-4a20-1424::c270-33a1-cba5-2573::286d-f14d-4b4e-f5b7" name="Aberrant Hypermorph" publicationId="83b2-e602-pubN65537" page="88" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+                  <characteristics>
+                    <characteristic name="M" typeId="0bdf-a96e-9e38-7779">6&quot;</characteristic>
+                    <characteristic name="WS" typeId="e7f0-1278-0250-df0c">3+</characteristic>
+                    <characteristic name="BS" typeId="381b-eb28-74c3-df5f">6+</characteristic>
+                    <characteristic name="S" typeId="2218-aa3c-265f-2939">5</characteristic>
+                    <characteristic name="T" typeId="9c9f-9774-a358-3a39">4</characteristic>
+                    <characteristic name="W" typeId="f330-5e6e-4110-0978">2</characteristic>
+                    <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">3</characteristic>
+                    <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">7</characteristic>
+                    <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">5+</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <selections>
+                <selection id="85b9-45ba-d423-2ed0" name="Heavy Improvised Weapon" entryId="d4b6-974d-4a20-1424::cfe7-eebb-1eb4-703e" number="1" type="upgrade">
+                  <profiles>
+                    <profile id="d4b6-974d-4a20-1424::0e43-8baf-52e4-5de6" name="Heavy Improvised Weapon" publicationId="83b2-e602-pubN65537" page="104" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">x2</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">-1</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">2</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Make 2 hit rolls for each attack made with this weapon, instead of 1.</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name="pts" typeId="points" value="25.0"/>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                  </costs>
+                </selection>
+                <selection id="0bb3-0619-31db-6aff" name="Rending Claw" entryId="d4b6-974d-4a20-1424::8b38-6ef3-312e-36e7::7210-2eea-c54a-c7d5" number="1" type="upgrade">
+                  <profiles>
+                    <profile id="d4b6-974d-4a20-1424::8b38-6ef3-312e-36e7::b937-6790-34db-3be7::40db-88ed-10e4-c29d" name="Rending Claw(s)" publicationId="83b2-e602-pubN65537" page="104" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">User</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">-1</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Each time you make a wound roll of 6+, that hit is resolved with an AP of -4.</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="pts" typeId="points" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                  </costs>
+                </selection>
+                <selection id="2c7c-da77-655d-6cbc" name="Hypermorph Tail" entryId="d4b6-974d-4a20-1424::1384-e7b0-f45e-0bff::38d0-40eb-f917-b72a" number="1" type="upgrade">
+                  <profiles>
+                    <profile id="d4b6-974d-4a20-1424::1384-e7b0-f45e-0bff::18a9-33e1-faeb-bf5c::d2dd-347b-303c-d2eb" name="Hypermorph Tail" publicationId="83b2-e602-pubN65537" page="104" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">User</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">-1</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Each time the bearer fights, it can make one additional attack with this weapon.</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                    <cost name="pts" typeId="points" value="0.0"/>
+                  </costs>
+                </selection>
+              </selections>
+              <costs>
+                <cost name="pts" typeId="points" value="19.0"/>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+          </selections>
+          <costs>
+            <cost name="pts" typeId="points" value="0.0"/>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="7.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="d880-0baa-80a3-5703" name="Elites" entryId="638d74c6-bd97-4de5-b65a-6aaa24e9f4b2" primary="true"/>
+            <category id="5150-0ec8-1a9e-a27c" name="Faction: Genestealer Cults" entryId="bf74-61c4-1502-ad4d" primary="false"/>
+            <category id="4f9d-0e03-a510-6fe6" name="Faction: Tyranids" entryId="a367-fb78-5192-96eb" primary="false"/>
+            <category id="6973-958a-4305-aae0" name="Infantry" entryId="3d52-fccf-10c0-3fae" primary="false"/>
+            <category id="72f5-8374-af05-3da4" name="Aberrant" entryId="5d42-1428-2561-ae8f" primary="false"/>
+            <category id="651c-f2ba-341f-9b93" name="Faction: &lt;Cult&gt;" entryId="1117-30a3-a004-bdbd" primary="false"/>
+          </categories>
+        </selection>
+        <selection id="13d0-2b84-6494-0dd3" name="Aberrants" entryId="d4b6-974d-4a20-1424::c5a6-cb16-4d17-fb8a" number="1" type="unit">
+          <rules>
+            <rule id="d4b6-974d-4a20-1424::64b2-1836-8d42-4e07::e624-3023-b8b4-18fa" name="Cult Ambush" publicationId="83b2-e602-pubN65537" page="78" hidden="false">
+              <description>During deployment, you can set this unit up in ambush instead of on the battlefield. If this unit has the INFANTRY or BIKER keyword, you can either set it up in ambush or underground instead of on the battlefield.
+
+When you set up a unit underground, it can emerge at the end of any of your Movement phases - set the unit up anywhere on the battlefield that is more than 9&quot; from any enemy models.
+
+When you set up a unit in ambush, place one ambush marker anywhere on the battlefield that is wholly within your deployment zone. You will need one ambush marker for each unit that will deploy in this way. If you set up a TRANSPORT in ambush, you must still tell your opponent what units are embarked within it when it is set up in ambush - do not set up separate ambush markers for units that start the battle embarked within a TRANSPORT, even if they have the Cult Ambush ability.
+
+In matched play, units set up in ambush using this rule count as being set up on the battlefield for the purposes of Tactical Reserves.
+
+For ambush markers, see Codex: Genestealer Cults p79.</description>
+            </rule>
+            <rule id="d4b6-974d-4a20-1424::dc74-b80c-0045-9f93::83cc-a64d-d8bd-7a4a" name="Unquestioning Loyalty" publicationId="83b2-e602-pubN65537" page="75" hidden="false">
+              <description>Each time you fail a saving throw for a &lt;CULT&gt; CHARACTER model, and each time a &lt;CULT&gt; CHARACTER suffers a mortal wound, before allocating damage check to see if it is within 3&quot; of any &lt;CULT&gt; or BROOD BROTHERS units with this ability. If it is, you can select one of those units and roll a D6; on a 4+ you do not inflict any damage on the character, but one model in the selected unit (your choice) is slain. Otherwise, the character suffers damage as normal.</description>
+            </rule>
+          </rules>
+          <profiles>
+            <profile id="d4b6-974d-4a20-1424::969e-ce83-7c2a-d0dd::34b7-c526-c2d4-2857" name="Bestial Vigour" publicationId="83b2-e602-pubN65537" page="88" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">When inflicting damage upon this model, reduce the Damage characteristic of the attack by 1 (to a minimum of 1). In addition, roll a D6 each time this model loses a wound; on a 5+ that wound is not lost.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <selections>
+            <selection id="dd4c-72c5-d39e-a279" name="Aberrant (Pick)" entryId="d4b6-974d-4a20-1424::3ff5-2f16-9f40-01e8" entryGroupId="d4b6-974d-4a20-1424::ae86-8f35-a7bf-0979" number="4" type="model">
+              <profiles>
+                <profile id="d4b6-974d-4a20-1424::44e3-0340-4fb8-d710::daa2-3ccb-d2b1-7358" name="Aberrant" publicationId="83b2-e602-pubN65537" page="88" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+                  <characteristics>
+                    <characteristic name="M" typeId="0bdf-a96e-9e38-7779">6&quot;</characteristic>
+                    <characteristic name="WS" typeId="e7f0-1278-0250-df0c">3+</characteristic>
+                    <characteristic name="BS" typeId="381b-eb28-74c3-df5f">6+</characteristic>
+                    <characteristic name="S" typeId="2218-aa3c-265f-2939">5</characteristic>
+                    <characteristic name="T" typeId="9c9f-9774-a358-3a39">4</characteristic>
+                    <characteristic name="W" typeId="f330-5e6e-4110-0978">2</characteristic>
+                    <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">2</characteristic>
+                    <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">7</characteristic>
+                    <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">5+</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <selections>
+                <selection id="5285-3884-7360-76c8" name="Rending Claw" entryId="d4b6-974d-4a20-1424::d5b4-4350-dcf0-e2ea::7210-2eea-c54a-c7d5" number="4" type="upgrade">
+                  <profiles>
+                    <profile id="d4b6-974d-4a20-1424::d5b4-4350-dcf0-e2ea::b937-6790-34db-3be7::40db-88ed-10e4-c29d" name="Rending Claw(s)" publicationId="83b2-e602-pubN65537" page="104" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">User</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">-1</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Each time you make a wound roll of 6+, that hit is resolved with an AP of -4.</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="pts" typeId="points" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                  </costs>
+                </selection>
+                <selection id="fb9f-5d4a-6982-0dfe" name="Power Pick" entryId="d4b6-974d-4a20-1424::b7ea-f2bc-d661-ac93::9ef9-9e00-e935-43d9" number="4" type="upgrade">
+                  <profiles>
+                    <profile id="d4b6-974d-4a20-1424::b7ea-f2bc-d661-ac93::ccf0-5651-8fb4-87da::1d9b-91af-1fc1-4471" name="Power Pick" publicationId="83b2-e602-pubN65537" page="104" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">User</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">-2</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">D3</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Each time a model with a rending claw makes an attack with this weapon, it can make one additional attack with its rending claw.</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name="pts" typeId="points" value="36.0"/>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                  </costs>
+                </selection>
+              </selections>
+              <costs>
+                <cost name="pts" typeId="points" value="76.0"/>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+            <selection id="57a4-2481-7b58-8aff" name="Aberrant Hypermorph (Improvised)" entryId="d4b6-974d-4a20-1424::ed50-40e2-0f8f-bab3" entryGroupId="d4b6-974d-4a20-1424::30f2-8e31-9b4e-3059" number="1" type="model">
+              <profiles>
+                <profile id="d4b6-974d-4a20-1424::c270-33a1-cba5-2573::286d-f14d-4b4e-f5b7" name="Aberrant Hypermorph" publicationId="83b2-e602-pubN65537" page="88" hidden="false" typeId="800f-21d0-4387-c943" typeName="Unit">
+                  <characteristics>
+                    <characteristic name="M" typeId="0bdf-a96e-9e38-7779">6&quot;</characteristic>
+                    <characteristic name="WS" typeId="e7f0-1278-0250-df0c">3+</characteristic>
+                    <characteristic name="BS" typeId="381b-eb28-74c3-df5f">6+</characteristic>
+                    <characteristic name="S" typeId="2218-aa3c-265f-2939">5</characteristic>
+                    <characteristic name="T" typeId="9c9f-9774-a358-3a39">4</characteristic>
+                    <characteristic name="W" typeId="f330-5e6e-4110-0978">2</characteristic>
+                    <characteristic name="A" typeId="13fc-b29b-31f2-ab9f">3</characteristic>
+                    <characteristic name="Ld" typeId="00ca-f8b8-876d-b705">7</characteristic>
+                    <characteristic name="Save" typeId="c0df-df94-abd7-e8d3">5+</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <selections>
+                <selection id="37c9-ac89-f75b-04aa" name="Heavy Improvised Weapon" entryId="d4b6-974d-4a20-1424::cfe7-eebb-1eb4-703e" number="1" type="upgrade">
+                  <profiles>
+                    <profile id="d4b6-974d-4a20-1424::0e43-8baf-52e4-5de6" name="Heavy Improvised Weapon" publicationId="83b2-e602-pubN65537" page="104" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">x2</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">-1</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">2</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Make 2 hit rolls for each attack made with this weapon, instead of 1.</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name="pts" typeId="points" value="25.0"/>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                  </costs>
+                </selection>
+                <selection id="cd63-b4ed-1009-cdef" name="Rending Claw" entryId="d4b6-974d-4a20-1424::8b38-6ef3-312e-36e7::7210-2eea-c54a-c7d5" number="1" type="upgrade">
+                  <profiles>
+                    <profile id="d4b6-974d-4a20-1424::8b38-6ef3-312e-36e7::b937-6790-34db-3be7::40db-88ed-10e4-c29d" name="Rending Claw(s)" publicationId="83b2-e602-pubN65537" page="104" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">User</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">-1</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Each time you make a wound roll of 6+, that hit is resolved with an AP of -4.</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="pts" typeId="points" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                  </costs>
+                </selection>
+                <selection id="7969-fd7f-a8c7-5e6c" name="Hypermorph Tail" entryId="d4b6-974d-4a20-1424::1384-e7b0-f45e-0bff::38d0-40eb-f917-b72a" number="1" type="upgrade">
+                  <profiles>
+                    <profile id="d4b6-974d-4a20-1424::1384-e7b0-f45e-0bff::18a9-33e1-faeb-bf5c::d2dd-347b-303c-d2eb" name="Hypermorph Tail" publicationId="83b2-e602-pubN65537" page="104" hidden="false" typeId="d5f97c0b-9fc9-478d-aa34-a7c414d3ea48" typeName="Weapon">
+                      <characteristics>
+                        <characteristic name="Range" typeId="6fa97fa8-ea74-4a27-a0fb-bc4e5f367464">Melee</characteristic>
+                        <characteristic name="Type" typeId="077c342f-d7b9-45c6-b8af-88e97cafd3a2">Melee</characteristic>
+                        <characteristic name="S" typeId="59b1-319e-ec13-d466">User</characteristic>
+                        <characteristic name="AP" typeId="75aa-a838-b675-6484">-1</characteristic>
+                        <characteristic name="D" typeId="ae8a-3137-d65b-4ca7">1</characteristic>
+                        <characteristic name="Abilities" typeId="837d-5e63-aeb7-1410">Each time the bearer fights, it can make one additional attack with this weapon.</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                    <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                    <cost name="pts" typeId="points" value="0.0"/>
+                  </costs>
+                </selection>
+              </selections>
+              <costs>
+                <cost name="pts" typeId="points" value="19.0"/>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+              </costs>
+            </selection>
+          </selections>
+          <costs>
+            <cost name="pts" typeId="points" value="0.0"/>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="7.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="da74-032b-3de4-656b" name="Elites" entryId="638d74c6-bd97-4de5-b65a-6aaa24e9f4b2" primary="true"/>
+            <category id="8c9b-a71a-0004-1772" name="Faction: Genestealer Cults" entryId="bf74-61c4-1502-ad4d" primary="false"/>
+            <category id="0730-27f6-7395-e6a4" name="Faction: Tyranids" entryId="a367-fb78-5192-96eb" primary="false"/>
+            <category id="2976-6425-d43d-c1fd" name="Infantry" entryId="3d52-fccf-10c0-3fae" primary="false"/>
+            <category id="a465-ef3c-994e-5d43" name="Aberrant" entryId="5d42-1428-2561-ae8f" primary="false"/>
+            <category id="1043-c9ca-8a54-e68f" name="Faction: &lt;Cult&gt;" entryId="1117-30a3-a004-bdbd" primary="false"/>
+          </categories>
+        </selection>
+        <selection id="d236-a525-2777-db31" name="Cult Creed" entryId="19d2-f9a1-c4b7-4541::1f06-b5e7-f263-d979" number="1" type="upgrade">
+          <profiles>
+            <profile id="19d2-f9a1-c4b7-4541::c277-73ae-caa8-2d98" name="Cult Creed" publicationId="83b2-e602-pubN65537" page="108" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">If your army is Battle-forged, all GENESTEALER CULTS Detachments gain the Cult Creed ability. All &lt;CULT&gt; INFANTRY and BIKER units with this ability gain a Cult Creed, so long as every unit in its Detachment is from the same cult. The Cult Creed gained depends on the cult they are from, as shown in the table. Note that due to their purely xenos nature and physiology, GENESTEALER units are an exception and do not gain a Cult Creed.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <selections>
+            <selection id="7992-b8cc-d4a9-6f4a" name="The Pauper Princes" entryId="19d2-f9a1-c4b7-4541::343d-6602-d287-273c" entryGroupId="19d2-f9a1-c4b7-4541::d2cd-52d9-69a7-7cce" number="1" type="upgrade">
+              <profiles>
+                <profile id="19d2-f9a1-c4b7-4541::9be5-af11-41f2-278e" name="Devoted Zealots" publicationId="83b2-e602-pubN65537" page="109" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+                  <characteristics>
+                    <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">You can re-roll hit rolls for attacks made with melee weapons by a unit with this Cult Creed in a turn in which it made a charge move, was charged or performed a Heroic Intervention.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+                <cost name="pts" typeId="points" value="0.0"/>
+              </costs>
+            </selection>
+          </selections>
+          <costs>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+            <cost name="pts" typeId="points" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="0c9a-5a44-54f7-121b" name="Configuration" entryId="fcff-0f21-93e6-1ddc" primary="true"/>
+          </categories>
+        </selection>
+        <selection id="69ac-4f17-e919-382a" name="Grandsire&apos;s Gifts" entryId="71fb-f75f-fc42-34f2::641c-6606-1585-4ea0" number="1" type="upgrade">
+          <profiles>
+            <profile id="71fb-f75f-fc42-34f2::50c8-35e0-1587-6e94" name="Grandsire&apos;s Gifts" publicationId="83b2-e602-pubN65537" page="112" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">Use this Stratagem before the battle. Your army can have one extra Sacred Relic of the Cult for 1 CP, or two extra Sacred Relics of the Cult for 3 CPs. All of the Sacred Relics of the Cult that you include must be different and be given to different GENESTEALER CULTS CHARACTERS. This Stratagem can only be used once per battle.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <selections>
+            <selection id="601e-4a05-15b9-ba83" name="1 Extra Sacred Relic" entryId="71fb-f75f-fc42-34f2::fa0b-74e9-9f08-778c" entryGroupId="71fb-f75f-fc42-34f2::84c3-c9c4-a0f2-c6ea" number="1" type="upgrade">
+              <costs>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+                <cost name="pts" typeId="points" value="0.0"/>
+                <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="-1.0"/>
+              </costs>
+            </selection>
+          </selections>
+          <costs>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+            <cost name="pts" typeId="points" value="0.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="a1ca-6da7-cb56-d5e0" name="Stratagems" entryId="c845-c72c-6afe-3fc2" primary="true"/>
+          </categories>
+        </selection>
+        <selection id="7f54-a6a5-9cd9-a253" name="Detachment CP" entryId="ec87-f19e-eee2-1ba8::9d97-2793-9882-d48a" number="1" type="upgrade">
+          <costs>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="5.0"/>
+            <cost name="pts" typeId="points" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="2823-8e96-be91-2348" name="Configuration" entryId="fcff-0f21-93e6-1ddc" primary="true"/>
+          </categories>
+        </selection>
+        <selection id="c9e7-3c78-78c5-fb4b" name="[Reference] Ambush Markers" entryId="5266-4e56-c5f7-9a27::ec7a-733b-2a2c-cd51" number="1" type="upgrade">
+          <rules>
+            <rule id="5266-4e56-c5f7-9a27::3c58-7627-ae55-e267" name="Ambush Markers" publicationId="83b2-e602-pubN65537" page="79" hidden="false">
+              <description>Ambush markers are not units and cannot be targeted, attacked or destroyed. When measuring to or from ambush markers, always measure to the centre of the marker. If you are playing a mission that uses Concealed Deployment, the Concealed Deployment rules only apply to units that do not have the Cult Ambush ability. If you are playing a mission that uses Sentries, Sentry models cannot be set up in ambush, even if they have the Cult Ambush ability.
+
+If you have the first turn, you must reveal all of your ambush markers at the start of your Movement phase, one at a time, before moving any units. Each time you reveal an ambush marker, select one unit from your army that you set up in ambush, then set up one model from that unit within 1&quot; of that ambush marker. Then remove that marker before setting up the rest of that model&apos;s unit wholly within 6&quot; of the first model, wholly within your deployment zone and more than 9&quot; from any enemy models (any models that cannot be placed are destroyed). If it is your turn, that unit can still move and shoot normally during the turn it is set up, but if it is a TRANSPORT, units that disembark from it this turn cannot be set up within 9&quot; of any enemy models. Note that unless these units actually move during this Movement phase, they do not count as having moved in their Movement phase for any rules purposes, such as shooting Heavy weapons.
+
+If your opponent has the first turn, then none of their units can be set up or end a move within 9&quot; of any of your ambush markers. At the end of your opponent&apos;s first Movement phase, after they have set up all of their units from reinforcements (if any), reveal all of your ambush markers as described above before continuing with the turn</description>
+            </rule>
+          </rules>
+          <costs>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+            <cost name="pts" typeId="points" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="e2f9-c942-bd84-fa8c" name="Configuration" entryId="fcff-0f21-93e6-1ddc" primary="true"/>
+          </categories>
+        </selection>
+        <selection id="a35a-5ed3-ce85-7230" name="[Reference] Power: Smite" entryId="a637-f7c0-6ccf-3734::ef3b-5329-0708-d49c" number="1" type="upgrade">
+          <profiles>
+            <profile id="a637-f7c0-6ccf-3734::db40-fe0a-bb61-424b" name="0. Smite" hidden="false" typeId="ae70-4738-0161-bec0" typeName="Psychic Power">
+              <characteristics>
+                <characteristic name="Warp Charge" typeId="5ffd-b800-c317-532a">5</characteristic>
+                <characteristic name="Range" typeId="fd64-cbc4-94de-24cc">18&quot;</characteristic>
+                <characteristic name="Details" typeId="ad96-dfa4-b4ed-656d">The closest visible enemy unit within 18&quot; of the psyker suffers D3 mortal wounds. If the result of the Psychic test was more than 10 the target suffers D6 mortal wounds instead.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <costs>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+            <cost name="pts" typeId="points" value="0.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="0e15-7def-bc0d-8714" name="Configuration" entryId="fcff-0f21-93e6-1ddc" primary="true"/>
+          </categories>
+        </selection>
+        <selection id="b0c5-956a-8d0a-3861" name="Insurrectionists" entryId="06bd-9356-760b-365d::0302-d2e5-e287-b15f" number="1" type="upgrade">
+          <profiles>
+            <profile id="06bd-9356-760b-365d::90bf-c95d-302d-543b" name="Insurrectionists" publicationId="83b2-e602-pubN65537" page="108" hidden="false" typeId="72c5eafc-75bf-4ed9-b425-78009f1efe82" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="21befb24-fc85-4f52-a745-64b2e48f8228">If your army is Battle-forged, all Troops units in GENESTEALER CULTS and BROOD BROTHERS Detachments gain this ability. A unit with this ability that is within range of an objective marker (as specified in the mission) controls it even if there are more enemy models within range of it. If an enemy unit within range of the objective marker has a similar ability, then it is controlled by the player who has the most models within range as normal.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <costs>
+            <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+            <cost name="pts" typeId="points" value="0.0"/>
+            <cost name="CP" typeId="2d3b-b544-ad49-fb75" value="0.0"/>
+          </costs>
+          <categories>
+            <category id="2bc0-5378-2fb0-077d" name="Configuration" entryId="fcff-0f21-93e6-1ddc" primary="true"/>
+          </categories>
+        </selection>
+      </selections>
+      <publications>
+        <publication id="28ec-711c-pubN91434" name="Imperial Armour - Index: Astra Militarum"/>
+        <publication id="82b3-73d0-72b2-3180" name="Warhammer 40,000 Update - April 2019"/>
+        <publication id="28ec-711c-pubN97206" name="warhammer_40000_termite_assault_drill_en-2.pdf"/>
+        <publication id="28ec-711c-pubN118139" name="Index: Xenos 2"/>
+        <publication id="5c2d-db9f-58ca-e7b2" name="Psychic Awakening - Ritual of the Damned"/>
+        <publication id="83b2-e602-pubN88803" name="Imperium Nihilus: Vigilus Defiant"/>
+        <publication id="83b2-e602-pubN65537" name="Codex: Genestealer Cults"/>
+        <publication id="5b08-09e5-a80a-fd67" name="Psychic Awakening - Phoenix Rising"/>
+        <publication id="28ec-711c-pubN110542" name="White Dwarf Feb 2019"/>
+        <publication id="28ec-711c-pubN72690" name="Warhammer 40,000 Rulebook"/>
+        <publication id="28ec-711c-pubN78977" name="Index: Imperium 1"/>
+        <publication id="28ec-711c-pubN98266" name="Imperium Nihilus: Vigilus Defiant"/>
+        <publication id="28ec-711c-pubN113754" name="Stronghold Assault"/>
+        <publication id="28ec-711c-pubN77581" name="Index: Imperium 2"/>
+        <publication id="c9b0-fc84-0874-26d4" name="Psychic Awakening: The Greater Good"/>
+        <publication id="2ec0-6d53-e36b-9895" name="Chapter Approved 2018"/>
+        <publication id="28ec-711c-pubN73170" name="Chapter Approved 2017"/>
+      </publications>
+      <categories>
+        <category id="793e-6805-717c-e71a" name="Uncategorised" entryId="(No Category)" primary="false"/>
+        <category id="0c90-20cd-ad50-824c" name="Configuration" entryId="fcff-0f21-93e6-1ddc" primary="false"/>
+        <category id="f30b-98f1-2fe0-ca49" name="Stratagems" entryId="c845-c72c-6afe-3fc2" primary="false"/>
+        <category id="1597-db45-3399-b3d1" name="No Force Org Slot" entryId="ff36a6f3-19bf-4f48-8956-adacfd28fe74" primary="false"/>
+        <category id="4635-023b-3973-d2bc" name="HQ" entryId="848a6ff2-0def-4c72-8433-ff7da70e6bc7" primary="false"/>
+        <category id="9cc6-a21c-907b-6d3f" name="Troops" entryId="5d76b6f5-20ae-4d70-8f59-ade72a2add3a" primary="false"/>
+        <category id="3c2d-f2e0-1c16-f2ab" name="Elites" entryId="638d74c6-bd97-4de5-b65a-6aaa24e9f4b2" primary="false"/>
+        <category id="b54a-b669-ea8b-cea2" name="Fast Attack" entryId="c274d0b0-5866-44bc-9810-91c136ae7438" primary="false"/>
+        <category id="a9f8-5e65-de56-41de" name="Heavy Support" entryId="abf5fd55-9ac7-4263-8bc1-a9fb0a8fa6a6" primary="false"/>
+        <category id="e350-0680-2683-c6a4" name="Flyer" entryId="e888-1504-aa61-95ff" primary="false"/>
+        <category id="f99a-a061-dc04-367b" name="Dedicated Transport" entryId="1b66-3f5f-6705-079a" primary="false"/>
+        <category id="3a4c-df1b-5ea8-33c5" name="Warlord" entryId="ae09-117e-a6fa-316b" primary="false"/>
+        <category id="46fe-7bcf-fbe0-7201" name="Relic Elites" entryId="8d86-9490-0f7d-a5b5" primary="false"/>
+        <category id="282d-cd2c-b64e-2d6b" name="Relic Heavy Support" entryId="6c4c-a416-b8cb-c380" primary="false"/>
+        <category id="4589-1bec-5731-2c62" name="Relic HQ" entryId="655f-e142-dfa9-11a4" primary="false"/>
+      </categories>
+    </force>
+  </forces>
+</roster>

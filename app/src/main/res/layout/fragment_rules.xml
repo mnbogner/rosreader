@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:layout_margin="10dp"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <TextView
+    android:id="@+id/rules_name"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:padding="5dp"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:text="Army Rules"
+    />
+
+  <LinearLayout
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    app:layout_constraintTop_toTopOf="@id/rules_name"
+    app:layout_constraintBottom_toBottomOf="@id/rules_name"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintWidth_percent=".2"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <Button
+      android:id="@+id/rules_button"
+      android:layout_width="match_parent"
+      android:layout_height="30dp"
+      android:gravity="center"
+      android:padding="5dp"
+      android:textSize="10dp"
+      android:text="LOAD"
+      />
+
+  </LinearLayout>
+
+  <ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rules_scroll"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:layout_marginBottom="2dp"
+    app:layout_constraintTop_toBottomOf="@id/rules_name"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent">
+
+    <LinearLayout
+      android:id="@+id/rules_list"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"/>
+
+  </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
