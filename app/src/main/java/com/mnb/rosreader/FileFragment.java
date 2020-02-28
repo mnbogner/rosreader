@@ -11,14 +11,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class FileFragment extends DialogFragment {
 
   private RosSelector selector;
-  private String[] rosList;
+  private ArrayList<String> rosList;
 
-  public FileFragment (RosSelector selector, String[] rosList) {
+  public FileFragment (RosSelector selector, ArrayList<String> rosList) {
     this.selector = selector;
     this.rosList = rosList;
   }
@@ -46,7 +47,7 @@ public class FileFragment extends DialogFragment {
       ll.addView(v);
     }
 
-    System.out.println("BAR - FILES: " + Arrays.toString(rosList));
+    //System.out.println("BAR - FILES: " + Arrays.toString(rosList));
 
     return view;
 

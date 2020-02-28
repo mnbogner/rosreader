@@ -134,72 +134,91 @@ public class UnitFragment extends Fragment {
       v = inflater.inflate(R.layout.item_damage, container, false);
       damageView.addView(v);
 
+      View v1 = inflater.inflate(R.layout.item_damage, container, false);
+      damageView.addView(v1);
+      View v2 = inflater.inflate(R.layout.item_damage, container, false);
+      damageView.addView(v2);
+      View v3 = inflater.inflate(R.layout.item_damage, container, false);
+      damageView.addView(v3);
+
       for (Damage d : unit.damages) {
-        v = inflater.inflate(R.layout.item_damage, container, false);
-        t = v.findViewById(R.id.item_damage_remaining);
+        View vCurrent;
+        if (d.name.endsWith("1") || d.name.endsWith("(1)")) {
+          vCurrent = v1;
+        } else if (d.name.endsWith("2") || d.name.endsWith("(2)")) {
+          vCurrent = v2;
+        } else if (d.name.endsWith("3") || d.name.endsWith("(3)")) {
+          vCurrent = v3;
+        } else {
+          continue;
+        }
+        t = vCurrent.findViewById(R.id.item_damage_remaining);
         t.setText(d.remaining);
-        t = v.findViewById(R.id.item_damage_m);
+        t = vCurrent.findViewById(R.id.item_damage_m);
         t.setText(d.m);
-        t = v.findViewById(R.id.item_damage_ws);
+        t = vCurrent.findViewById(R.id.item_damage_ws);
         t.setText(d.ws);
-        t = v.findViewById(R.id.item_damage_bs);
+        t = vCurrent.findViewById(R.id.item_damage_bs);
         t.setText(d.bs);
-        t = v.findViewById(R.id.item_damage_s);
+        t = vCurrent.findViewById(R.id.item_damage_s);
         t.setText(d.s);
-        t = v.findViewById(R.id.item_damage_t);
+        t = vCurrent.findViewById(R.id.item_damage_t);
         t.setText(d.t);
-        t = v.findViewById(R.id.item_damage_w);
+        t = vCurrent.findViewById(R.id.item_damage_w);
         t.setText(d.w);
-        t = v.findViewById(R.id.item_damage_a);
+        t = vCurrent.findViewById(R.id.item_damage_a);
         t.setText(d.a);
-        t = v.findViewById(R.id.item_damage_ld);
+        t = vCurrent.findViewById(R.id.item_damage_ld);
         t.setText(d.ld);
-        t = v.findViewById(R.id.item_damage_save);
+        t = vCurrent.findViewById(R.id.item_damage_save);
         t.setText(d.save);
-        damageView.addView(v);
       }
     } else {
       damageView.setVisibility(View.GONE);
     }
 
-    LinearLayout weaponView = view.findViewById(R.id.weapon_list);
+    LinearLayout weaponView = view.findViewById(R.id.weapon_scroll);
+    if (unit.weapons.size() > 0) {
+      v = inflater.inflate(R.layout.item_weapon, container, false);
+      weaponView.addView(v);
 
-    v = inflater.inflate(R.layout.item_weapon, container, false);
-    weaponView.addView(v);
-
-    for (Weapon w : unit.weapons) {
-      if (!weapons.contains(w.name)) {
-        weapons.add(w.name);
-        v = inflater.inflate(R.layout.item_weapon, container, false);
-        t = v.findViewById(R.id.item_weapon_name);
-        t.setText(w.name);
-        t = v.findViewById(R.id.item_weapon_range);
-        if ("Melee".equals(w.range)) {
-          t.setText("n/a");
-        } else {
-          t.setText(w.range);
+      for (Weapon w : unit.weapons) {
+        if (!weapons.contains(w.name)) {
+          weapons.add(w.name);
+          v = inflater.inflate(R.layout.item_weapon, container, false);
+          t = v.findViewById(R.id.item_weapon_name);
+          t.setText(w.name);
+          t = v.findViewById(R.id.item_weapon_range);
+          if ("Melee".equals(w.range)) {
+            t.setText("n/a");
+          } else {
+            t.setText(w.range);
+          }
+          t = v.findViewById(R.id.item_weapon_type);
+          String shortType = w.type.replace("Rapid Fire", "R")
+              .replace("Assault", "A")
+              .replace("Heavy", "H")
+              .replace("Pistol", "P")
+              .replace("Grenade", "G");
+          t.setText(shortType);
+          t = v.findViewById(R.id.item_weapon_s);
+          if ("User".equals(w.s)) {
+            t.setText("n/a");
+          } else {
+            t.setText(w.s);
+          }
+          t = v.findViewById(R.id.item_weapon_ap);
+          t.setText(w.ap);
+          t = v.findViewById(R.id.item_weapon_d);
+          t.setText(w.d);
+          t = v.findViewById(R.id.item_weapon_abilities);
+          t.setText(w.abilities);
+          weaponView.addView(v);
         }
-        t = v.findViewById(R.id.item_weapon_type);
-        String shortType = w.type.replace("Rapid Fire", "R")
-            .replace("Assault", "A")
-            .replace("Heavy", "H")
-            .replace("Pistol", "P")
-            .replace("Grenade", "G");
-        t.setText(shortType);
-        t = v.findViewById(R.id.item_weapon_s);
-        if ("User".equals(w.s)) {
-          t.setText("n/a");
-        } else {
-          t.setText(w.s);
-        }
-        t = v.findViewById(R.id.item_weapon_ap);
-        t.setText(w.ap);
-        t = v.findViewById(R.id.item_weapon_d);
-        t.setText(w.d);
-        t = v.findViewById(R.id.item_weapon_abilities);
-        t.setText(w.abilities);
-        weaponView.addView(v);
       }
+    } else {
+      weaponView = view.findViewById(R.id.weapon_list);
+      weaponView.setVisibility(View.GONE);
     }
 
     return view;

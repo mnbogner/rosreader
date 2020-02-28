@@ -1,7 +1,13 @@
 package com.mnb.rosreader;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Environment;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -14,12 +20,20 @@ import androidx.viewpager.widget.ViewPager;
 import com.mnb.rosreader.data.Power;
 import com.mnb.rosreader.data.Rule;
 import com.mnb.rosreader.data.Unit;
-import com.mnb.rosreader.parser.ParseRos;
+import com.mnb.rosreader.parser.RosAssetParser;
+import com.mnb.rosreader.parser.RosDownloadParser;
+import com.mnb.rosreader.parser.RosParser;
 
+import java.io.File;
+import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MainActivity extends FragmentActivity implements RosSelector {
+
+  protected static final String TAG = "MNB.ROS";
+
+  private static final int PERMISSION_REQUEST_CODE = 100;
 
   private ArrayList<Unit> units = null;
   private HashMap<String, Integer> index = new HashMap<String, Integer>();
@@ -31,10 +45,46 @@ public class MainActivity extends FragmentActivity implements RosSelector {
   private ViewPager vp;
   private PagerAdapter pa;
 
+  private RosParser parser;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
+
+    // check permissions before trying to get file list
+    if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+        + ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        != PackageManager.PERMISSION_GRANTED) {
+      System.out.println(TAG + " need permissions");
+      ActivityCompat.requestPermissions(this,
+          new String[]{ Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE },
+          PERMISSION_REQUEST_CODE);
+
+    } else {
+      System.out.println(TAG + " permissions ok");
+      init();
+    }
+  }
+
+  @Override
+  public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    if (requestCode == PERMISSION_REQUEST_CODE) {
+      if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+        System.out.println(TAG + " got permissions");
+        init();
+      } else {
+        System.out.println(TAG + " permissions denied");
+      }
+    } else {
+      System.out.println(TAG + " wrong request code");
+    }
+  }
+
+  private void init() {
+
+    // parser = new RosAssetParser(this);
+    parser = new RosDownloadParser(this);
 
     fm = getSupportFragmentManager();
 
@@ -42,13 +92,7 @@ public class MainActivity extends FragmentActivity implements RosSelector {
     pa = new MyPagerAdapter(fm);
     vp.setAdapter(pa);
 
-    // initFragments();
-
     showDialog();
-
-    // units = ParseRos.doParse(this, "aberrants.ros");
-    // pa.notifyDataSetChanged();
-
   }
 
   @Override
@@ -81,7 +125,7 @@ public class MainActivity extends FragmentActivity implements RosSelector {
     }
     ft.addToBackStack(null);
 
-    String[] rosFiles = getRosFiles();
+    //String[] rosFiles = getRosFiles();
     DialogFragment d = new InfoFragment(powers, rules);
 
     d.show(ft, "info");
@@ -105,7 +149,7 @@ public class MainActivity extends FragmentActivity implements RosSelector {
 
     System.out.println(rosFile);
 
-    units = ParseRos.doParse(this, rosFile);
+    units = parser.parseRosFile(rosFile);
 
     int i = 0;
     for (Unit u : units) {
@@ -131,35 +175,6 @@ public class MainActivity extends FragmentActivity implements RosSelector {
 
   }
 
-  private String[] getRosFiles() {
-
-    String[] files = new String[3];
-    files[0] = "aberrants.ros";
-    files[1] = "more_grey.ros";
-    files[2] = "sisters.ros";
-    return files;
-
-    /*
-    File downloadDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-
-    System.out.println("BAR - download directory: " + downloadDirectory.getPath());
-
-    if (downloadDirectory.exists()) {
-      System.out.println("BAR - exists");
-      FilenameFilter rosFilter = new FilenameFilter() {
-        @Override
-        public boolean accept(File dir, String name) {
-          return name.endsWith(".ros");
-        }
-      };
-      return downloadDirectory.list(rosFilter);
-    } else {
-      System.out.println("BAR - no download directory?");
-    }
-    return new String[0];
-    */
-  }
-
   private class MyPagerAdapter extends FragmentStatePagerAdapter {
 
     public MyPagerAdapter(FragmentManager fm) {
@@ -169,14 +184,6 @@ public class MainActivity extends FragmentActivity implements RosSelector {
     @Override
     public Fragment getItem(int i) {
 
-      /*
-      if (fragments != null && i < fragments.size()) {
-        return fragments.get(i);
-      } else {
-        return null;
-      }
-
-       */
 
 
       if (units == null || units.isEmpty()) {
@@ -209,53 +216,7 @@ public class MainActivity extends FragmentActivity implements RosSelector {
     }
   }
 
-  private void initFragments() {
 
-    /*
-    if (units == null) {
-      units = new ArrayList<Unit>();
-    }
-
-    if (units.size() > 0) {
-      for (Unit u : units) {
-        UnitFragment uf = new UnitFragment(this, u);
-        fragments.add(uf);
-      }
-      pa.notifyDataSetChanged();
-    } else {
-
-      System.out.println("BAR - SHOW DIALOG?");
-      showDialog();
-    }
-
-
-    /*
-    if (fragments == null) {
-      fragments = new ArrayList<Fragment>();
-    } else {
-      FragmentTransaction ft = fm.beginTransaction();
-      for (Fragment f : fragments) {
-        ft.remove(f);
-      }
-      ft.commitAllowingStateLoss();
-    }
-    fragments.clear();
-    String[] rosFiles = getRosFiles();
-    FileFragment ff = new FileFragment(this, rosFiles);
-    fragments.add(ff);
-    if (units != null) {
-      for (Unit u : units) {
-        UnitFragment uf = new UnitFragment(this, u);
-        fragments.add(uf);
-      }
-    }
-    pa.notifyDataSetChanged();
-    if (fragments.size() > 1) {
-      vp.setCurrentItem(1);
-    }
-
-     */
-  }
 
 
   void showDialog() {
@@ -270,7 +231,7 @@ public class MainActivity extends FragmentActivity implements RosSelector {
     }
     ft.addToBackStack(null);
 
-    String[] rosFiles = getRosFiles();
+    ArrayList<String> rosFiles = parser.getRosFileList();
     DialogFragment d = new FileFragment(this, rosFiles);
 
     d.show(ft, "dialog");

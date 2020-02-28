@@ -1,6 +1,6 @@
 package com.mnb.rosreader.data;
 
-import com.mnb.rosreader.parser.ParseRos;
+import com.mnb.rosreader.parser.RosDownloadParser;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -8,7 +8,7 @@ import org.xmlpull.v1.XmlPullParserException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static com.mnb.rosreader.parser.ParseRos.ns;
+import static com.mnb.rosreader.parser.RosDownloadParser.ns;
 
 public class Unit {
 
@@ -35,83 +35,4 @@ public class Unit {
     this.weapons = new ArrayList<Weapon>();
 
   }
-
-  public static Unit readUnit(XmlPullParser xpp) throws IOException, XmlPullParserException {
-
-    System.out.println("BAR - UNIT - parsing unit");
-
-    xpp.require(XmlPullParser.START_TAG, ns, "selection");
-    while (xpp.next() != XmlPullParser.END_TAG) {
-
-      String name = xpp.getName();
-
-      System.out.println("BAR - UNIT - parsing " + name);
-
-      if (name == null) {
-        return new Unit("");
-      }
-
-      if (name.equals("rule")) {
-
-        String ruleName = xpp.getAttributeValue(ns, "name");
-
-        System.out.println("BAR - UNIT - " + ruleName);
-
-      } else if (name.equals("profile")) {
-
-        String profileName = xpp.getAttributeValue(ns, "typeName");
-
-        if (profileName.equals("Unit")) {
-          String unitName = xpp.getAttributeValue(ns, "name");
-          System.out.println("BAR - UNIT - " + unitName);
-        } else if (profileName.equals("Weapon")) {
-          String weaponName = xpp.getAttributeValue(ns, "name");
-          System.out.println("BAR - UNIT - " + weaponName);
-        } else if (profileName.equals("Psyker")) {
-          String psykerName = xpp.getAttributeValue(ns, "name");
-          System.out.println("BAR - UNIT - " + psykerName);
-        } else if (profileName.equals("Psychic Power")) {
-          String powerName = xpp.getAttributeValue(ns, "name");
-          System.out.println("BAR - UNIT - " + powerName);
-        } else {
-          System.out.println("BAR - UNIT - " + profileName + " (ignore)");
-        }
-      } else {
-        ParseRos.skip(xpp);
-      }
-    }
-
-    return new Unit("");
-
-  }
-
-  private static Unit readUnit(XmlPullParser xpp, Unit unit) {
-
-
-    return unit;
-
-  }
-
-  private static Unit readWeapon(XmlPullParser xpp, Unit unit) {
-
-
-    return unit;
-
-  }
-
-  private static Unit readPsyker(XmlPullParser xpp, Unit unit) {
-
-
-    return unit;
-
-  }
-
-  private static Unit readPower(XmlPullParser xpp, Unit unit) {
-
-
-    return unit;
-
-  }
-
-
 }

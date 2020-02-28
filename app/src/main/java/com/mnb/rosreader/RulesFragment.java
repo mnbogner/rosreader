@@ -66,7 +66,11 @@ public class RulesFragment extends Fragment {
         TextView t = v.findViewById(R.id.item_rule_name);
         t.setText(r.name);
         t = v.findViewById(R.id.item_rule_description);
-        t.setText(r.description);
+        if (r.description == null || r.description.isEmpty()) {
+          t.setText("no description found");
+        } else {
+          t.setText(r.description);
+        }
         rulesView.addView(v);
       }
     }

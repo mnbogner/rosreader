@@ -3,10 +3,10 @@ package com.mnb.rosreader.parser;
 import android.content.Context;
 import android.util.Xml;
 
+import com.mnb.rosreader.data.Damage;
 import com.mnb.rosreader.data.Power;
 import com.mnb.rosreader.data.Psyker;
 import com.mnb.rosreader.data.Rule;
-import com.mnb.rosreader.data.Damage;
 import com.mnb.rosreader.data.SubUnit;
 import com.mnb.rosreader.data.Unit;
 import com.mnb.rosreader.data.Weapon;
@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
-public class ParseRos {
+public class RosAssetParser extends RosParser {
 
   public static String NONE = "none";
   public static String RULE = "rule";
@@ -30,30 +30,73 @@ public class ParseRos {
 
   public static String ns = null;  // ignore namespaces?
 
-  public static ArrayList<Unit> doParse(Context context, String rosFile) {
+  public RosAssetParser (Context context) {
+    super(context);
+  }
 
-    ArrayList<Unit> units = new ArrayList<Unit>();
-
-    // File downloadDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-    // File f = new File(downloadDirectory, rosFile);
-
-    InputStream is = null;
-
+  @Override
+  protected InputStream openRosFile(String rosFile) {
     try {
-      System.out.println("BAR - trying to open " + rosFile);
-      is = context.getAssets().open(rosFile);
-      //is = new FileInputStream(f);
+      return context.getAssets().open(rosFile);
     } catch (IOException ioe) {
-      System.out.println("BAR - failed to open " + rosFile + ": " + ioe.getMessage());
-      return units;
+      System.out.println(TAG + " failed to open " + rosFile);
+      return null;
     }
+  }
 
-    System.out.println("BAR - opened " + rosFile);
+  @Override
+  protected InputStream openRoszFile(String roszFile) {
+    try {
+      return unzipFile(context.getAssets().open(roszFile));
+    } catch (IOException ioe) {
+      System.out.println(TAG + " failed to open " + roszFile);
+      return null;
+    }
+  }
+
+  @Override
+  public ArrayList<String> getRosFileList() {
+
+    ArrayList<String> rosFileList = new ArrayList<String>();
+
+    rosFileList.add("iron.rosz");
+    rosFileList.add("nurgle.rosz");
+    rosFileList.add("eight.ros");
+    rosFileList.add("tau.ros");
+    rosFileList.add("foo.ros");
+    rosFileList.add("aberrants.ros");
+    rosFileList.add("chaos.ros");
+    rosFileList.add("grey.ros");
+    rosFileList.add("iron.ros");
+    rosFileList.add("sisters.ros");
+
+    return rosFileList;
+  }
+
+  /*
+
+  String characteristic1 = "";
+  String characteristic2 = "";
+  String characteristic3 = "";
+
+  ArrayList<Unit> units;
+
+
+
+  @Override
+  public ArrayList<Unit> parseRosFile(String rosFile) {
+
+    units = new ArrayList<Unit>();
+
+    InputStream is = openFile(rosFile);
 
     if (is == null) {
-      System.out.println("BAR - input stream is null for " + rosFile);
       return units;
     }
+
+
+
+
 
     XmlPullParser xpp = null;
 
@@ -111,6 +154,7 @@ public class ParseRos {
               selectionDepth--;
               // had to allow "upgrade" selection, so may need to do cleanup
               if (selectionDepth == 0) {
+                System.out.println("BAR - CLOSING OUT " + inProgress);
                 inProgress = NONE;
                 if (currentUnit.subUnits.size() == 0) {
                   units.remove(currentUnit);
@@ -140,6 +184,10 @@ public class ParseRos {
 
                   currentUnit = new Unit(unitName);
                   units.add(currentUnit);
+                  System.out.println("CHAR - RESET");
+                  characteristic1 = "";
+                  characteristic2 = "";
+                  characteristic3 = "";
                 }
               }
             } else if ("category".equals(startName)) {
@@ -148,8 +196,8 @@ public class ParseRos {
 
               if (currentUnit != null) {
                 // currentCategory = categoryName;
-                if ("Warlord".equals(categoryName) && !NONE.equals(inProgress)) {
-                  System.out.println("WARLORD? - " + currentUnit.name + " - " + inProgress);
+                if ("Warlord".equals(categoryName) && !NONE.equals(inProgress) && selectionDepth > 0) {
+                  System.out.println("BAR - WARLORD? - " + currentUnit.name + " - " + inProgress);
                   currentUnit.warlord = true;
                 }
                 currentUnit.categories.add(categoryName);
@@ -158,11 +206,16 @@ public class ParseRos {
               String ruleName = xpp.getAttributeValue(ns, "name");
               System.out.println("BAR - rule name is " + ruleName);
 
-              if (currentUnit != null) {
+              // need to account for rules outside of units
+              // if (currentUnit != null) {
                 currentRule = new Rule(ruleName);
-                currentUnit.rules.add(currentRule);
+                if (currentUnit != null && selectionDepth > 0) {
+                  currentUnit.rules.add(currentRule);
+                } else {
+                  rulesUnit.rules.add(currentRule);
+                }
                 inProgress = RULE;
-              }
+              // }
             } else if ("profile".equals(startName)) {
               String type = xpp.getAttributeValue(ns, "typeName");
               System.out.println("BAR - profile type is " + type);
@@ -288,39 +341,145 @@ public class ParseRos {
 
                 System.out.println("BAR - DAMAGE: " + characteristicName);
 
+                String s = "";
+
+                if ("Characteristic 1".equals(characteristicName)) {
+                  if (characteristic1.isEmpty()) {
+                    s = xpp.nextText();
+                    if (Character.isDigit(s.charAt(0))) {
+                      // need to build a map
+                      foo(currentSubUnit);
+                      characteristicName = characteristic1;
+                      System.out.println("CHAR - GET?: " + characteristic1);
+                    } else {
+                      characteristic1 = s;
+                      System.out.println("CHAR - SET: " + characteristic1);
+                    }
+                  } else {
+                    characteristicName = characteristic1;
+                    System.out.println("CHAR - GET: " + characteristic1);
+                  }
+                } else if ("Characteristic 2".equals(characteristicName)) {
+                  if (characteristic2.isEmpty()) {
+                    s = xpp.nextText();
+                    if (Character.isDigit(s.charAt(0))) {
+                      // need to build a map
+                      foo(currentSubUnit);
+                      characteristicName = characteristic2;
+                      System.out.println("CHAR - GET?: " + characteristic2);
+                    } else {
+                      characteristic2 = s;
+                      System.out.println("CHAR - SET: " + characteristic2);
+                    }
+                  } else {
+                    characteristicName = characteristic2;
+                    System.out.println("CHAR - GET: " + characteristic2);
+                  }
+                } else if ("Characteristic 3".equals(characteristicName)) {
+                  if (characteristic3.isEmpty()) {
+                    s = xpp.nextText();
+                    if (Character.isDigit(s.charAt(0))) {
+                      // need to build a map
+                      foo(currentSubUnit);
+                      characteristicName = characteristic3;
+                      System.out.println("CHAR - GET?: " + characteristic3);
+                    } else {
+                      characteristic3 = s;
+                      System.out.println("CHAR - SET: " + characteristic3);
+                    }
+                  } else {
+                    characteristicName = characteristic3;
+                    System.out.println("CHAR - GET: " + characteristic3);
+                  }
+                }
+
                 // if ("Remaining W".equals(characteristicName)) {
                 if (characteristicName.contains("Remaining")) {
-                  currentDamage.remaining = xpp.nextText();
+                  if (s.isEmpty()) {
+                    currentDamage.remaining = xpp.nextText();
+                  } else {
+                    currentDamage.remaining = s;
+                  }
                 } else if ("Movement".equals(characteristicName)) {
-                  currentDamage.m = xpp.nextText();
-                } else if ("Characteristic 1".equals(characteristicName)) {
-                  // weird sisters thing?
-                  currentDamage.m = xpp.nextText();
+                  if (s.isEmpty()) {
+                    currentDamage.m = xpp.nextText();
+                  } else {
+                    currentDamage.m = s;
+                  }
+                } else if ("M".equals(characteristicName)) {
+                  if (s.isEmpty()) {
+                    currentDamage.m = xpp.nextText();
+                  } else {
+                    currentDamage.m = s;
+                  }
                 } else if ("WS".equals(characteristicName)) {
-                  currentDamage.ws = xpp.nextText();
+                  if (s.isEmpty()) {
+                    currentDamage.ws = xpp.nextText();
+                  } else {
+                    currentDamage.ws = s;
+                  }
                 } else if ("BS".equals(characteristicName)) {
-                  currentDamage.bs = xpp.nextText();
-                } else if ("Characteristic 2".equals(characteristicName)) {
-                  // weird sisters thing?
-                  currentDamage.bs = xpp.nextText();
+                  if (s.isEmpty()) {
+                    currentDamage.bs = xpp.nextText();
+                  } else {
+                    currentDamage.bs = s;
+                  }
                 } else if ("S".equals(characteristicName)) {
-                  currentDamage.s = xpp.nextText();
+                  if (s.isEmpty()) {
+                    currentDamage.s = xpp.nextText();
+                  } else {
+                    currentDamage.s = s;
+                  }
                 } else if ("T".equals(characteristicName)) {
-                  currentDamage.t = xpp.nextText();
+                  if (s.isEmpty()) {
+                    currentDamage.t = xpp.nextText();
+                  } else {
+                    currentDamage.t = s;
+                  }
                 } else if ("W".equals(characteristicName)) {
-                  currentDamage.w = xpp.nextText();
+                  if (s.isEmpty()) {
+                    currentDamage.w = xpp.nextText();
+                  } else {
+                    currentDamage.w = s;
+                  }
                 } else if ("Attacks".equals(characteristicName)) {
-                  currentDamage.a = xpp.nextText();
-                } else if ("Characteristic 3".equals(characteristicName)) {
-                  // weird sisters thing?
-                  currentDamage.a = xpp.nextText();
+                  if (s.isEmpty()) {
+                    currentDamage.a = xpp.nextText();
+                  } else {
+                    currentDamage.a = s;
+                  }
+                } else if ("A".equals(characteristicName)) {
+                  if (s.isEmpty()) {
+                    currentDamage.a = xpp.nextText();
+                  } else {
+                    currentDamage.a = s;
+                  }
                 } else if ("Ld".equals(characteristicName)) {
-                  currentDamage.ld = xpp.nextText();
+                  if (s.isEmpty()) {
+                    currentDamage.ld = xpp.nextText();
+                  } else {
+                    currentDamage.ld = s;
+                  }
                 } else if ("Save".equals(characteristicName)) {
-                  currentDamage.save = xpp.nextText();
+                  if (s.isEmpty()) {
+                    currentDamage.save = xpp.nextText();
+                  } else {
+                    currentDamage.save = s;
+                  }
                 } else if ("Relics".equals(characteristicName)) {
                   // weird st. katherine thing
-                  currentDamage.remaining = currentDamage.remaining + ", " + xpp.nextText() + " Relics";
+                  if (s.isEmpty()) {
+                    currentDamage.remaining = currentDamage.remaining + ", " + xpp.nextText() + " Relics";
+                  } else {
+                    currentDamage.remaining = currentDamage.remaining + ", " + s + " Relics";;
+                  }
+                } else if ("Additional attacks".equals(characteristicName)) {
+                  // weird disco lord thing
+                  if (s.isEmpty()) {
+                    currentDamage.a = "+" + xpp.nextText();
+                  } else {
+                    currentDamage.a = "+" + s;
+                  }
                 }
               } else if (RULE.equals(inProgress)) {
                 if ("Description".equals(characteristicName)) {
@@ -345,141 +504,7 @@ public class ParseRos {
 
   }
 
-  public static void skip(XmlPullParser xpp) throws IllegalStateException, IOException, XmlPullParserException {
+   */
 
-    // don't want to handle exceptions here and leave parsing in an unknown state
-
-    if (xpp.getEventType() != XmlPullParser.START_TAG) {
-      throw new IllegalStateException();
-    }
-
-    int depth = 1;
-
-    while (depth != 0) {
-      switch (xpp.next()) {
-        case XmlPullParser.END_TAG:
-          depth--;
-          break;
-        case XmlPullParser.START_TAG:
-          depth++;
-          break;
-      }
-    }
-  }
-
-  // TEMP - not sure if these should be parsed individually
-
-  private static ArrayList<Unit> readForces(XmlPullParser xpp) {
-
-    ArrayList<Unit> units = new ArrayList<Unit>();
-
-    try {
-      xpp.require(XmlPullParser.START_TAG, ns, "forces");
-      while (xpp.next() != XmlPullParser.END_TAG) {
-        int eventType = xpp.getEventType();
-        if (xpp.getEventType() != XmlPullParser.START_TAG) {
-          continue;
-        }
-        String name = xpp.getName();
-        System.out.println("BAR - FORCES - parsing event " + name);
-        if (name.equals("force")) {
-          units.addAll(readForce(xpp));
-        } else {
-          skip(xpp);
-        }
-      }
-    } catch (XmlPullParserException xppe) {
-      xppe.printStackTrace();
-    } catch (IOException ioe) {
-      ioe.printStackTrace();
-    }
-    return units;
-  }
-
-  private static ArrayList<Unit> readForce(XmlPullParser xpp) {
-
-    ArrayList<Unit> units = new ArrayList<Unit>();
-
-    try {
-      xpp.require(XmlPullParser.START_TAG, ns, "force");
-      while (xpp.next() != XmlPullParser.END_TAG) {
-        int eventType = xpp.getEventType();
-        if (xpp.getEventType() != XmlPullParser.START_TAG) {
-          continue;
-        }
-        String name = xpp.getName();
-        System.out.println("BAR - FORCE - parsing event " + name);
-        if (name.equals("selections")) {
-          units.addAll(readSelections(xpp));
-        } else {
-          skip(xpp);
-        }
-      }
-    } catch (XmlPullParserException xppe) {
-      xppe.printStackTrace();
-    } catch (IOException ioe) {
-      ioe.printStackTrace();
-    }
-    return units;
-  }
-
-  private static ArrayList<Unit> readSelections(XmlPullParser xpp) {
-
-    ArrayList<Unit> units = new ArrayList<Unit>();
-
-    try {
-      xpp.require(XmlPullParser.START_TAG, ns, "selections");
-      while (xpp.next() != XmlPullParser.END_TAG) {
-        int eventType = xpp.getEventType();
-        System.out.println("BAR - SELECTIONS - parsing event type " + eventType);
-        if (xpp.getEventType() != XmlPullParser.START_TAG) {
-          continue;
-        }
-        String name = xpp.getName();
-        String type = xpp.getAttributeValue(ns, "type");
-        System.out.println("BAR - SELECTIONS - parsing event " + name + " / " + type);
-        if (name.equals("selection") && (type.equals("model") || type.equals("unit"))) {
-          units.add(Unit.readUnit(xpp));
-        } else {
-          skip(xpp);
-        }
-      }
-    } catch (XmlPullParserException xppe) {
-      xppe.printStackTrace();
-    } catch (IOException ioe) {
-      ioe.printStackTrace();
-    }
-
-    return units;
-  }
-
-  /*
-  private static ArrayList<Unit> readSelection(XmlPullParser xpp) {
-
-    ArrayList<Unit> units = new ArrayList<Unit>();
-
-    try {
-      xpp.require(XmlPullParser.START_TAG, ns, "forces");
-      while (xpp.next() != XmlPullParser.END_TAG) {
-        int eventType = xpp.getEventType();
-        if (xpp.getEventType() != XmlPullParser.START_TAG) {
-          continue;
-        }
-        String name = xpp.getName();
-        System.out.println("BAR - parsing event " + name;
-        if (name.equals("force")) {
-          units.addAll(readForce(xpp));
-        } else {
-          skip(xpp);
-        }
-      }
-    } catch (XmlPullParserException xppe) {
-      xppe.printStackTrace();
-    } catch (IOException ioe) {
-      ioe.printStackTrace();
-    }
-    return units;
-  }
-  */
 
 }
