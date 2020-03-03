@@ -5,7 +5,6 @@ public class Weapon {
   public String name;
 
   public int numberOf;
-
   public String range;
   public String type;
   public String s;
@@ -16,5 +15,4 @@ public class Weapon {
   public Weapon(String name) {
     this.name = name;
   }
-
 }

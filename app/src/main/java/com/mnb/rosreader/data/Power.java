@@ -11,5 +11,4 @@ public class Power {
   public Power (String name) {
     this.name = name;
   }
-
 }

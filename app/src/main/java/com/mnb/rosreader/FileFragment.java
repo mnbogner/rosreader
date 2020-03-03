@@ -12,7 +12,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class FileFragment extends DialogFragment {
 
@@ -47,8 +46,6 @@ public class FileFragment extends DialogFragment {
       ll.addView(v);
     }
 
-    //System.out.println("BAR - FILES: " + Arrays.toString(rosList));
-
     return view;
 
   }
@@ -61,5 +58,4 @@ public class FileFragment extends DialogFragment {
     params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
     getDialog().getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
   }
-
 }

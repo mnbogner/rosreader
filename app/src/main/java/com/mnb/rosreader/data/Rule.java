@@ -9,5 +9,4 @@ public class Rule {
   public Rule (String name) {
     this.name = name;
   }
-
 }

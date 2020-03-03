@@ -60,5 +60,4 @@ public class SelectionFragment extends DialogFragment {
     params.height = ViewGroup.LayoutParams.MATCH_PARENT;
     getDialog().getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
   }
-
 }

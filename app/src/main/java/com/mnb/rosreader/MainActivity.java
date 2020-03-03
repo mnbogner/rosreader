@@ -4,7 +4,6 @@ import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -28,8 +27,6 @@ import com.mnb.rosreader.parser.RosAssetParser;
 import com.mnb.rosreader.parser.RosDownloadParser;
 import com.mnb.rosreader.parser.RosParser;
 
-import java.io.File;
-import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -87,8 +84,8 @@ public class MainActivity extends FragmentActivity implements RosSelector {
 
   private void init() {
 
-    // parser = new RosAssetParser(this);
-    parser = new RosDownloadParser(this);
+    parser = new RosAssetParser(this);
+    //parser = new RosDownloadParser(this);
 
     fm = getSupportFragmentManager();
 
