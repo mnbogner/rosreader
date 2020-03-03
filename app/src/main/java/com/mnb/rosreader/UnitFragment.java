@@ -1,7 +1,9 @@
 package com.mnb.rosreader;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -10,6 +12,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.fragment.app.Fragment;
 
 import com.mnb.rosreader.data.Damage;
@@ -18,6 +21,7 @@ import com.mnb.rosreader.data.Unit;
 import com.mnb.rosreader.data.Weapon;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class UnitFragment extends Fragment {
 
@@ -26,8 +30,12 @@ public class UnitFragment extends Fragment {
 
   private View view;
 
-  private ArrayList<String> units = new ArrayList<String>();
-  private ArrayList<String> weapons = new ArrayList<String>();
+  // private ArrayList<String> units = new ArrayList<String>();
+
+  private HashMap<String, SubUnit> unitCounts = new HashMap<String, SubUnit>();
+  private HashMap<String, Weapon> weaponCounts = new HashMap<String, Weapon>();
+  private ArrayList<String> unitNames = new ArrayList<String>();
+  private ArrayList<String> weaponNames = new ArrayList<String>();
 
   public UnitFragment (RosSelector selector, Unit unit) {
     this.selector = selector;
@@ -55,7 +63,8 @@ public class UnitFragment extends Fragment {
     ub.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        selector.showSelector();
+        Context c = getContext();
+        selector.showMenu(c, v);
       }
     });
 
@@ -63,7 +72,8 @@ public class UnitFragment extends Fragment {
     ib.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        selector.showInfo(unit.powers, unit.rules);
+        System.out.println(unit.name + " - " + unit.pl + " pl / " + unit.pts + " points");
+        selector.showInfo(unit.powers, unit.rules, unit.pl, unit.pts);
       }
     });
 
@@ -80,12 +90,33 @@ public class UnitFragment extends Fragment {
     View v = inflater.inflate(R.layout.item_unit, container, false);
     unitView.addView(v);
 
+    // need to merge counts
     for (SubUnit su : unit.subUnits) {
-      if (!units.contains(su.name)) {
-        units.add(su.name);
+      System.out.println("MERGE - found " + su.numberOf + "x " + su.name);
+      if (su.numberOf < 1) {
+        su.numberOf = 1;
+      }
+      if (unitCounts.containsKey(su.name)) {
+        SubUnit suPlus = unitCounts.get(su.name);
+        System.out.println("MERGE - combine " + suPlus.numberOf + "x " + suPlus.name);
+        su.numberOf += suPlus.numberOf;
+      }
+      unitCounts.put(su.name, su);
+    }
+
+    for (SubUnit su : unit.subUnits) {
+      if (!unitNames.contains(su.name)) {
+        unitNames.add(su.name);
         v = inflater.inflate(R.layout.item_unit, container, false);
         t = v.findViewById(R.id.item_unit_name);
-        t.setText(su.name);
+
+        Integer count = unitCounts.get(su.name).numberOf;
+        if (count != null && count > 1) {
+          t.setText(count + "x " + su.name);
+        } else {
+          t.setText(su.name);
+        }
+
         t = v.findViewById(R.id.item_unit_m);
         t.setText(su.m);
         t = v.findViewById(R.id.item_unit_ws);
@@ -106,6 +137,9 @@ public class UnitFragment extends Fragment {
         t.setText(su.save);
         unitView.addView(v);
       }
+      //} else {
+      //  System.out.println("OOPS: DUPLICATE " + su.name);
+      //}
     }
 
     LinearLayout psykerView = view.findViewById(R.id.psyker);
@@ -182,12 +216,33 @@ public class UnitFragment extends Fragment {
       v = inflater.inflate(R.layout.item_weapon, container, false);
       weaponView.addView(v);
 
+      // need to merge counts
       for (Weapon w : unit.weapons) {
-        if (!weapons.contains(w.name)) {
-          weapons.add(w.name);
+        System.out.println("MERGE - found " + w.numberOf + "x " + w.name);
+        if (w.numberOf < 1) {
+          w.numberOf = 1;
+        }
+        if (weaponCounts.containsKey(w.name)) {
+          Weapon wPlus = weaponCounts.get(w.name);
+          System.out.println("MERGE - combine " + wPlus.numberOf + "x " + wPlus.name);
+          w.numberOf += wPlus.numberOf;
+        }
+        weaponCounts.put(w.name, w);
+      }
+
+      for (Weapon w : unit.weapons) {
+        if (!weaponNames.contains(w.name)) {
+          weaponNames.add(w.name);
           v = inflater.inflate(R.layout.item_weapon, container, false);
           t = v.findViewById(R.id.item_weapon_name);
-          t.setText(w.name);
+
+          Integer count = weaponCounts.get(w.name).numberOf;
+          if (count != null && count > 1) {
+            t.setText(count + "x " + w.name);
+          } else {
+            t.setText(w.name);
+          }
+
           t = v.findViewById(R.id.item_weapon_range);
           if ("Melee".equals(w.range)) {
             t.setText("n/a");
@@ -214,6 +269,8 @@ public class UnitFragment extends Fragment {
           t = v.findViewById(R.id.item_weapon_abilities);
           t.setText(w.abilities);
           weaponView.addView(v);
+        } else {
+          System.out.println("OOPS: DUPLICATE " + w.name);
         }
       }
     } else {
@@ -223,5 +280,4 @@ public class UnitFragment extends Fragment {
 
     return view;
   }
-
 }

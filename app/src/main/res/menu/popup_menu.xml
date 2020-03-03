@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:id="@+id/load_item"
+    android:title="Load roster" />
+  <item android:id="@+id/count_item"
+    android:title="Show counts"
+    android:checkable="true"/>
+  <item android:id="@+id/points_item"
+    android:title="Show points"
+    android:checkable="true"/>
+</menu>

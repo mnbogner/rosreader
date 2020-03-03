@@ -1,11 +1,15 @@
 package com.mnb.rosreader;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
+import android.view.MenuItem;
+import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
@@ -116,7 +120,7 @@ public class MainActivity extends FragmentActivity implements RosSelector {
   }
 
   @Override
-  public void showInfo(ArrayList<Power> powers, ArrayList<Rule> rules) {
+  public void showInfo(ArrayList<Power> powers, ArrayList<Rule> rules, int pl, int pts) {
 
     FragmentTransaction ft = fm.beginTransaction();
     Fragment prev = fm.findFragmentByTag("info");
@@ -126,10 +130,41 @@ public class MainActivity extends FragmentActivity implements RosSelector {
     ft.addToBackStack(null);
 
     //String[] rosFiles = getRosFiles();
-    DialogFragment d = new InfoFragment(powers, rules);
+    DialogFragment d = new InfoFragment(powers, rules, pl, pts);
 
     d.show(ft, "info");
 
+  }
+
+  boolean foo = false;
+  boolean bar = false;
+
+  @Override
+  public void showMenu(Context c, View v) {
+    final PopupMenu popup = new PopupMenu(c, v);
+    popup.inflate(R.menu.popup_menu);
+    popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+      @Override
+      public boolean onMenuItemClick(MenuItem item) {
+        switch (item.getItemId()) {
+          case R.id.load_item:
+            showSelector();return true;
+          case R.id.count_item:
+            foo = !foo;
+            item.setChecked(foo);
+            return true;
+          case R.id.points_item:
+            bar = !bar;
+            item.setChecked(bar);
+            return true;
+          default:
+            return false;
+        }
+      }
+    });
+    popup.getMenu().findItem(R.id.count_item).setChecked(foo);
+    popup.getMenu().findItem(R.id.points_item).setChecked(bar);
+    popup.show();
   }
 
   @Override

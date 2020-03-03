@@ -4,6 +4,8 @@ public class SubUnit {
 
   public String name;
 
+  public int numberOf;
+
   public String m;
   public String ws;
   public String bs;

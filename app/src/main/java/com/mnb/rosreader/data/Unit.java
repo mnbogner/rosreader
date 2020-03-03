@@ -23,6 +23,9 @@ public class Unit {
   public ArrayList<Damage> damages;
   public ArrayList<Weapon> weapons;
 
+  public int pl;
+  public int pts;
+
   public Unit (String name) {
 
     this.name = name;

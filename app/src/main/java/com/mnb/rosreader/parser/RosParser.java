@@ -20,6 +20,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -30,6 +31,7 @@ public abstract class RosParser {
   protected static final String ns = null;  // ignore namespaces?
 
   protected static final String NONE = "none";
+  protected static final String UNIT = "unit";
   protected static final String SUBUNIT = "subunit";
   protected static final String PSYKER = "psyker";
   protected static final String DAMAGE = "damage";
@@ -42,7 +44,6 @@ public abstract class RosParser {
   protected XmlPullParser xpp;
 
   protected ArrayList<Unit> units;
-  protected ArrayList<Unit> theEight;
 
   protected Unit currentUnit;
   protected SubUnit currentSubUnit;
@@ -53,6 +54,12 @@ public abstract class RosParser {
   protected Rule currentRule;
   protected String inProgress;
   protected int selectionDepth;
+
+  protected Integer tagDepth;
+  protected HashMap<Integer, String> tagStack;
+
+  protected Integer numberDepth;
+  protected HashMap<Integer, Integer> numberStack;
 
   protected Unit rulesUnit;
 
@@ -171,6 +178,13 @@ public abstract class RosParser {
     currentWeapon = null;
     inProgress = null;
     selectionDepth = 0;
+
+    tagDepth = 0;
+    tagStack = new HashMap<Integer, String>();
+
+    numberDepth = 0;
+    numberStack = new HashMap<Integer, Integer>();
+
     // create a unit to hold unattached rules
     rulesUnit = new Unit("Army Rules");
     units.add(rulesUnit);
@@ -207,15 +221,21 @@ public abstract class RosParser {
     String startName = xpp.getName();
     switch (startName) {
       case "selection":
+        pushTag(NONE);
+        pushNumber(null);
         handleSelectionTag();
         break;
       case "category":
         handleCategoryTag();
         break;
       case "rule":
+        pushTag(NONE);
+        pushNumber(null);
         handleRuleTag();
         break;
       case "profile":
+        pushTag(NONE);
+        pushNumber(null);
         handleProfileTag();
         break;
       case "description":
@@ -224,57 +244,176 @@ public abstract class RosParser {
       case "characteristic":
         handleCharacteristicTag();
         break;
+      case "cost":
+        handleCost();
+        break;
     }
   }
 
-  private void handleEndTag() {
-    String endName = xpp.getName();
-    if ("selection".equals(endName)) {
-      selectionDepth--;
-      if (selectionDepth == 0 || (selectionDepth == 1 && isTheEight)) {
-        System.out.println(TAG + " closing out tag " + inProgress);
-        inProgress = NONE;
-        if (selectionDepth == 0 && isTheEight) {
-          isTheEight = false;
-        } else {
-          // had to allow "upgrade" selections, so cleanup may be needed
-          if (currentUnit.subUnits.size() == 0) {
-            // remove units with no units
-            units.remove(currentUnit);
-            if (currentUnit.rules.size() > 0) {
-              // if unit had rules, add them to army rule list
-              for (Rule r : currentUnit.rules)
-                rulesUnit.rules.add(r);
-            }
-          }
-          currentUnit = null;
-        }
+  int currentPl;
+  int currentPts;
+
+  private void handleCost() {
+    // if (currentTag().equals(UNIT)) {
+    if (currentUnit != null) {
+      String costName = xpp.getAttributeValue(ns, "name");
+      if ("pts".equals(costName)) {
+        String costValue = xpp.getAttributeValue(ns, "value");
+        float f = Float.parseFloat(costValue);
+        System.out.println(TAG + " updating unit " + currentUnit.name + " points: " + f); // inProgress);
+        currentPts += f;
+      } else if (" PL".equals(costName)) {
+        String costValue = xpp.getAttributeValue(ns, "value");
+        float f = Float.parseFloat(costValue);
+        System.out.println(TAG + " updating unit " + currentUnit.name + " PL: " + f); // inProgress);
+        currentPl += f;
       }
     }
   }
 
+  private void handleEndTag() {
+
+    String endName = xpp.getName();
+    switch (endName) {
+      case "selection":
+        String s = popTag();
+        popNumber();
+
+        /* we are exiting the depth at which this number was valid
+        if (numberDepth == selectionDepth) {
+          numberOf = 0;
+        }
+        */
+
+        selectionDepth--;
+        if (selectionDepth == 0 || (selectionDepth == 1 && isTheEight)) {
+          System.out.println(TAG + " closing out unit " + currentUnit.name + " points: " + currentPts); // inProgress);
+          currentUnit.pl = currentPl;
+          currentUnit.pts = currentPts;
+          currentPl = 0;
+          currentPts = 0;
+          inProgress = NONE;
+          if (selectionDepth == 0 && isTheEight) {
+            isTheEight = false;
+          } else {
+            // had to allow "upgrade" selections, so cleanup may be needed
+            if (currentUnit.subUnits.size() == 0) {
+              // remove units with no units
+              units.remove(currentUnit);
+              if (currentUnit.rules.size() > 0) {
+                // if unit had rules, add them to army rule list
+                for (Rule r : currentUnit.rules)
+                  rulesUnit.rules.add(r);
+              }
+            }
+            currentUnit = null;
+          }
+        }
+        break;
+      case "category":
+        break;
+      case "rule":
+        popTag();
+        popNumber();
+        break;
+      case "profile":
+        popTag();
+        popNumber();
+        break;
+      case "description":
+        break;
+      case "characteristic":
+        break;
+    }
+
+    if ("selection".equals(endName)) {
+
+    }
+  }
+
   private void handleSelectionTag() {
+
     // some units nest unit profile tags inside of additional selection tags
     selectionDepth++;
-    if ((selectionDepth == 1 && !isTheEight) || (selectionDepth == 2 && isTheEight)) {
-      String selectionType = xpp.getAttributeValue(ns, "type");
-      // some units (abominant) are tagged as "upgrade"
-      if ("model".equals(selectionType) || "unit".equals(selectionType) || "upgrade".equals(selectionType)) {
-        String unitName = xpp.getAttributeValue(ns, "name");
-        if ("The Eight".equals(unitName)) {
-          isTheEight = true;
-          theEight = new ArrayList<Unit>();
-        } else {
-          currentUnit = new Unit(unitName);
-          units.add(currentUnit);
-          if (isTheEight) {
-            theEight.add(currentUnit);
+
+    /*
+    // need to grab the count here, it isn't attached to weapons
+    String numberString = xpp.getAttributeValue(ns, "number");
+    if (numberString != null && !numberString.isEmpty()) {
+      numberOf = Integer.valueOf(numberString);
+      numberDepth = selectionDepth;
+    }
+
+    // just in case...
+    String selectionName = xpp.getAttributeValue(ns, "name");
+    if (selectionName != null && selectionName.startsWith("2x")) {
+      numberOf = 2;
+      numberDepth = selectionDepth;
+    }
+
+    // sigh...
+    if (currentUnit != null) {
+      for (SubUnit su : currentUnit.subUnits) {
+        if (su.name.equals(selectionName)) {
+          if (numberOf > 0) {
+            su.numberOf += numberOf;
+          } else {
+            su.numberOf += 1;
           }
+        }
+      }
+    }
+    */
+
+    String numberString = xpp.getAttributeValue(ns, "number");
+    if (numberString != null && !numberString.isEmpty()) {
+      reviseNumber(Integer.parseInt(numberString));
+    }
+
+    // just in case...
+    String selectionName = xpp.getAttributeValue(ns, "name");
+    if (selectionName != null && selectionName.startsWith("2x")) {
+      reviseNumber(2);
+    }
+
+    // try to intelligently assign counts
+    SubUnit su = lookupSubUnit(selectionName);
+    if (su != null && peekNumber() != null && peekNumber() > su.numberOf) {
+      System.out.println("COUNTING - updating count of " + su.name + " to " + peekNumber());
+      su.numberOf = peekNumber();
+    }
+
+    if ((selectionDepth == 1 && !isTheEight) ||
+        (selectionDepth == 2 && isTheEight)) {
+      String selectionType = xpp.getAttributeValue(ns, "type");
+      if ("model".equals(selectionType) ||
+          "unit".equals(selectionType) ||
+          ("upgrade".equals(selectionType) && currentUnit == null)) {
+
+        // units in the eight are nested one level deeper
+        if ("The Eight".equals(selectionName)) {
+          isTheEight = true;
+        } else {
+          currentUnit = new Unit(selectionName);
+          units.add(currentUnit);
+          renameTag(UNIT);
+
           // reset characteristics map
           characteristic1 = "";
           characteristic2 = "";
           characteristic3 = "";
         }
+      } else {
+        String unknownName = xpp.getAttributeValue(ns, "name");
+        System.out.println(TAG + " NON-UNIT UPGRADE " + unknownName);
+      }
+    } else if ((selectionDepth > 1 && !isTheEight) ||
+        (selectionDepth > 2 && isTheEight)) {
+      String selectionType = xpp.getAttributeValue(ns, "type");
+      if ("model".equals(selectionType) ||
+          "unit".equals(selectionType)) {
+        String unitName = xpp.getAttributeValue(ns, "name");
+        //renameTag(unitName);
       }
     }
   }
@@ -304,6 +443,9 @@ public abstract class RosParser {
       rulesUnit.rules.add(currentRule);
     }
     inProgress = RULE;
+
+    renameTag(RULE);
+
   }
 
   private void handleProfileTag() {
@@ -317,6 +459,9 @@ public abstract class RosParser {
           currentPsyker = new Psyker();
           currentUnit.psyker = currentPsyker;
           inProgress = PSYKER;
+
+          renameTag(PSYKER);
+
         }
         break;
       case "Psychic Power":
@@ -325,22 +470,78 @@ public abstract class RosParser {
           currentPower = new Power(powerName);
           currentUnit.powers.add(currentPower);
           inProgress = POWER;
+
+          renameTag(POWER);
+
         }
         break;
       case "Unit":
         String unitName = xpp.getAttributeValue(ns, "name");
         if (currentUnit != null) {
           currentSubUnit = new SubUnit(unitName);
+
+          currentSubUnit.numberOf = currentNumber();
+
+          //if (numberOf > 0) {
+          //  currentSubUnit.numberOf = numberOf;
+          //} else {
+          //  currentSubUnit.numberOf = 1;
+          //}
+
+
           currentUnit.subUnits.add(currentSubUnit);
+
+          System.out.println("MERGE - adding " + unitName);
+
           inProgress = SUBUNIT;
+
+          renameTag(SUBUNIT);
+
+        } else {
+          System.out.println("MERGE - not adding " + unitName);
         }
         break;
       case "Weapon":
         String weaponName = xpp.getAttributeValue(ns, "name");
+        System.out.println("PARSING WEAPON " + currentNumber() + "x " + weaponName + " OWNED BY " + currentTag());
         if (currentUnit != null) {
           currentWeapon = new Weapon(weaponName);
+
+          currentWeapon.numberOf = currentNumber();
+
+          /*
+          if (numberOf > 0) {
+            if (smartPeek().equals(UNIT)) {
+              if (numberOf == 1 && maxSubUnitCount() > 1) {
+                System.out.println("PARSING WEAPON (" + totalSubUnitCount() + "x) " + weaponName + " OWNED BY " + currentUnit.name);
+                currentWeapon.numberOf = totalSubUnitCount();
+              } else {
+                System.out.println("PARSING WEAPON " + numberOf + "x " + weaponName + " OWNED BY " + currentUnit.name);
+                currentWeapon.numberOf = numberOf;
+              }
+            } else {
+              System.out.println("PARSING WEAPON " + numberOf + "x " + weaponName + " OWNED BY " + smartPeek());
+              currentWeapon.numberOf = numberOf;
+            }
+          } else {
+            currentWeapon.numberOf = 1;
+            if (smartPeek().equals(UNIT)) {
+              System.out.println("PARSING WEAPON " + "(???) " + weaponName + " OWNED BY " + currentUnit.name);
+              currentWeapon.numberOf = 999;
+            } else {
+              System.out.println("PARSING WEAPON (" + 1 + "x) " + weaponName + " OWNED BY " + smartPeek());
+              currentWeapon.numberOf = 1;
+            }
+          }
+          */
+
           currentUnit.weapons.add(currentWeapon);
           inProgress = WEAPON;
+
+          renameTag(WEAPON);
+
+        } else {
+          System.out.println("UNATTACHED WEAPON " + currentNumber() + "x " + weaponName + " OWNED BY " + currentTag());
         }
         break;
       case "Abilities":
@@ -352,11 +553,17 @@ public abstract class RosParser {
           currentRule = new Rule(ruleName);
           currentUnit.rules.add(currentRule);
           inProgress = RULE;
+
+          renameTag(RULE);
+
         } else if (isTheEight) {
           System.out.println("EIGHT - ABILITY: " + ruleName);
           currentRule = new Rule(ruleName);
           rulesUnit.rules.add(currentRule);
           inProgress = RULE;
+
+          renameTag(RULE);
+
         }
         break;
       case "Tally":
@@ -366,6 +573,9 @@ public abstract class RosParser {
           currentRule = new Rule(tallyName);
           currentUnit.rules.add(currentRule);
           inProgress = RULE;
+
+          renameTag(RULE);
+
         }
         break;
       case "Warp Vortex - D6 Roll":
@@ -378,6 +588,9 @@ public abstract class RosParser {
           currentRule = new Rule(vortexName);
           currentUnit.rules.add(currentRule);
           inProgress = RULE;
+
+          renameTag(RULE);
+
         }
         break;
       default:
@@ -388,6 +601,9 @@ public abstract class RosParser {
             currentDamage = new Damage(damageName);
             currentUnit.damages.add(currentDamage);
             inProgress = DAMAGE;
+
+            renameTag(DAMAGE);
+
           }
         }
     }
@@ -407,9 +623,12 @@ public abstract class RosParser {
 
   private void handleCharacteristicTag() {
 
+    String s = currentTag();
+
     String characteristicName = xpp.getAttributeValue(ns, "name");
     try {
-      switch (inProgress) {
+      switch(s) {
+      //switch (inProgress) {
         case SUBUNIT:
           switch (characteristicName) {
             case "M":
@@ -684,5 +903,108 @@ public abstract class RosParser {
       characteristic3 = c;
       System.out.println(TAG + " - DMG - build map, c3: " + c);
     }
+  }
+
+  private void pushTag(String tag) {
+    tagDepth++;
+    tagStack.put(tagDepth, tag);
+    //System.out.println("STACK - push " + tag + ", depth " + tagDepth);
+  }
+
+  private void renameTag(String tag) {
+    tagStack.put(tagDepth, tag);
+    //System.out.println("STACK - rename " + tag + ", depth " + tagDepth);
+  }
+
+  private String popTag() {
+    String s = tagStack.remove(tagDepth);
+    //System.out.println("STACK - pop " + s + ", depth " + tagDepth);
+    tagDepth--;
+    return s;
+  }
+
+  private String peekTag() {
+    String s = tagStack.get(tagDepth);
+    return s;
+  }
+
+  private String currentTag() {
+    int i = tagDepth;
+    String s = tagStack.get(i);
+    while (s != null && s.equals(NONE)) {
+      i--;
+      s = tagStack.get(i);
+    }
+    if (s == null) {
+      s = "???";
+    }
+    return s;
+  }
+
+  private void pushNumber(Integer number) {
+    numberDepth++;
+    numberStack.put(numberDepth, number);
+    //System.out.println("STACK - push " + number + ", depth " + numberDepth);
+  }
+
+  private void reviseNumber(Integer number) {
+    numberStack.put(numberDepth, number);
+    //System.out.println("STACK - revise " + number + ", depth " + numberDepth);
+  }
+
+  private Integer popNumber() {
+    Integer i = numberStack.remove(numberDepth);
+    //System.out.println("STACK - pop " + i + ", depth " + numberDepth);
+    numberDepth--;
+    return i;
+  }
+
+  private Integer peekNumber() {
+    Integer i = numberStack.get(numberDepth);
+    return i;
+  }
+
+  private Integer currentNumber() {
+    int d = numberDepth;
+    Integer i = numberStack.get(d);
+    while (i == null && d >= 0) {
+      d--;
+      i = numberStack.get(d);
+    }
+    if (i == null) {
+      i = 999;
+    }
+    return i;
+  }
+
+  private int maxSubUnitCount() {
+    int max = 1;
+    for (SubUnit su : currentUnit.subUnits) {
+      if (su.numberOf > max) {
+        max = su.numberOf;
+      }
+    }
+    return max;
+  }
+
+  private int totalSubUnitCount() {
+    int total = 0;
+    for (SubUnit su : currentUnit.subUnits) {
+      total += su.numberOf;
+    }
+    return total;
+  }
+
+  private SubUnit lookupSubUnit(String name) {
+    if (currentUnit == null) {
+      return null;
+    } else {
+      for (SubUnit su : currentUnit.subUnits) {
+        if (su.name.equals(name)) {
+          return su;
+        }
+      }
+    }
+    return null;
   }
 }

@@ -21,10 +21,15 @@ public class InfoFragment extends DialogFragment {
 
   private ArrayList<Power> powers;
   private ArrayList<Rule> rules;
+  private int pl;
+  private int pts;
 
-  public InfoFragment (ArrayList<Power> powers, ArrayList<Rule> rules) {
+
+  public InfoFragment (ArrayList<Power> powers, ArrayList<Rule> rules, int pl, int pts) {
     this.powers = powers;
     this.rules = rules;
+    this.pl = pl;
+    this.pts = pts;
   }
 
   @Nullable
@@ -34,6 +39,15 @@ public class InfoFragment extends DialogFragment {
     View view = inflater.inflate(R.layout.fragment_info, container, false);
 
     LinearLayout ll = view.findViewById(R.id.info_list);
+
+    if (pl > 0 || pts > 0) {
+      View v = inflater.inflate(R.layout.item_rule, container, false);
+      TextView t = v.findViewById(R.id.item_rule_name);
+      t.setVisibility(View.GONE);
+      t = v.findViewById(R.id.item_rule_description);
+      t.setText("POWER: " + pl + " / POINTS: " + pts);
+      ll.addView(v);
+    }
 
     if (powers != null) {
       for (Power p : powers) {

@@ -4,6 +4,8 @@ public class Weapon {
 
   public String name;
 
+  public int numberOf;
+
   public String range;
   public String type;
   public String s;

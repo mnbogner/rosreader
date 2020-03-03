@@ -23,7 +23,7 @@
     app:layout_constraintTop_toTopOf="@id/rules_name"
     app:layout_constraintBottom_toBottomOf="@id/rules_name"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintWidth_percent=".2"
+    app:layout_constraintWidth_percent=".1"
     android:orientation="vertical"
     android:gravity="center">
 
@@ -34,7 +34,7 @@
       android:gravity="center"
       android:padding="5dp"
       android:textSize="10dp"
-      android:text="LOAD"
+      android:text="..."
       />
 
   </LinearLayout>
