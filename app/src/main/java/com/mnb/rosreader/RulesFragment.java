@@ -20,42 +20,47 @@ import java.util.ArrayList;
 
 public class RulesFragment extends Fragment {
 
-  private RosSelector selector;
+  private static final String TAG = "MNB.ROS";
+
+  private Navigator navigator;
   private Unit unit;
 
-  private View view;
+  private ArrayList<String> rules;
 
-  private ArrayList<String> rules = new ArrayList<String>();
-
-  public RulesFragment(RosSelector selector, Unit unit) {
-    this.selector = selector;
+  public RulesFragment(Navigator navigator, Unit unit) {
+    this.navigator = navigator;
     this.unit = unit;
   }
 
   @Nullable
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-    view = inflater.inflate(R.layout.fragment_rules, container, false);
+
+    View view = inflater.inflate(R.layout.fragment_rules, container, false);
+
+    rules = new ArrayList<String>();
 
     if (unit == null) {
-      System.out.println("BAR - EMPTY FRAGMENT");
+      System.out.println(TAG + " no unit rules to display");
       return view;
     }
 
-    Button ub = view.findViewById(R.id.rules_button);
+    // set up unit menu button
+    TextView rn = view.findViewById(R.id.rules_name);
+    rn.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        navigator.showItemSelector();
+      }
+    });
+
+    // set up option menu button
+    Button ub = view.findViewById(R.id.option_button);
     ub.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
         Context c = getContext();
-        selector.showMenu(c, v);
-      }
-    });
-
-    TextView nt = view.findViewById(R.id.rules_name);
-    nt.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        selector.showItems();
+        navigator.showPopupMenu(c, v);
       }
     });
 

@@ -40,6 +40,7 @@ public class RosAssetParser extends RosParser {
     rosFileList.add("eight.ros");
     rosFileList.add("grey.ros");
     rosFileList.add("iron.rosz");
+    rosFileList.add("robots.ros");
     rosFileList.add("sisters.ros");
     return rosFileList;
   }

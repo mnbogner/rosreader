@@ -28,7 +28,7 @@
     android:gravity="center">
 
   <Button
-    android:id="@+id/unit_button"
+    android:id="@+id/option_button"
     android:layout_width="match_parent"
     android:layout_height="30dp"
     android:gravity="center"

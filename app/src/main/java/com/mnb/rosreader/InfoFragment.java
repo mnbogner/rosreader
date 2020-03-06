@@ -14,22 +14,26 @@ import androidx.fragment.app.DialogFragment;
 
 import com.mnb.rosreader.data.Power;
 import com.mnb.rosreader.data.Rule;
+import com.mnb.rosreader.data.Unit;
 
 import java.util.ArrayList;
 
 public class InfoFragment extends DialogFragment {
 
+  private static final String TAG = "MNB.ROS";
+
   private ArrayList<Power> powers;
   private ArrayList<Rule> rules;
   private int pl;
   private int pts;
+  private boolean showPoints;
 
-
-  public InfoFragment (ArrayList<Power> powers, ArrayList<Rule> rules, int pl, int pts) {
-    this.powers = powers;
-    this.rules = rules;
-    this.pl = pl;
-    this.pts = pts;
+  public InfoFragment (Unit unit, boolean showPoints) {
+    this.powers = unit.powers;
+    this.rules = unit.rules;
+    this.pl = unit.pl;
+    this.pts = unit.pts;
+    this.showPoints = showPoints;
   }
 
   @Nullable
@@ -40,7 +44,8 @@ public class InfoFragment extends DialogFragment {
 
     LinearLayout ll = view.findViewById(R.id.info_list);
 
-    if (pl > 0 || pts > 0) {
+    // show power level/point cost, if any (and if option is toggled)
+    if (showPoints && (pl > 0 || pts > 0)) {
       View v = inflater.inflate(R.layout.item_rule, container, false);
       TextView t = v.findViewById(R.id.item_rule_name);
       t.setVisibility(View.GONE);
@@ -49,6 +54,7 @@ public class InfoFragment extends DialogFragment {
       ll.addView(v);
     }
 
+    // show psyker powers, if any
     if (powers != null) {
       for (Power p : powers) {
         View v = inflater.inflate(R.layout.item_rule, container, false);
@@ -60,6 +66,7 @@ public class InfoFragment extends DialogFragment {
       }
     }
 
+    // show unit rules, if any
     if (rules != null) {
       for (Rule r : rules) {
         View v = inflater.inflate(R.layout.item_rule, container, false);
@@ -71,6 +78,7 @@ public class InfoFragment extends DialogFragment {
       }
     }
 
+    // set up unit info close button
     Button b = view.findViewById(R.id.info_button_close);
     b.setOnClickListener(new View.OnClickListener() {
       @Override
@@ -80,12 +88,12 @@ public class InfoFragment extends DialogFragment {
     });
 
     return view;
-
   }
 
   @Override
   public void onResume() {
     super.onResume();
+    // need to control size of dialog fragment
     ViewGroup.LayoutParams params = getDialog().getWindow().getAttributes();
     params.width = ViewGroup.LayoutParams.MATCH_PARENT;
     params.height = ViewGroup.LayoutParams.MATCH_PARENT;

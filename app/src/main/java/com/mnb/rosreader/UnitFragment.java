@@ -23,83 +23,94 @@ import java.util.HashMap;
 
 public class UnitFragment extends Fragment {
 
-  private RosSelector selector;
+  private static final String TAG = "MNB.ROS";
+
+  private Navigator navigator;
   private Unit unit;
+  private boolean showCounts;
 
-  private View view;
+  private HashMap<String, Integer> unitCounts;
+  private HashMap<String, Integer> weaponCounts;
+  private ArrayList<String> unitNames;
+  private ArrayList<String> weaponNames;
 
-  // private ArrayList<String> units = new ArrayList<String>();
-
-  private HashMap<String, SubUnit> unitCounts = new HashMap<String, SubUnit>();
-  private HashMap<String, Weapon> weaponCounts = new HashMap<String, Weapon>();
-  private ArrayList<String> unitNames = new ArrayList<String>();
-  private ArrayList<String> weaponNames = new ArrayList<String>();
-
-  public UnitFragment (RosSelector selector, Unit unit) {
-    this.selector = selector;
+  public UnitFragment (Navigator selector, Unit unit, boolean showCounts) {
+    this.navigator = selector;
     this.unit = unit;
+    this.showCounts = showCounts;
   }
 
   @Nullable
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-    view = inflater.inflate(R.layout.fragment_unit, container, false);
+
+    View view = inflater.inflate(R.layout.fragment_unit, container, false);
+
+    unitCounts = new HashMap<String, Integer>();
+    weaponCounts = new HashMap<String, Integer>();
+    unitNames = new ArrayList<String>();
+    weaponNames = new ArrayList<String>();
 
     if (unit == null) {
-      System.out.println("BAR - EMPTY FRAGMENT");
+      System.out.println(TAG + " no unit data to display");
       return view;
     }
 
-    TextView t = view.findViewById(R.id.unit_name);
+    // add warlord tag if necessary
+    TextView un = view.findViewById(R.id.unit_name);
     if (unit.warlord) {
-      t.setText(unit.name + "(Warlord)");
+      un.setText(unit.name + "(Warlord)");
     } else {
-      t.setText(unit.name);
+      un.setText(unit.name);
     }
+    // set up unit menu button
+    un.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        navigator.showItemSelector();
+      }
+    });
 
-    Button ub = view.findViewById(R.id.unit_button);
+    // set up option menu button
+    Button ub = view.findViewById(R.id.option_button);
     ub.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
         Context c = getContext();
-        selector.showMenu(c, v);
+        navigator.showPopupMenu(c, v);
       }
     });
 
+    // set up unit info button
     Button ib = view.findViewById(R.id.info_button_open);
     ib.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
         System.out.println(unit.name + " - " + unit.pl + " pl / " + unit.pts + " points");
-        selector.showInfo(unit.powers, unit.rules, unit.pl, unit.pts);
-      }
-    });
-
-    TextView nt = view.findViewById(R.id.unit_name);
-    nt.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        selector.showItems();
+        navigator.showItemInfo(unit.name);
       }
     });
 
     LinearLayout unitView = view.findViewById(R.id.unit_list);
 
+    // default layout includes headers
     View v = inflater.inflate(R.layout.item_unit, container, false);
     unitView.addView(v);
+    TextView t = null;
 
-    // need to merge counts
-    for (SubUnit su : unit.subUnits) {
-      System.out.println("MERGE - found " + su.numberOf + "x " + su.name);
-      if (su.numberOf < 1) {
-        su.numberOf = 1;
+    // need to merge unit counts
+    if (showCounts) {
+      for (SubUnit su : unit.subUnits) {
+        if (unitCounts.containsKey(su.name)) {
+          Integer count = unitCounts.get(su.name);
+          count += su.numberOf;
+          unitCounts.put(su.name, count);
+        } else {
+          unitCounts.put(su.name, su.numberOf);
+        }
       }
-      if (unitCounts.containsKey(su.name)) {
-        SubUnit suPlus = unitCounts.get(su.name);
-        System.out.println("MERGE - combine " + suPlus.numberOf + "x " + suPlus.name);
-        su.numberOf += suPlus.numberOf;
-      }
-      unitCounts.put(su.name, su);
+    } else {
+      // if there is no value in the hashmap, no count will be displayed
     }
 
     for (SubUnit su : unit.subUnits) {
@@ -107,14 +118,13 @@ public class UnitFragment extends Fragment {
         unitNames.add(su.name);
         v = inflater.inflate(R.layout.item_unit, container, false);
         t = v.findViewById(R.id.item_unit_name);
-
-        Integer count = unitCounts.get(su.name).numberOf;
+        // show count if > 1
+        Integer count = unitCounts.get(su.name);
         if (count != null && count > 1) {
           t.setText(count + "x " + su.name);
         } else {
           t.setText(su.name);
         }
-
         t = v.findViewById(R.id.item_unit_m);
         t.setText(su.m);
         t = v.findViewById(R.id.item_unit_ws);
@@ -135,13 +145,11 @@ public class UnitFragment extends Fragment {
         t.setText(su.save);
         unitView.addView(v);
       }
-      //} else {
-      //  System.out.println("OOPS: DUPLICATE " + su.name);
-      //}
     }
 
     LinearLayout psykerView = view.findViewById(R.id.psyker);
     if (unit.psyker != null) {
+      // default layout includes headers
       v = inflater.inflate(R.layout.item_psyker, container, false);
       psykerView.addView(v);
 
@@ -154,18 +162,19 @@ public class UnitFragment extends Fragment {
       t.setText(unit.psyker.deny);
        t = v.findViewById(R.id.item_psyker_known);
        t.setText(unit.psyker.powersKnown);
-      // t = v.findViewById(R.id.item_psyker_other);
-      // t.setText(unit.psyker.other);
       psykerView.addView(v);
     } else {
+      // hide psyker stats if there's nothing to show
       psykerView.setVisibility(View.GONE);
     }
 
     LinearLayout damageView = view.findViewById(R.id.damage_list);
     if (unit.damages.size() > 0) {
+      // default layout includes headers
       v = inflater.inflate(R.layout.item_damage, container, false);
       damageView.addView(v);
 
+      // can't guarantee order of damage tracks in unit data
       View v1 = inflater.inflate(R.layout.item_damage, container, false);
       damageView.addView(v1);
       View v2 = inflater.inflate(R.layout.item_damage, container, false);
@@ -206,26 +215,30 @@ public class UnitFragment extends Fragment {
         t.setText(d.save);
       }
     } else {
+      // hide damage track if there's nothing to show
       damageView.setVisibility(View.GONE);
     }
 
     LinearLayout weaponView = view.findViewById(R.id.weapon_scroll);
     if (unit.weapons.size() > 0) {
+      // default layout includes headers
       v = inflater.inflate(R.layout.item_weapon, container, false);
       weaponView.addView(v);
 
       // need to merge counts
-      for (Weapon w : unit.weapons) {
-        System.out.println("MERGE - found " + w.numberOf + "x " + w.name);
-        if (w.numberOf < 1) {
-          w.numberOf = 1;
+      if (showCounts) {
+        for (Weapon w : unit.weapons) {
+          if (weaponCounts.containsKey(w.name)) {
+            Integer count = weaponCounts.get(w.name);
+            count += w.numberOf;
+            weaponCounts.put(w.name, count);
+          } else {
+            weaponCounts.put(w.name, w.numberOf);
+          }
+
         }
-        if (weaponCounts.containsKey(w.name)) {
-          Weapon wPlus = weaponCounts.get(w.name);
-          System.out.println("MERGE - combine " + wPlus.numberOf + "x " + wPlus.name);
-          w.numberOf += wPlus.numberOf;
-        }
-        weaponCounts.put(w.name, w);
+      } else {
+        // if there is no value in the hashmap, no count will be displayed
       }
 
       for (Weapon w : unit.weapons) {
@@ -233,14 +246,13 @@ public class UnitFragment extends Fragment {
           weaponNames.add(w.name);
           v = inflater.inflate(R.layout.item_weapon, container, false);
           t = v.findViewById(R.id.item_weapon_name);
-
-          Integer count = weaponCounts.get(w.name).numberOf;
+          // show count if > 1
+          Integer count = weaponCounts.get(w.name);
           if (count != null && count > 1) {
             t.setText(count + "x " + w.name);
           } else {
             t.setText(w.name);
           }
-
           t = v.findViewById(R.id.item_weapon_range);
           if ("Melee".equals(w.range)) {
             t.setText("n/a");
@@ -248,6 +260,7 @@ public class UnitFragment extends Fragment {
             t.setText(w.range);
           }
           t = v.findViewById(R.id.item_weapon_type);
+          // truncate weapon types to support smaller displays
           String shortType = w.type.replace("Rapid Fire", "R")
               .replace("Assault", "A")
               .replace("Heavy", "H")
@@ -255,10 +268,15 @@ public class UnitFragment extends Fragment {
               .replace("Grenade", "G");
           t.setText(shortType);
           t = v.findViewById(R.id.item_weapon_s);
-          if ("User".equals(w.s)) {
-            t.setText("n/a");
+          // found some typos
+          String s = w.s;
+          if (s != null) {
+            s = s.toLowerCase().trim();
+          }
+          if ("user".equals(s)) {
+            t.setText("U");
           } else {
-            t.setText(w.s);
+            t.setText(s);
           }
           t = v.findViewById(R.id.item_weapon_ap);
           t.setText(w.ap);
@@ -267,11 +285,10 @@ public class UnitFragment extends Fragment {
           t = v.findViewById(R.id.item_weapon_abilities);
           t.setText(w.abilities);
           weaponView.addView(v);
-        } else {
-          System.out.println("OOPS: DUPLICATE " + w.name);
         }
       }
     } else {
+      // hide weapon stats if there's nothing to show
       weaponView = view.findViewById(R.id.weapon_list);
       weaponView.setVisibility(View.GONE);
     }

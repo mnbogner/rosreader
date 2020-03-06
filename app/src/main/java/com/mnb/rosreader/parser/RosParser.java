@@ -593,6 +593,17 @@ public abstract class RosParser {
 
         }
         break;
+      case "Forge World Dogma":
+        // less weird admech thing
+        String dogmaName = xpp.getAttributeValue(ns, "name");
+        currentRule = new Rule(dogmaName);
+        if (currentUnit != null) {
+          currentUnit.rules.add(currentRule);
+        } else {
+          rulesUnit.rules.add(currentRule);
+        }
+        inProgress = RULE;
+        renameTag(RULE);
       default:
         // need to catch inconsistent damage track tags
         if (typeName != null && (typeName.contains("Wound") || typeName.contains("Damage"))) {

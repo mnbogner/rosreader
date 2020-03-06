@@ -15,12 +15,12 @@ import java.util.ArrayList;
 
 public class FileFragment extends DialogFragment {
 
-  private RosSelector selector;
-  private ArrayList<String> rosList;
+  private Navigator navigator;
+  private ArrayList<String> rosFileList;
 
-  public FileFragment (RosSelector selector, ArrayList<String> rosList) {
-    this.selector = selector;
-    this.rosList = rosList;
+  public FileFragment (Navigator navigator, ArrayList<String> rosFileList) {
+    this.navigator = navigator;
+    this.rosFileList = rosFileList;
   }
 
   @Nullable
@@ -31,14 +31,14 @@ public class FileFragment extends DialogFragment {
 
     LinearLayout ll = view.findViewById(R.id.file_list);
 
-    for (String s : rosList) {
+    for (String s : rosFileList) {
       View v = inflater.inflate(R.layout.item_file, container, false);
       TextView tv = v.findViewById(R.id.file_name);
       tv.setText(s);
       tv.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-          selector.loadRos(((TextView)v).getText().toString());
+          navigator.openFile(((TextView)v).getText().toString());
           dismiss();
         }
       });

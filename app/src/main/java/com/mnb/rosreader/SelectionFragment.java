@@ -15,12 +15,12 @@ import java.util.Arrays;
 
 public class SelectionFragment extends DialogFragment {
 
-  private RosSelector selector;
+  private Navigator navigator;
   private String[] unitList;
 
-  public SelectionFragment(RosSelector selector, String[] unitList) {
-    this.selector = selector;
-    this.unitList = unitList;
+  public SelectionFragment(Navigator navigator, String[] itemNameList) {
+    this.navigator = navigator;
+    this.unitList = itemNameList;
   }
 
   @Nullable
@@ -38,7 +38,7 @@ public class SelectionFragment extends DialogFragment {
       tv.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-          selector.goToItem(((TextView)v).getText().toString());
+          navigator.goToItem(((TextView)v).getText().toString());
           dismiss();
         }
       });
