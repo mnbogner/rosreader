@@ -29,13 +29,13 @@ public class UnitFragment extends Fragment {
   private Unit unit;
   private boolean showCounts;
 
-  private HashMap<String, Integer> unitCounts;
-  private HashMap<String, Integer> weaponCounts;
   private ArrayList<String> unitNames;
   private ArrayList<String> weaponNames;
+  private HashMap<String, Integer> unitCounts;
+  private HashMap<String, Integer> weaponCounts;
 
-  public UnitFragment (Navigator selector, Unit unit, boolean showCounts) {
-    this.navigator = selector;
+  public UnitFragment (Navigator navigator, Unit unit, boolean showCounts) {
+    this.navigator = navigator;
     this.unit = unit;
     this.showCounts = showCounts;
   }
@@ -43,27 +43,10 @@ public class UnitFragment extends Fragment {
   @Nullable
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
     View view = inflater.inflate(R.layout.fragment_unit, container, false);
 
-    unitCounts = new HashMap<String, Integer>();
-    weaponCounts = new HashMap<String, Integer>();
-    unitNames = new ArrayList<String>();
-    weaponNames = new ArrayList<String>();
-
-    if (unit == null) {
-      System.out.println(TAG + " no unit data to display");
-      return view;
-    }
-
-    // add warlord tag if necessary
-    TextView un = view.findViewById(R.id.unit_name);
-    if (unit.warlord) {
-      un.setText(unit.name + "(Warlord)");
-    } else {
-      un.setText(unit.name);
-    }
     // set up unit menu button
+    TextView un = view.findViewById(R.id.unit_name);
     un.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
@@ -86,14 +69,32 @@ public class UnitFragment extends Fragment {
     ib.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        System.out.println(unit.name + " - " + unit.pl + " pl / " + unit.pts + " points");
         navigator.showItemInfo(unit.name);
       }
     });
 
+    if (unit == null) {
+      System.out.println(TAG + " no unit data to display");
+      return view;
+    }
+
+    // used to enforce uniqueness
+    unitNames = new ArrayList<String>();
+    weaponNames = new ArrayList<String>();
+    // used to merge counts
+    unitCounts = new HashMap<String, Integer>();
+    weaponCounts = new HashMap<String, Integer>();
+
+    // add warlord tag to unit header, if necessary
+    if (unit.warlord) {
+      un.setText(unit.name + " (Warlord)");
+    } else {
+      un.setText(unit.name);
+    }
+
     LinearLayout unitView = view.findViewById(R.id.unit_list);
 
-    // default layout includes headers
+    // default unit layout includes headers
     View v = inflater.inflate(R.layout.item_unit, container, false);
     unitView.addView(v);
     TextView t = null;
@@ -113,12 +114,13 @@ public class UnitFragment extends Fragment {
       // if there is no value in the hashmap, no count will be displayed
     }
 
+    // show individual unit stats
     for (SubUnit su : unit.subUnits) {
       if (!unitNames.contains(su.name)) {
         unitNames.add(su.name);
         v = inflater.inflate(R.layout.item_unit, container, false);
         t = v.findViewById(R.id.item_unit_name);
-        // show count if > 1
+        // show count only if > 1
         Integer count = unitCounts.get(su.name);
         if (count != null && count > 1) {
           t.setText(count + "x " + su.name);
@@ -148,11 +150,11 @@ public class UnitFragment extends Fragment {
     }
 
     LinearLayout psykerView = view.findViewById(R.id.psyker);
+    // show psyker stats, if any
     if (unit.psyker != null) {
-      // default layout includes headers
+      // default psyker layout includes headers
       v = inflater.inflate(R.layout.item_psyker, container, false);
       psykerView.addView(v);
-
       v = inflater.inflate(R.layout.item_psyker, container, false);
       t = v.findViewById(R.id.item_psyker_name);
       t.setText("Psyker");
@@ -169,11 +171,11 @@ public class UnitFragment extends Fragment {
     }
 
     LinearLayout damageView = view.findViewById(R.id.damage_list);
+    // show damage track, if any
     if (unit.damages.size() > 0) {
-      // default layout includes headers
+      // default damage track layout includes headers
       v = inflater.inflate(R.layout.item_damage, container, false);
       damageView.addView(v);
-
       // can't guarantee order of damage tracks in unit data
       View v1 = inflater.inflate(R.layout.item_damage, container, false);
       damageView.addView(v1);
@@ -181,7 +183,6 @@ public class UnitFragment extends Fragment {
       damageView.addView(v2);
       View v3 = inflater.inflate(R.layout.item_damage, container, false);
       damageView.addView(v3);
-
       for (Damage d : unit.damages) {
         View vCurrent;
         if (d.name.endsWith("1") || d.name.endsWith("(1)")) {
@@ -220,12 +221,13 @@ public class UnitFragment extends Fragment {
     }
 
     LinearLayout weaponView = view.findViewById(R.id.weapon_scroll);
+    // show weapon stats, if any
     if (unit.weapons.size() > 0) {
-      // default layout includes headers
+      // default weapon layout includes headers
       v = inflater.inflate(R.layout.item_weapon, container, false);
       weaponView.addView(v);
 
-      // need to merge counts
+      // need to merge weapon counts
       if (showCounts) {
         for (Weapon w : unit.weapons) {
           if (weaponCounts.containsKey(w.name)) {
@@ -235,7 +237,6 @@ public class UnitFragment extends Fragment {
           } else {
             weaponCounts.put(w.name, w.numberOf);
           }
-
         }
       } else {
         // if there is no value in the hashmap, no count will be displayed

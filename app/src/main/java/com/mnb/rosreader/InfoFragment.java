@@ -17,6 +17,7 @@ import com.mnb.rosreader.data.Rule;
 import com.mnb.rosreader.data.Unit;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class InfoFragment extends DialogFragment {
 
@@ -27,6 +28,10 @@ public class InfoFragment extends DialogFragment {
   private int pl;
   private int pts;
   private boolean showPoints;
+
+  private ArrayList<String> powerNames;
+  private ArrayList<String> ruleNames;
+  private HashMap<Integer, Rule> numberedRules;
 
   public InfoFragment (Unit unit, boolean showPoints) {
     this.powers = unit.powers;
@@ -39,44 +44,7 @@ public class InfoFragment extends DialogFragment {
   @Nullable
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
     View view = inflater.inflate(R.layout.fragment_info, container, false);
-
-    LinearLayout ll = view.findViewById(R.id.info_list);
-
-    // show power level/point cost, if any (and if option is toggled)
-    if (showPoints && (pl > 0 || pts > 0)) {
-      View v = inflater.inflate(R.layout.item_rule, container, false);
-      TextView t = v.findViewById(R.id.item_rule_name);
-      t.setVisibility(View.GONE);
-      t = v.findViewById(R.id.item_rule_description);
-      t.setText("POWER: " + pl + " / POINTS: " + pts);
-      ll.addView(v);
-    }
-
-    // show psyker powers, if any
-    if (powers != null) {
-      for (Power p : powers) {
-        View v = inflater.inflate(R.layout.item_rule, container, false);
-        TextView nv = v.findViewById(R.id.item_rule_name);
-        nv.setText(p.name + " (Warp Charge " + p.warpCharge + ")");
-        TextView dv = v.findViewById(R.id.item_rule_description);
-        dv.setText(p.details);
-        ll.addView(v);
-      }
-    }
-
-    // show unit rules, if any
-    if (rules != null) {
-      for (Rule r : rules) {
-        View v = inflater.inflate(R.layout.item_rule, container, false);
-        TextView nv = v.findViewById(R.id.item_rule_name);
-        nv.setText(r.name);
-        TextView dv = v.findViewById(R.id.item_rule_description);
-        dv.setText(r.description);
-        ll.addView(v);
-      }
-    }
 
     // set up unit info close button
     Button b = view.findViewById(R.id.info_button_close);
@@ -86,6 +54,75 @@ public class InfoFragment extends DialogFragment {
         dismiss();
       }
     });
+
+    // used to enforce uniqueness
+    powerNames = new ArrayList<String>();
+    ruleNames = new ArrayList<String>();
+    // used to organize sets of rules
+    numberedRules = new HashMap<Integer, Rule>();
+
+    LinearLayout infoView = view.findViewById(R.id.info_list);
+
+    // show power level/point cost, if any (and if option is toggled)
+    if (showPoints && (pl > 0 || pts > 0)) {
+      View v = inflater.inflate(R.layout.item_rule, container, false);
+      TextView t = v.findViewById(R.id.item_rule_name);
+      t.setVisibility(View.GONE);
+      t = v.findViewById(R.id.item_rule_description);
+      t.setText("PL: " + pl + " / PTS: " + pts);
+      infoView.addView(v);
+    }
+
+    // show psyker powers, if any
+    if (powers != null) {
+      for (Power p : powers) {
+        if (!powerNames.contains(p.name)) {
+          powerNames.add(p.name);
+          View v = inflater.inflate(R.layout.item_rule, container, false);
+          TextView nv = v.findViewById(R.id.item_rule_name);
+          nv.setText(p.name + " (Warp Charge " + p.warpCharge + ")");
+          TextView dv = v.findViewById(R.id.item_rule_description);
+          dv.setText(p.details);
+          infoView.addView(v);
+        }
+      }
+    }
+
+    // show unit rules, if any
+    if (rules != null) {
+      for (Rule r : rules) {
+        if (!ruleNames.contains(r.name)) {
+          ruleNames.add(r.name);
+          // set aside numbered rules to display in order at the end
+          // currently only intended for c'tan powers
+          if (Character.isDigit(r.name.charAt(0)) && r.name.charAt(1) == ')') {
+            Integer ruleNumber = Integer.parseInt("" + r.name.charAt(0));
+            numberedRules.put(ruleNumber, r);
+          } else {
+            View v = inflater.inflate(R.layout.item_rule, container, false);
+            TextView nv = v.findViewById(R.id.item_rule_name);
+            nv.setText(r.name);
+            TextView dv = v.findViewById(R.id.item_rule_description);
+            dv.setText(r.description);
+            infoView.addView(v);
+          }
+        }
+      }
+    }
+
+    // need to fix range, but expected values < 10 and may not be contiguous
+    // currently only supports c'tan powers
+    for (int i = 0; i < 10; i++) {
+      if (numberedRules.containsKey(i)) {
+        Rule r = numberedRules.get(i);
+        View v = inflater.inflate(R.layout.item_rule, container, false);
+        TextView nv = v.findViewById(R.id.item_rule_name);
+        nv.setText(r.name);
+        TextView dv = v.findViewById(R.id.item_rule_description);
+        dv.setText(r.description);
+        infoView.addView(v);
+      }
+    }
 
     return view;
   }
