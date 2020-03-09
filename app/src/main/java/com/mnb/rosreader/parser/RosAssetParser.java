@@ -35,13 +35,9 @@ public class RosAssetParser extends RosParser {
   @Override
   public ArrayList<String> getRosFileList() {
     ArrayList<String> rosFileList = new ArrayList<String>();
-    rosFileList.add("aberrants.ros");
-    rosFileList.add("chaos.ros");
-    rosFileList.add("eight.ros");
-    rosFileList.add("grey.ros");
-    rosFileList.add("iron.rosz");
-    rosFileList.add("robots.ros");
-    rosFileList.add("sisters.ros");
+    // add names of files included in assets here
+    rosFileList.add("<rosz file>.rosz");
+    rosFileList.add("<ros file>.ros");
     return rosFileList;
   }
 }

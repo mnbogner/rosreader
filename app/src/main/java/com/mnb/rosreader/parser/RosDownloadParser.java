@@ -46,6 +46,7 @@ public class RosDownloadParser extends RosParser{
     ArrayList<String> rosFileList = new ArrayList<String>();
     File downloadDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
     if (downloadDirectory.exists()) {
+      // get both compressed rosz files and regular ros files
       FilenameFilter roszFilter = new FilenameFilter() {
         @Override
         public boolean accept(File dir, String name) {
