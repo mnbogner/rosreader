@@ -2,7 +2,7 @@ package com.mnb.rosreader.data;
 
 public class Damage {
 
-  public String name = "";
+  public String name;
 
   public String remaining = "";
   public String m = "-";
