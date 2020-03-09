@@ -15,8 +15,7 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintWidth_percent=".30"
     android:text=""
-    android:textSize="10dp"
-    />
+    android:textSize="10dp"/>
 
   <TextView
     android:id="@+id/item_psyker_cast"
@@ -29,8 +28,7 @@
     app:layout_constraintStart_toEndOf="@id/item_psyker_name"
     app:layout_constraintWidth_percent=".14"
     android:text="CAST"
-    android:textSize="10dp"
-    />
+    android:textSize="10dp"/>
 
   <TextView
     android:id="@+id/item_psyker_deny"
@@ -43,8 +41,7 @@
     app:layout_constraintStart_toEndOf="@id/item_psyker_cast"
     app:layout_constraintWidth_percent=".14"
     android:text="DENY"
-    android:textSize="10dp"
-    />
+    android:textSize="10dp"/>
 
   <TextView
     android:id="@+id/item_psyker_known"
@@ -57,20 +54,6 @@
     app:layout_constraintStart_toEndOf="@id/item_psyker_deny"
     app:layout_constraintWidth_percent=".42"
     android:text="KNOWN"
-    android:textSize="10dp"
-    />
-
-  <!--TextView
-    android:id="@+id/item_psyker_other"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:padding="5dp"
-    android:gravity="center"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintStart_toEndOf="@id/item_psyker_deny"
-    app:layout_constraintWidth_percent=".70"
-    android:text=""
-    android:textSize="10dp"
-    /-->
+    android:textSize="10dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

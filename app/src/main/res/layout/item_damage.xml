@@ -14,8 +14,7 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintWidth_percent=".29"
     android:text="REMAINING"
-    android:textSize="10dp"
-    />
+    android:textSize="10dp"/>
 
   <TextView
     android:id="@+id/item_damage_m"
@@ -27,8 +26,7 @@
     app:layout_constraintStart_toEndOf="@id/item_damage_remaining"
     app:layout_constraintWidth_percent=".12"
     android:text="M"
-    android:textSize="10dp"
-    />
+    android:textSize="10dp"/>
 
   <TextView
     android:id="@+id/item_damage_ws"
@@ -40,8 +38,7 @@
     app:layout_constraintStart_toEndOf="@id/item_damage_m"
     app:layout_constraintWidth_percent=".07"
     android:text="WS"
-    android:textSize="10dp"
-    />
+    android:textSize="10dp"/>
 
   <TextView
     android:id="@+id/item_damage_bs"
@@ -53,8 +50,7 @@
     app:layout_constraintStart_toEndOf="@id/item_damage_ws"
     app:layout_constraintWidth_percent=".07"
     android:text="BS"
-    android:textSize="10dp"
-    />
+    android:textSize="10dp"/>
 
   <TextView
     android:id="@+id/item_damage_s"
@@ -66,8 +62,7 @@
     app:layout_constraintStart_toEndOf="@id/item_damage_bs"
     app:layout_constraintWidth_percent=".05"
     android:text="S"
-    android:textSize="10dp"
-    />
+    android:textSize="10dp"/>
 
   <TextView
     android:id="@+id/item_damage_t"
@@ -79,8 +74,7 @@
     app:layout_constraintStart_toEndOf="@id/item_damage_s"
     app:layout_constraintWidth_percent=".05"
     android:text="T"
-    android:textSize="10dp"
-    />
+    android:textSize="10dp"/>
 
   <TextView
     android:id="@+id/item_damage_w"
@@ -92,8 +86,7 @@
     app:layout_constraintStart_toEndOf="@id/item_damage_t"
     app:layout_constraintWidth_percent=".07"
     android:text="W"
-    android:textSize="10dp"
-    />
+    android:textSize="10dp"/>
 
   <TextView
     android:id="@+id/item_damage_a"
@@ -105,8 +98,7 @@
     app:layout_constraintStart_toEndOf="@id/item_damage_w"
     app:layout_constraintWidth_percent=".07"
     android:text="A"
-    android:textSize="10dp"
-    />
+    android:textSize="10dp"/>
 
   <TextView
     android:id="@+id/item_damage_ld"
@@ -118,8 +110,7 @@
     app:layout_constraintStart_toEndOf="@id/item_damage_a"
     app:layout_constraintWidth_percent=".07"
     android:text="LD"
-    android:textSize="10dp"
-    />
+    android:textSize="10dp"/>
 
   <TextView
     android:id="@+id/item_damage_save"
@@ -131,7 +122,6 @@
     app:layout_constraintStart_toEndOf="@id/item_damage_ld"
     app:layout_constraintWidth_percent=".14"
     android:text="SAVE"
-    android:textSize="10dp"
-    />
+    android:textSize="10dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

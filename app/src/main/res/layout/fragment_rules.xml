@@ -14,8 +14,7 @@
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
-    android:text="Army Rules"
-    />
+    android:text="Army Rules"/>
 
   <LinearLayout
     android:layout_width="0dp"
@@ -34,8 +33,7 @@
       android:gravity="center"
       android:padding="5dp"
       android:textSize="10dp"
-      android:text="..."
-      />
+      android:text="..."/>
 
   </LinearLayout>
 

@@ -14,8 +14,7 @@
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
-    android:text="..."
-    />
+    android:text="..."/>
 
   <LinearLayout
     android:layout_width="0dp"
@@ -27,15 +26,15 @@
     android:orientation="vertical"
     android:gravity="center">
 
-  <Button
-    android:id="@+id/option_button"
-    android:layout_width="match_parent"
-    android:layout_height="30dp"
-    android:gravity="center"
-    android:padding="5dp"
-    android:textSize="10dp"
-    android:text="..."
-    />
+    <Button
+      android:id="@+id/option_button"
+      android:layout_width="match_parent"
+      android:layout_height="30dp"
+      android:gravity="center"
+      android:padding="5dp"
+      android:textSize="10dp"
+      android:text="..."/>
+
   </LinearLayout>
 
   <LinearLayout
@@ -47,8 +46,7 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     android:layout_margin="2dp"
-    android:background="@drawable/layout_border"
-    />
+    android:background="@drawable/layout_border"/>
 
   <LinearLayout
     android:id="@+id/psyker"
@@ -59,8 +57,7 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     android:layout_margin="2dp"
-    android:background="@drawable/layout_border"
-    />
+    android:background="@drawable/layout_border"/>
 
   <LinearLayout
     android:id="@+id/damage_list"
@@ -71,8 +68,7 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     android:layout_margin="2dp"
-    android:background="@drawable/layout_border"
-    />
+    android:background="@drawable/layout_border"/>
 
   <LinearLayout
     android:id="@+id/weapon_list"
@@ -115,7 +111,6 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     android:textSize="10dp"
-    android:text="INFO"
-    />
+    android:text="INFO"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

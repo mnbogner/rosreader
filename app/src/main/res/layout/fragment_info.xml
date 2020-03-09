@@ -17,11 +17,11 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent">
 
-  <LinearLayout
-    android:id="@+id/info_list"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"/>
+    <LinearLayout
+      android:id="@+id/info_list"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"/>
 
   </ScrollView>
 
@@ -37,7 +37,6 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     android:textSize="10dp"
-    android:text="CLOSE"
-    />
+    android:text="CLOSE"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,8 +15,7 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintWidth_percent=".30"
     android:text=""
-    android:textSize="10dp"
-    />
+    android:textSize="10dp"/>
 
   <TextView
     android:id="@+id/item_weapon_range"
@@ -29,8 +28,7 @@
     app:layout_constraintStart_toEndOf="@id/item_weapon_name"
     app:layout_constraintWidth_percent=".07"
     android:text="R"
-    android:textSize="10dp"
-    />
+    android:textSize="10dp"/>
 
   <TextView
     android:id="@+id/item_weapon_type"
@@ -43,8 +41,7 @@
     app:layout_constraintStart_toEndOf="@id/item_weapon_range"
     app:layout_constraintWidth_percent=".12"
     android:text="TYPE"
-    android:textSize="10dp"
-    />
+    android:textSize="10dp"/>
 
   <TextView
     android:id="@+id/item_weapon_s"
@@ -57,8 +54,7 @@
     app:layout_constraintStart_toEndOf="@id/item_weapon_type"
     app:layout_constraintWidth_percent=".07"
     android:text="S"
-    android:textSize="10dp"
-    />
+    android:textSize="10dp"/>
 
   <TextView
     android:id="@+id/item_weapon_ap"
@@ -71,8 +67,7 @@
     app:layout_constraintStart_toEndOf="@id/item_weapon_s"
     app:layout_constraintWidth_percent=".07"
     android:text="AP"
-    android:textSize="10dp"
-    />
+    android:textSize="10dp"/>
 
   <TextView
     android:id="@+id/item_weapon_d"
@@ -85,8 +80,7 @@
     app:layout_constraintStart_toEndOf="@id/item_weapon_ap"
     app:layout_constraintWidth_percent=".07"
     android:text="D"
-    android:textSize="10dp"
-    />
+    android:textSize="10dp"/>
 
   <TextView
     android:id="@+id/item_weapon_abilities"
@@ -98,7 +92,6 @@
     app:layout_constraintStart_toEndOf="@id/item_weapon_d"
     app:layout_constraintWidth_percent=".30"
     android:text=""
-    android:textSize="10dp"
-    />
+    android:textSize="10dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
