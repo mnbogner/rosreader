@@ -15,6 +15,8 @@ import java.util.ArrayList;
 
 public class FileFragment extends DialogFragment {
 
+  private static final String TAG = "MNB.ROS";
+
   private Navigator navigator;
   private ArrayList<String> rosFileList;
 
@@ -26,11 +28,10 @@ public class FileFragment extends DialogFragment {
   @Nullable
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
     View view = inflater.inflate(R.layout.fragment_file, container, false);
-
     LinearLayout ll = view.findViewById(R.id.file_list);
 
+    // show list of rosz/ros files
     for (String s : rosFileList) {
       View v = inflater.inflate(R.layout.item_file, container, false);
       TextView tv = v.findViewById(R.id.file_name);
@@ -42,20 +43,19 @@ public class FileFragment extends DialogFragment {
           dismiss();
         }
       });
-      System.out.println("BAR - adding item for " + s);
       ll.addView(v);
     }
 
     return view;
-
   }
 
   @Override
   public void onResume() {
     super.onResume();
+    // need to control size of dialog fragment
     ViewGroup.LayoutParams params = getDialog().getWindow().getAttributes();
     params.width = ViewGroup.LayoutParams.MATCH_PARENT;
-    params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
+    params.height = ViewGroup.LayoutParams.MATCH_PARENT;
     getDialog().getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
   }
 }
