@@ -21,6 +21,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.mnb.rosreader.data.Force;
 import com.mnb.rosreader.data.Unit;
 import com.mnb.rosreader.parser.RosAssetParser;
 import com.mnb.rosreader.parser.RosDownloadParser;
@@ -37,12 +38,15 @@ public class MainActivity extends FragmentActivity implements Navigator {
   private static final String ITEM_TAG = "item_dialog";
   private static final String INFO_TAG = "info_dialog";
 
+  private static final String ARMY_RULES = "Army Rules";
+
   private static final int PERMISSION_REQUEST_CODE = 100;
 
   private SharedPreferences preferences;
 
   private RosParser parser;
 
+  private ArrayList<Force> forces = null;
   private ArrayList<Unit> units = null;
   private HashMap<String, Integer> index = new HashMap<String, Integer>();
 
@@ -96,7 +100,7 @@ public class MainActivity extends FragmentActivity implements Navigator {
   }
 
   private void initPager() {
-    // creating a new adapter was the only way i found to clear stale pages from previous data set
+    // creating a new adapter seemed like the only way to clear stale pages from previous data set
     pa = new MyPagerAdapter(fm);
     vp.setAdapter(pa);
     vp.setCurrentItem(0);
@@ -131,14 +135,17 @@ public class MainActivity extends FragmentActivity implements Navigator {
       public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
           case R.id.load_item:
+            // show list of ross/ros files
             showFileSelector();
             return true;
           case R.id.count_item:
+            // toggle unit/weapon counts (values are inconsistent)
             toggleOption(COUNT_PREF);
             item.setChecked(checkOption(COUNT_PREF));
             initPager();
             return true;
           case R.id.points_item:
+            // toggle power level/points (values are inconsistent)
             toggleOption(POINTS_PREF);
             item.setChecked(checkOption(POINTS_PREF));
             initPager();
@@ -173,8 +180,17 @@ public class MainActivity extends FragmentActivity implements Navigator {
 
   @Override
   public void openFile(String fileName){
-    units = parser.parseRosFile(fileName);
+    // parse xml and populate data structures
+    forces = parser.parseRosFile(fileName);
+    units = new ArrayList<Unit>();
+    // combine units from all detachments
+    for (Force f : forces) {
+      units.addAll(f.units);
+    }
+    // add army info as first page
     int i = 0;
+    index.put(ARMY_RULES, i);
+    i++;
     for (Unit u : units) {
       index.put(u.name, i);
       i++;
@@ -195,11 +211,10 @@ public class MainActivity extends FragmentActivity implements Navigator {
       ft.remove(f);
     }
     ft.addToBackStack(null);
-    String[] itemNameList = new String[units.size()];
-    int i = 0;
+    ArrayList<String> itemNameList = new ArrayList<String>();
+    itemNameList.add(ARMY_RULES);
     for (Unit u : units) {
-      itemNameList[i] = u.name;
-      i++;
+      itemNameList.add(u.name);
     }
     DialogFragment df = new SelectionFragment(this, itemNameList);
     df.show(ft, ITEM_TAG);
@@ -238,34 +253,30 @@ public class MainActivity extends FragmentActivity implements Navigator {
 
     @Override
     public Fragment getItem(int i) {
-      if (units == null || units.isEmpty()) {
-        return null;
+      // first page is an army info page, remaining pages show unit info
+      if (units == null || units.isEmpty() || i == 0) {
+        Fragment f = new RulesFragment(MainActivity.this, forces, checkOption(POINTS_PREF));
+        return f;
+      } else {
+        // unit index starts at 0
+        Unit u = units.get(i - 1);
+        Fragment f = new UnitFragment(MainActivity.this, u, checkOption(COUNT_PREF));
+        return f;
       }
-      Unit u = units.get(i);
-      Fragment f = fm.findFragmentByTag(u.name);
-      if (f == null) {
-        // initial page is a general roster info page, remaining pages show unit info
-        if (i == 0) {
-          f = new RulesFragment(MainActivity.this, u);
-        } else {
-          f = new UnitFragment(MainActivity.this, u, checkOption(COUNT_PREF));
-        }
-      }
-      return f;
     }
 
     @Override
     public int getCount() {
-      if (units == null) {
-        return 0;
+      // first page is an army info page
+      if (units == null || units.isEmpty()) {
+        return 1;
       } else {
-        return units.size();
+        return 1 + units.size();
       }
     }
   }
 
   // currently there are only boolean checkbox options
-
   @Override
   public void toggleOption(String optionName) {
     boolean currentValue = preferences.getBoolean(optionName, false);
