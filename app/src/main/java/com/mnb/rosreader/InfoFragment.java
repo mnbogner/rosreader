@@ -103,7 +103,19 @@ public class InfoFragment extends DialogFragment {
             TextView nv = v.findViewById(R.id.item_rule_name);
             nv.setText(r.name);
             TextView dv = v.findViewById(R.id.item_rule_description);
-            dv.setText(r.description);
+
+
+            if (r.description == null || r.description.isEmpty()) {
+              if (r.roll.isEmpty() || r.distance.isEmpty() || r.wounds.isEmpty()) {
+                dv.setText("(no description found)");
+              } else {
+                dv.setText("If this model is reduced to 0 wounds, roll a D6 before removing it from the battlefield. On a " + r.roll + " it explodes, and each unit within " + r.distance + " suffers " + r.wounds + " mortal wounds.");
+              }
+            } else {
+              dv.setText(r.description);
+            }
+
+
             infoView.addView(v);
           }
         }

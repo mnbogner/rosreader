@@ -428,6 +428,15 @@ public abstract class RosParser {
           renameTag(RULE);
         }
         break;
+      case "Explosion":
+        // specific explosion info format
+        String explosionName = xpp.getAttributeValue(ns, "name");
+        if (currentUnit != null) {
+          currentRule = new Rule(explosionName);
+          currentUnit.rules.add(currentRule);
+          renameTag(RULE);
+        }
+        break;
       case "Tally":
         // weird epidemius thing
         String tallyName = "Tally " + xpp.getAttributeValue(ns, "name");
@@ -593,6 +602,18 @@ public abstract class RosParser {
               // weird epidemius thing
               // weird mutalith thing
               currentRule.description = xpp.nextText();
+              break;
+            case "Dice Roll":
+              // specific explosion info format
+              currentRule.roll = xpp.nextText();
+              break;
+            case "Distance":
+              // specific explosion info format
+              currentRule.distance = xpp.nextText();
+              break;
+            case "Mortal Wounds":
+              // specific explosion info format
+              currentRule.wounds = xpp.nextText();
               break;
           }
           break;
