@@ -23,6 +23,7 @@ public class InfoFragment extends DialogFragment {
 
   private static final String TAG = "MNB.ROS";
 
+  private ArrayList<String> categories;
   private ArrayList<Power> powers;
   private ArrayList<Rule> rules;
   private int pl;
@@ -34,6 +35,7 @@ public class InfoFragment extends DialogFragment {
   private HashMap<Integer, Rule> numberedRules;
 
   public InfoFragment (Unit unit, boolean showPoints) {
+    this.categories = unit.categories;
     this.powers = unit.powers;
     this.rules = unit.rules;
     this.pl = unit.pl;
@@ -70,6 +72,23 @@ public class InfoFragment extends DialogFragment {
       t.setVisibility(View.GONE);
       t = v.findViewById(R.id.item_rule_description);
       t.setText("PL: " + pl + " / PTS: " + pts);
+      infoView.addView(v);
+    }
+
+    // show keywords
+    if (categories != null) {
+      String categoriesString = "";
+      for (String s : categories) {
+        if (categoriesString.length() > 0) {
+          categoriesString = categoriesString + ", ";
+        }
+        categoriesString = categoriesString + s;
+      }
+      View v = inflater.inflate(R.layout.item_rule, container, false);
+      TextView t = v.findViewById(R.id.item_rule_name);
+      t.setText("Keywords");
+      t = v.findViewById(R.id.item_rule_description);
+      t.setText(categoriesString);
       infoView.addView(v);
     }
 

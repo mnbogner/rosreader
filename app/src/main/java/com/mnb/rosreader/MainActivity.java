@@ -187,6 +187,30 @@ public class MainActivity extends FragmentActivity implements Navigator {
     for (Force f : forces) {
       units.addAll(f.units);
     }
+
+    // number units if necessary to ensure uniqueness
+    HashMap<String, Integer> unitCounts = new HashMap<String, Integer>();
+    for (Unit u : units) {
+      Integer i = unitCounts.get(u.name);
+      if (i == null) {
+        i = 0;
+      }
+      i++;
+      unitCounts.put(u.name, i);
+    }
+    for (String s : unitCounts.keySet()) {
+      Integer i = unitCounts.get(s);
+      if (i > 1) {
+        int num = 1;
+        for (Unit u : units) {
+          if (u.name.equals(s)) {
+            u.name = u.name + " " + num;
+            num++;
+          }
+        }
+      }
+    }
+
     // add army info as first page
     int i = 0;
     index.put(ARMY_RULES, i);

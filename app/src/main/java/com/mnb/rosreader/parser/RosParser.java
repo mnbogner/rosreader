@@ -356,12 +356,12 @@ public abstract class RosParser {
   private void handleCategoryTag() {
     String categoryName = xpp.getAttributeValue(ns, "name");
     if (currentUnit != null) {
-      // "Warlord" shows up in various places, need to make sure we're processing an actual unit
-      if ("Warlord".equals(categoryName) && !UNIT.equals(currentTag()) && selectionDepth > 0) {
-
-          currentUnit.warlord = true;
+      // flag unit as warlord instead of adding a category keyword
+      if (categoryName.equals("Warlord")) {
+        currentUnit.warlord = true;
+      } else {
+        currentUnit.categories.add(categoryName);
       }
-      currentUnit.categories.add(categoryName);
     }
   }
 
@@ -417,6 +417,7 @@ public abstract class RosParser {
         }
         break;
       case "Abilities":
+      case "Warlord Trait":
         String ruleName = xpp.getAttributeValue(ns, "name");
         if (currentUnit != null) {
           currentRule = new Rule(ruleName);
@@ -425,6 +426,14 @@ public abstract class RosParser {
         } else if (isTheEight) {
           currentRule = new Rule(ruleName);
           currentForce.rules.add(currentRule);
+          renameTag(RULE);
+        }
+        break;
+      case "Transport":
+        String transportName = xpp.getAttributeValue(ns, "name");
+        if (currentUnit != null) {
+          currentRule = new Rule(transportName + " Capacity");
+          currentUnit.rules.add(currentRule);
           renameTag(RULE);
         }
         break;
@@ -596,6 +605,10 @@ public abstract class RosParser {
         case RULE:
           switch (characteristicName) {
             case "Description":
+              currentRule.description = xpp.nextText();
+              break;
+            case "Capacity":
+              // transport capacity
               currentRule.description = xpp.nextText();
               break;
             case "Effect":
