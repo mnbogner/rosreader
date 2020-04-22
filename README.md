@@ -8,3 +8,7 @@ This app is intended to parse 40k roster files and show the data in a compressed
  - click on the button at the bottom of a unit's page to show powers and abilities
  
 The app will only find roster files in the download folder.  The easiest way to get them there seems to be to share them and then download them.
+
+All Rights Reserved
+
+Copyright (c) 2020 Matthew Bogner
