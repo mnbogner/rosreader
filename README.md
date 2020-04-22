@@ -1,5 +1,5 @@
 # rosreader
-This app was intended to parse 40k roster files and show the data in a compressed format that's easier to reference during a game.  All stats and info should be included, but unit and weapon counts, as well as power level and points, are inconsistent and can be toggled from the settings menu in the upper right.  Other controls are as follows:
+This app is intended to parse 40k roster files and show the data in a compressed format that's easier to reference during a game.  All stats and info should be included, but unit and weapon counts, as well as power level and points, are inconsistent and can be toggled from the settings menu in the upper right.  Other controls are as follows:
 
  - detachment info and army rules are on the first page, the remaining pages show units
  - click on the unit name at the top of the screen to bring up a clickable list of all units
