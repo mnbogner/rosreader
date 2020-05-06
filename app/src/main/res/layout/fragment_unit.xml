@@ -105,12 +105,24 @@
     android:id="@+id/info_button_open"
     android:layout_width="0dp"
     android:layout_height="30dp"
+    app:layout_constraintWidth_percent="0.8"
     android:gravity="center"
     android:padding="5dp"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
     android:textSize="10dp"
     android:text="INFO"/>
+
+  <Button
+    android:id="@+id/info_button_remove"
+    android:layout_width="0dp"
+    android:layout_height="30dp"
+    app:layout_constraintWidth_percent="0.2"
+    android:gravity="center"
+    android:padding="5dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:textSize="10dp"
+    android:text="REMOVE"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

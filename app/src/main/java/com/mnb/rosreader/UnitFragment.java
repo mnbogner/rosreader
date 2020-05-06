@@ -73,6 +73,15 @@ public class UnitFragment extends Fragment {
       }
     });
 
+    // set up remove unit button
+    Button rb = view.findViewById(R.id.info_button_remove);
+    rb.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        navigator.removeItem(unit.name);
+      }
+    });
+
     if (unit == null) {
       System.out.println(TAG + " no unit data to display");
       return view;

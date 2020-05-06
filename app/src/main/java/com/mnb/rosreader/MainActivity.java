@@ -198,6 +198,7 @@ public class MainActivity extends FragmentActivity implements Navigator {
       i++;
       unitCounts.put(u.name, i);
     }
+
     for (String s : unitCounts.keySet()) {
       Integer i = unitCounts.get(s);
       if (i > 1) {
@@ -248,6 +249,30 @@ public class MainActivity extends FragmentActivity implements Navigator {
   public void goToItem(String itemName) {
     int itemIndex = index.get(itemName);
     vp.setCurrentItem(itemIndex);
+  }
+
+  @Override
+  public void removeItem(String itemName) {
+
+    for (Unit u : units) {
+      if (u.name.equals(itemName)) {
+        units.remove(u);
+        break;
+      }
+    }
+
+    // rebuild index
+    index.clear();
+
+    // add army info as first page
+    int i = 0;
+    index.put(ARMY_RULES, i);
+    i++;
+    for (Unit u : units) {
+      index.put(u.name, i);
+      i++;
+    }
+    initPager();
   }
 
   @Override

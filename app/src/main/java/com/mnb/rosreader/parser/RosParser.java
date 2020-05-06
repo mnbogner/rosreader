@@ -350,6 +350,19 @@ public abstract class RosParser {
       } else {
         String unknownName = xpp.getAttributeValue(ns, "name");
       }
+    } else if (selectionName != null && selectionName.equals("Chainsword")) {
+      if (currentUnit != null && currentUnit.name.contains("Scion")) {
+        // added this to deal with a stupid issue with scion tempestor
+        Weapon chainsword = new Weapon(selectionName);
+        chainsword.numberOf = 1;
+        chainsword.range = "Melee";
+        chainsword.type = "Melee";
+        chainsword.s = "User";
+        chainsword.ap = "0";
+        chainsword.d = "1";
+        chainsword.abilities = "Each time the bearer fights, it can make 1 additional attack with this weapon.";
+        currentUnit.weapons.add(chainsword);
+      }
     }
   }
 

@@ -13,6 +13,7 @@ public interface Navigator {
   void openFile(String fileName);
   void showItemSelector();
   void goToItem(String itemName);
+  void removeItem(String itenName);
   void showItemInfo(String itemName);
   void toggleOption(String optionName);
   boolean checkOption(String optionName);
