@@ -261,6 +261,10 @@ public abstract class RosParser {
         popNumber();
         selectionDepth--;
         if (selectionDepth == 0 || (selectionDepth == 1 && isTheEight)) {
+          // clean up damage track
+          if (currentDamage != null) {
+            fixDamageTrack();
+          }
           if (currentUnit != null) {
             currentUnit.pl = currentPl;
             currentUnit.pts = currentPts;
@@ -320,7 +324,7 @@ public abstract class RosParser {
     }
     // catch certain multiple weapons that only show a count of 1
     String selectionName = xpp.getAttributeValue(ns, "name");
-    if (selectionName != null && selectionName.startsWith("2x")) {
+    if (selectionName != null && (selectionName.startsWith("2x") || selectionName.startsWith("Two"))) {
       reviseNumber(2);
     }
     // try assign count to a profile that may already have been parsed
@@ -489,9 +493,12 @@ public abstract class RosParser {
           renameTag(RULE);
         }
         break;
+      // mechanicus faction bonus
       case "Forge World Dogma":
+      // necron faction bonus
       case "Dynastic Code":
-        // admech/necron thing
+      // knights faction bonus
+      case "Household Tradition":
         String bonusName = xpp.getAttributeValue(ns, "name");
         currentRule = new Rule(bonusName);
         if (currentUnit != null) {
@@ -505,6 +512,10 @@ public abstract class RosParser {
         if (typeName != null && (typeName.contains("Wound") || typeName.contains("Damage"))) {
           String damageName = xpp.getAttributeValue(ns, "name");
           if (currentUnit != null) {
+            // clean up eldar damage track names
+            if (damageName.endsWith(".")) {
+              damageName = damageName.substring(0, damageName.lastIndexOf("."));
+            }
             currentDamage = new Damage(damageName);
             currentUnit.damages.add(currentDamage);
             renameTag(DAMAGE);
@@ -651,58 +662,66 @@ public abstract class RosParser {
     }
   }
 
+  private void fixDamageTrack() {
+    // need to clean up tracks at the end in case some are parsed before missing stats are known
+    for (Damage d : currentUnit.damages) {
+      ArrayList<String> characteristics = new ArrayList<String>();
+      characteristics.add(d.characteristic1);
+      characteristics.add(d.characteristic2);
+      characteristics.add(d.characteristic3);
+
+      for (int i = 0; i < characteristics.size(); i++) {
+        String s = characteristics.get(i);
+        String c = "";
+        if (i == 0) {
+          c = characteristic1;
+        } else if (i == 1) {
+          c = characteristic2;
+        } else if (i == 2) {
+          c = characteristic3;
+        }
+        switch (c) {
+          case "M":
+            d.m = s;
+            break;
+          case "WS":
+            d.ws = s;
+            break;
+          case "BS":
+            d.bs = s;
+            break;
+          case "S":
+            d.s = s;
+            break;
+          case "A":
+            d.a = s;
+            break;
+        }
+      }
+    }
+  }
+
   private void handleDamageTrack(String characteristicName) {
     String s = "";
     // damage tracks are a mess, try to match characteristic names to unit stats or missing values in unit data
     try {
-      switch (characteristicName) {
-        case "Characteristic 1":
-          if (characteristic1.isEmpty()) {
-            s = xpp.nextText();
-            if (Character.isDigit(s.charAt(0))) {
-              // got track values with no map, need to build one
-              buildCharacteristicMap(currentSubUnit);
-              characteristicName = characteristic1;
-            } else {
-              characteristic1 = s;
-            }
-          } else {
-            characteristicName = characteristic1;
-          }
-          break;
-        case "Characteristic 2":
-          if (characteristic2.isEmpty()) {
-            s = xpp.nextText();
-            if (Character.isDigit(s.charAt(0))) {
-              // got track values with no map, need to build one
-              buildCharacteristicMap(currentSubUnit);
-              characteristicName = characteristic2;
-            } else {
-              characteristic2 = s;
-            }
-          } else {
-            characteristicName = characteristic2;
-          }
-          break;
-        case "Characteristic 3":
-          if (characteristic3.isEmpty()) {
-            s = xpp.nextText();
-            if (Character.isDigit(s.charAt(0))) {
-              // got track values with no map, need to build one
-              buildCharacteristicMap(currentSubUnit);
-              characteristicName = characteristic3;
-            } else {
-              characteristic3 = s;
-            }
-          } else {
-            characteristicName = characteristic3;
-          }
-          break;
-      }
+
+      buildCharacteristicMap(currentSubUnit);
+
       if (s.isEmpty()) {
         s = xpp.nextText();
       }
+
       switch (characteristicName) {
+        case "Characteristic 1":
+          currentDamage.characteristic1 = s;
+          break;
+        case "Characteristic 2":
+          currentDamage.characteristic2 = s;
+          break;
+        case "Characteristic 3":
+          currentDamage.characteristic3 = s;
+          break;
         case "Movement":
         case "M":
           currentDamage.m = s;
